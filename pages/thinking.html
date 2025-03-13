@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"/>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>Thinking</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #content{
+            width:100%;
+            height:100vh;
+            background: radial-gradient(#313131, #0a0a0a);
+        }
+        .contentBox{
+            width:365px;
+            height:60px;
+            color:#eee;
+            /* border:1px dashed #eee; */
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:-30px;
+            margin-left:-182px;
+            text-align: center;
+            /* line-height: 60px; */
+            font-size:30px;
+            font-weight:lighter;
+        }
+        #name{
+            color:#fff;
+        }
+        .unselectable {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            }
+            .avatar{
+                box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 1px 1px;
+                border-width: 3px;
+                border-style: solid;
+                border-color: rgb(255, 255, 255);
+                border-image: initial;
+                border-radius: 50%;
+                transition: 0.4s ease-in-out;
+            }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="contentBox unselectable">
+            <!-- <div>???</div> -->
+            <!-- <img class="avatar" src="avatar.png" width="90" height="90" alt="avatar"> -->
+            <div id="name"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        // 打字机
+        let divTyping = document.getElementById('name')
+        var options = {
+            strings: ['HELLO','从你进来之后','走不了了你','跟读模式开始','陈心如意','心想事陈','事业有陈','陈功人士','陈年老友','陈默是金','陈实守信','陈鱼落雁','陈风破浪','小陈不沉','一点也不陈','体重陈蹭蹭','陈在底下捞不动','一骑绝陈','看破红陈','俯首称陈','五味杂陈','蜜雪冰陈','一日之计在于陈','三陈小洋楼','有点陈','非必要不出陈','吃嗯陈','五陈大别墅','一勺陈不满','二元一次方陈','陈甸甸','陈天睡大觉','太陈了抱不动','陈附议','陈知错','陈遵旨','陈告退','陈不知所措','阳陈湖大闸蟹','星陈大海','陈默寡言','手可摘星陈','阳光果粒陈','酸甜果粒陈','陈一大碗饭','陈天说减肥','陈皮话梅糖','九九陈法表','陈有事启奏','陈妾做不到','乱陈一锅粥','再陈一碗饭','陈破小肚皮','给我再陈一碗','陈年人不容易','陈年人要稳重','陈醉不知归路','我欲陈风归去','代表月亮陈罚你','陈法口诀会不会','微微一笑很倾陈','一骑红陈妃子笑','陈大事者不拘小节','天呐！你也是厉害呀','居然从头看到尾...','说吧，哪个好'], // 要显示的文本数组
+            typeSpeed:150, // 打字速度，单位是毫秒/字符
+            backSpeed:100, // 回退速度，设置为0表示不回退，即不删除字符
+            startDelay: 300, // 开始之前的延迟300毫秒
+            showCursor: false, // 是否显示光标
+            shuffle: false, //洗牌
+            backDelay: 1000,
+            loop: false // 是否循环显示文本数组中的文本
+        };
+        
+        var typed = new Typed('#name', options);
+    </script>
+    
+</body>
+</html>

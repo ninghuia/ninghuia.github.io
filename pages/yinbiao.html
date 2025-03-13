@@ -1,0 +1,301 @@
+<!DOCTYPE html style="font-size:72px;">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../css/yinbiao.css">
+    <title>英语48个音标</title>
+    <script>
+       !new function(){var a=this;a.width=750,a.fontSize=100,a.widthProportion=function(){var b=(document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/a.width;return b>1?1:b},a.changePage=function(){document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+a.widthProportion()*a.fontSize+"px !important")},a.changePage(),window.addEventListener("resize",function(){a.changePage()},!1)};
+    </script>
+</head>
+<body class="unselectable">
+    <audio id="myAudio" src=""></audio>
+    <div id="mask"></div>
+    <div id="bigBox">
+        <div class="txt"></div>
+        <div class="tipBox">
+            <div class="tip"></div>
+            <div class="word"></div>
+        </div>
+        <div class="btnBox">
+            <span class="sound"><img id="playImg" src="assets/play.png" alt=""></span><span class="close">×</span>
+        </div>
+    </div>
+    <div id="close"></div>
+    <div id="main">
+        <div class="content">
+            <h3>元音(20个)：</h3>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ɑ:]</span>
+                    <div class="pronounce">单元音<br/>长元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ɔ:]</span>
+                    <div class="pronounce">单元音<br/>长元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ɜ:]</span>
+                    <div class="pronounce">单元音<br/>长元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[i:]</span>
+                    <div class="pronounce">单元音<br/>长元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[u:]</span>
+                    <div class="pronounce">单元音<br/>长元音</div>
+                </div>
+            </div>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ʌ]</span>
+                    <div class="pronounce">单元音<br/>短元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ɒ]</span>
+                    <div class="pronounce">单元音<br/>短元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ə]</span>
+                    <div class="pronounce">单元音<br/>短元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ɪ]</span>
+                    <div class="pronounce">单元音<br/>短元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ʊ]</span>
+                    <div class="pronounce">单元音<br/>短元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[e]</span>
+                    <div class="pronounce">单元音<br/>短元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[æ]</span>
+                    <div class="pronounce">单元音<br/>短元音</div>
+                </div>
+            </div>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[eɪ]</span>
+                    <div class="pronounce">双元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[aɪ]</span>
+                    <div class="pronounce">双元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ɔɪ]</span>
+                    <div class="pronounce">双元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[əʊ]</span>
+                    <div class="pronounce">双元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[aʊ]</span>
+                    <div class="pronounce">双元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ɪə]</span>
+                    <div class="pronounce">双元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[eə]</span>
+                    <div class="pronounce">双元音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ʊə]</span>
+                    <div class="pronounce">双元音</div>
+                </div>
+            </div>
+            <h3>辅音(28个)：</h3>
+            <p>清辅音：轻触声带莫震动</p>
+            <p>浊辅音：发音声带要震动</p>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[p]</span>
+                    <div class="pronounce">爆破音<br/>清辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[t]</span>
+                    <div class="pronounce">爆破音<br/>清辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[k]</span>
+                    <div class="pronounce">爆破音<br/>清辅音</div>
+                </div>
+            </div>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[b]</span>
+                    <div class="pronounce">爆破音<br/>浊辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[d]</span>
+                    <div class="pronounce">爆破音<br/>浊辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[g]</span>
+                    <div class="pronounce">爆破音<br/>浊辅音</div>
+                </div>
+            </div>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[f]</span>
+                    <div class="pronounce">摩擦音<br/>清辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[s]</span>
+                    <div class="pronounce">摩擦音<br/>清辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[θ]</span>
+                    <div class="pronounce">摩擦音<br/>清辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ʃ]</span>
+                    <div class="pronounce">摩擦音<br/>清辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[h]</span>
+                    <div class="pronounce">摩擦音<br/>清辅音</div>
+                </div>
+            </div>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[v]</span>
+                    <div class="pronounce">摩擦音<br/>浊辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[z]</span>
+                    <div class="pronounce">摩擦音<br/>浊辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ð]</span>
+                    <div class="pronounce">摩擦音<br/>浊辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ʒ]</span>
+                    <div class="pronounce">摩擦音<br/>浊辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[r]</span>
+                    <div class="pronounce">摩擦音<br/>浊辅音</div>
+                </div>
+            </div>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[tʃ]</span>
+                    <div class="pronounce">破擦音<br/>清辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[tr]</span>
+                    <div class="pronounce">破擦音<br/>清辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ts]</span>
+                    <div class="pronounce">破擦音<br/>清辅音</div>
+                </div>
+            </div>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[dʒ]</span>
+                    <div class="pronounce">破擦音<br/>浊辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[dr]</span>
+                    <div class="pronounce">破擦音<br/>浊辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[dz]</span>
+                    <div class="pronounce">破擦音<br/>浊辅音</div>
+                </div>
+            </div>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[m]</span>
+                    <div class="pronounce">鼻音<br/>浊辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[n]</span>
+                    <div class="pronounce">鼻音<br/>浊辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ŋ]</span>
+                    <div class="pronounce">鼻音<br/>浊辅音</div>
+                </div>
+            </div>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[ǀ]</span>
+                    <div class="pronounce">边辅音<br/>浊辅音</div>
+                </div>
+            </div>
+            <div class="letterList">  
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[j]</span>
+                    <div class="pronounce">半元音<br/>浊辅音</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">[w]</span>
+                    <div class="pronounce">半元音<br/>浊辅音</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/yinbiao.js"></script>
+</body>
+</html>

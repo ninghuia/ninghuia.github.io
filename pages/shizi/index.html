@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>如意识字</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #content{
+            width:100%;
+            height:100vh;
+            background: radial-gradient(#313131, #0a0a0a);
+        }
+        .contentBox{
+            width:400px;
+            height:180px;
+            color:#eee;
+            /* border:1px dashed #eee; */
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:-90px;
+            margin-left:-200px;
+            text-align: center;
+            font-size:24px;
+            font-weight:lighter;
+            overflow: visible;
+        }
+        ul{
+            list-style: none;
+        }
+        ul li a{
+            padding:0 20px;
+            display:inline-block;
+            height:60px;
+            line-height: 60px;
+            color:#eee;
+            border: 1px solid transparent;
+            text-decoration: none;
+        }
+        ul li a:hover{
+            color:#fff;
+            text-decoration:solid;
+            border:1px dashed #fff;
+        }
+      
+        .unselectable {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            }
+            
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="contentBox unselectable">
+            <ul>
+                <li><a href="shiziqimeng.html" target="_blank">识字启蒙</a></li>
+                <li><a href="shenghuo.html" target="_blank">生活常用</a></li>
+                <li><a href="jinjie.html" target="_blank">进阶提升</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- <script>
+        var lists = document.getElementsByTagName("li");
+        
+        for(var index=0;index<lists.length;index++){
+            (function(i){
+                lists[index].onclick = function(){
+                    sessionStorage.setItem("text","text"+i);
+                }
+            })(index)
+            
+        }
+    </script> -->
+</body>
+</html>

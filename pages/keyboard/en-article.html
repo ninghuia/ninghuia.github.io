@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英文文章练习</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/article.css">
+    <script>
+        window.onerror=function(){return true;}
+    </script>
+</head>
+<body>
+<div class="outContent">
+    <div class="header">
+        <div class="headerBox">
+            <div class="topBtns">
+                <a href="./index.html">首页</a>
+                <a onclick="reload()">刷新</a>
+                <a onclick="newSetup()">选择文章</a>
+                <a id="startBtn">开始测试</a>
+                <button id="resultBtn" onclick="showResult()" >提交</button>
+            </div>
+            <div id="tips"><span id="rateBox">已输入0/<span id="letterNum">0</span>字，正确率：0%，速率：0字/分，</span></span>时间：<span id="minute">00</span>分<span id="second">00</span>秒</div>
+        </div>
+    </div>
+    <div class="mainBox">
+        
+        <!-- 打字测试 -->
+        <div id="testBox" class="hanziTestBox">
+            <div id="testLetter" class="enLetters"></div>
+            <textarea id="inputText" autofocus placeholder="开始输入.." class="enLetters"></textarea>
+            <div class="separateBox"></div>
+            <div id="myLetters"></div>
+        </div>
+    </div>
+</div>
+    
+    <!-- 显示结果 -->
+    <div id="resultBox"></div>
+
+    <!-- 弹窗 -->
+    <div id="popup">
+        <div class="popupBox">
+            <div class="popupHeader">选择文章：</div>
+            <span class="close" onclick="closePop()">×</span>
+            <div class="popupBody inputCommon">
+                <select name="choseArticle" id="choseArticle">
+                    <option value="">请选择文章</option>
+                    <option value="">I have a dream</option>
+                    <option value="">Anne's best friend</option>
+                    <option value="">Love story</option>
+                </select>
+            </div>
+            <div class="popupFooter">
+                <a onclick="closePop()">确认</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/timer.js"></script>
+    <script src="./js/en-article.js"></script>
+</body>
+</html>

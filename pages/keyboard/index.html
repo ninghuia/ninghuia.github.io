@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打字练习</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script>
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+        window.location.href = '../err.html'
+        } else {
+        console.log('当前在PC端');
+        }
+ 
+    </script>
+</head>
+<body>
+    <div class="indexMainBox">
+        <div id="btns">   
+            <a class="btn" alt="" title="字符键盘" href="./keyboard.html">字符键盘</a><br>
+            <a class="btn" alt="" title="汉字随机" href="./hanzi.html">汉字随机</a>
+            <a class="btn" alt="" title="自定义" href="./user-defined.html">自定义</a> 
+            <a class="btn" alt="" title="文章练习" href="./wenzhang.html">文章练习</a><br>
+            <a class="btn" alt="" title="英文打字" href="./en-article.html">英文打字</a>
+        </div>
+    </div> 
+
+    <script>
+        window.onload = function(){
+            var btns = document.getElementsByClassName("btn");
+
+            // 数组中随机取
+            function getRandomArrayElements(arr, count) {
+                var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
+                while (i-- > min) {
+                    index = Math.floor((i + 1) * Math.random());
+                    temp = shuffled[index];
+                    shuffled[index] = shuffled[i];
+                    shuffled[i] = temp;
+                }
+                return shuffled.slice(min);
+            }
+            var colors = ['pink','#ba2fe2','red','green','teal','#6a5acd','orange'];
+            var btnColors = getRandomArrayElements(colors, 5);
+
+            for(var i=0;i<btnColors.length;i++){
+                btns[i].style.borderColor = btnColors[i];
+                btns[i].style.color = btnColors[i];
+                btns[i].style.boxShadow = 'inset 0 0 10px '+btnColors[i];
+            }
+        }
+    </script>
+</body>
+</html>

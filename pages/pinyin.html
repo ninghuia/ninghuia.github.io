@@ -1,0 +1,417 @@
+<!DOCTYPE html style="font-size:72px;">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../css/pinyin.css">
+    <title>汉语拼音学习</title>
+    <script>
+       !new function(){var a=this;a.width=750,a.fontSize=100,a.widthProportion=function(){var b=(document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/a.width;return b>1?1:b},a.changePage=function(){document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+a.widthProportion()*a.fontSize+"px !important")},a.changePage(),window.addEventListener("resize",function(){a.changePage()},!1)};
+    </script>
+</head>
+<body class="unselectable">
+    <audio id="myAudio" src=""></audio>
+    <div id="mask"></div>
+    <div id="bigBox">
+        <div class="txt"></div>
+        <div class="btnBox">
+            <span class="sound"><img id="playImg" src="assets/play.png" alt=""></span><span class="close">×</span>
+        </div>
+    </div>
+    <div id="close"></div>
+    <div id="main">
+        <div class="content">
+            <h3>声母(23个)：</h3>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">b</span>
+                    <!-- <span class="lowercase">a</span> -->
+                    <div class="pronounce">[玻]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">p</span>
+                    <!-- <span class="lowercase">b</span> -->
+                    <div class="pronounce">[坡]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">m</span>
+                    <!-- <span class="lowercase">c</span> -->
+                    <div class="pronounce">[摸]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">f</span>
+                    <!-- <span class="lowercase">d</span> -->
+                    <div class="pronounce">[佛]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">d</span>
+                    <!-- <span class="lowercase">e</span> -->
+                    <div class="pronounce">[得]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">t</span>
+                    <!-- <span class="lowercase">f</span> -->
+                    <div class="pronounce">[特]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">n</span>
+                    <!-- <span class="lowercase">g</span> -->
+                    <div class="pronounce">[讷]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">l</span>
+                    <!-- <span class="lowercase">h</span> -->
+                    <div class="pronounce">[勒]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">g</span>
+                    <!-- <span class="lowercase">i</span> -->
+                    <div class="pronounce">[哥]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">k</span>
+                    <!-- <span class="lowercase">j</span> -->
+                    <div class="pronounce">[科]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">h</span>
+                    <!-- <span class="lowercase">k</span> -->
+                    <div class="pronounce">[喝]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">j</span>
+                    <!-- <span class="lowercase">l</span> -->
+                    <div class="pronounce">[基]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">q</span>
+                    <!-- <span class="lowercase">m</span> -->
+                    <div class="pronounce">[欺]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">x</span>
+                    <!-- <span class="lowercase">n</span> -->
+                    <div class="pronounce">[希]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">zh</span>
+                    <!-- <span class="lowercase">o</span> -->
+                    <div class="pronounce">[知]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ch</span>
+                    <!-- <span class="lowercase">p</span> -->
+                    <div class="pronounce">[吃]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">sh</span>
+                    <!-- <span class="lowercase">q</span> -->
+                    <div class="pronounce">[诗]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">r</span>
+                    <!-- <span class="lowercase">r</span> -->
+                    <div class="pronounce">[日]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">z</span>
+                    <!-- <span class="lowercase">s</span> -->
+                    <div class="pronounce">[资]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">c</span>
+                    <!-- <span class="lowercase">t</span> -->
+                    <div class="pronounce">[雌]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">s</span>
+                    <!-- <span class="lowercase">u</span> -->
+                    <div class="pronounce">[思]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">y</span>
+                    <!-- <span class="lowercase">v</span> -->
+                    <div class="pronounce">[医]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">w</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[屋]</div>
+                </div>
+            </div>
+            <h3>韵母(26个)：</h3>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">a</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[阿]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">o</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[喔]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">e</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[婀]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">i</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[衣]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">u</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[乌]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ü</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[迂]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ai</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[哀]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ei</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[唉]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ui</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[威]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ao</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[奥]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ou</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[欧]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">iu</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[悠]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ie</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[耶]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">üe</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[约]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">er</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[儿]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">an</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[安]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">en</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[恩]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">in</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[因]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">un</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[温]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ün</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[晕]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ang</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[昂]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">eng</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[摁]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ing</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[英]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ong</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[翁]</div>
+                </div>
+            </div>
+            <h3>整体认读音节：</h3>
+            <div class="letterList">
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">zhi</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[知]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">chi</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[吃]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">shi</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[狮]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ri</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[日]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">zi</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[资]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ci</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[慈]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">si</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[思]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">yi</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[衣]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">wu</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[乌]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">yu</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[迂]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">yin</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[因]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">yun</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[晕]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ye</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[夜]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">yue</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[月]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">yuan</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[圆]</div>
+                </div>
+                <div class="letterBox">
+                    <div class="icon"></div>
+                    <span class="uppercase">ying</span>
+                    <!-- <span class="lowercase">w</span> -->
+                    <div class="pronounce">[鹰]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/pinyin.js"></script>
+</body>
+
+</html>

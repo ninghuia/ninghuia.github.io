@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/keyboard.css">
+    <title>炫彩键盘字符练习</title>
+    <script>
+        window.onerror=function(){return true;}
+    </script>
+</head>
+<body>
+    <div class="topBtns">
+        <a href="./index.html">首页</a>
+        <a onclick="reload()">刷新</a>
+        <a href="javascript:void(0);" id="soundBtn">关闭音效</a>
+        <a onclick="newSetup()">选择类型</a>
+    </div>
+    <div id="main" class="main">
+        <div id="lettersBox">
+        </div>
+        <div id="keyboardBox">
+            <div class="line line1">
+                <span code="Backquote"><i>~</i><br><i>`</i></span><span code="Digit1"><i>!</i><br><i>1</i></span><span code="Digit2"><i>@</i><br><i>2</i></span><span code="Digit3"><i>#</i><br><i>3</i></span><span code="Digit4"><i>$</i><br><i>4</i></span><span code="Digit5"><i>%</i><br><i>5</i></span><span code="Digit6"><i>^</i><br><i>6</i></span><span code="Digit7"><i>&</i><br><i>7</i></span><span code="Digit8"><i>*</i><br><i>8</i></span><span code="Digit9"><i>(</i><br><i>9</i></span><span code="Digit0"><i>)</i><br><i>0</i></span><span code="Minus"><i style="top:0;">_</i><br><i>-</i></span><span code="Equal"><i>+</i><br><i>=</i></span><span code="Backslash"><i>|</i><br><i>\</i></span><span code="Backspace">←</span>
+            </div>
+            <div class="line line2">
+                <span code="Tab" style="width:96px;">Tab</span><span code="KeyQ">Q</span><span code="KeyW">W</span><span code="KeyE">E</span><span code="KeyR">R</span><span code="KeyT">T</span><span code="KeyY">Y</span><span code="KeyU">U</span><span code="KeyI">I</span><span code="KeyO">O</span><span code="KeyP">P</span><span code="BracketLeft"><i>{</i><br><i>[</i></span><span code="BracketRight"><i>}</i><br><i>]</i></span><span id="enter" style="width:90px;height:70px;border-bottom:0;z-index:2;background: #fff;color:#fff;">.</span>
+            </div>
+            <div class="line line3">
+                <span code="CapsLock" style="width:123px;">Caps</span><span code="KeyA">A</span><span code="KeyS">S</span><span code="KeyD">D</span><span code="KeyF">F</span><span code="KeyG">G</span><span code="KeyH">H</span><span code="KeyJ">J</span><span code="KeyK">K</span><span code="KeyL">L</span><span code="Semicolon"><i>:</i><br><i>;</i></span><span code="Quote"><i>"</i><br><i>'</i></span><span code="Enter" class="enter" style="width:133px;z-index:1;">Enter</span>
+            </div>
+            <div class="line line4">
+                <span code="ShiftLeft" style="width:163px;">Shift</span><span code="KeyZ">Z</span><span code="KeyX">X</span><span code="KeyC">C</span><span code="KeyV">V</span><span code="KeyB">B</span><span code="KeyN">N</span><span code="KeyM">M</span><span code="Comma"><i><</i><br><i>,</i></span><span code="Period"><i>></i><br><i>.</i></span><span code="Slash"><i>?</i><br><i>/</i></span><span style="width:163px;" code="ShiftRight">Shift</span>
+            </div>
+            <div class="line line5">
+                <span code="ControlLeft" style="width:79px;">Ctrl</span><span code="MetaLeft" style="width:79px;">Win</span><span code="AltLeft" style="width:79px;">Alt</span><span class="space" code="Space">Space</span><span code="AltRight" style="width:79px;">Alt</span><span code="MetaRight" style="width:79px;">Win</span><span code="ContextMenu" style="width:79px;">Rig</span><span code="ControlRight" style="width:79px;">Ctrl</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 音频播放 -->
+    <audio id="audio" autoplay src="">
+        您的浏览器不支持 audio 标签。
+    </audio>
+
+    <!-- 通知 -->
+    <div id="msgBox"></div>
+
+    <!-- 弹窗 -->
+    <div id="popup">
+        <div class="popupBox">
+            <div class="popupHeader">选择模式：</div>
+            <span class="close" onclick="closePop()">×</span>
+            <div class="popupBody inputCommon">
+                <select name="choseArticle" id="choseArticle" class="choseArticle">
+                    <option value="">请选择模式</option>
+                    <option value="">26英文字母</option>
+                    <option value="">纯数字</option>
+                    <option value="">字母＋数字</option>
+                    <option value="">字母＋数字＋符号</option>
+                </select>
+            </div>
+            <div class="popupFooter">
+                <a onclick="closePop()">确认</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/keyboard.js"></script>
+</body>
+</html>

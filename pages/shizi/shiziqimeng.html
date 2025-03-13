@@ -1,0 +1,46 @@
+<!DOCTYPE html style="font-size:72px;">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../css/shizi.css">
+    <title>识字启蒙</title>
+    <script>
+       !new function(){var a=this;a.width=750,a.fontSize=100,a.widthProportion=function(){var b=(document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/a.width;return b>1?1:b},a.changePage=function(){document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+a.widthProportion()*a.fontSize+"px !important")},a.changePage(),window.addEventListener("resize",function(){a.changePage()},!1)};
+    </script>
+</head>
+<body class="unselectable">
+    <audio id="myAudio" src=""></audio>
+    <div id="main" style="z-index:1000">
+        <div class="content">
+            <div class="letterList"></div>
+        </div>
+    </div>
+    <div id="mask"></div>
+    <div id="bigBox">
+        <div class="txt"></div>
+        <div class="btnBox">
+            <span class="sound"><img id="playImg" src="../assets/play.png" alt=""></span>
+            <!-- <span class="close">×</span> -->
+        </div>
+    </div>
+    <div id="close"></div>
+    <script>
+        var text = '一二三个人大山上下小雨天车开火门口月羊只有牛水中风头田土里在日白马手出王子儿女刀木鸟伞鱼瓜气飞虫米云电石了来玉去回多少问早巴父工力不干几男坐打四五六闪的花朵果比午面高包文分平我连元丁厂目见兔禾是把笑着看会自己画好爱心也可家爸妈这爷奶们书串球圆形长方正角灯块冰那弓买哪乐谢想抱竹要立耳红色吃香穿身它发衣他她毛朋友哥弟兄眉鼻光星阳亮今明走兴空两哭牙肚尾你脸黑半呀吗七八九十又很太宝贝和关园生公苗叶林草先岛';
+    </script>
+    <script src="../../js/shizi.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 当元素被单击时执行的函数
+            $('.letterBox').click(function() {
+                $('.letterBox').removeClass('active');
+                // 将元素的class设置为"active"
+                $(this).addClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

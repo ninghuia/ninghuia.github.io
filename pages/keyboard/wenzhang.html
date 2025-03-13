@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章打字测试</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/article.css">
+    <script>
+        window.onerror=function(){return true;}
+    </script>
+</head>
+<body>
+<div class="outContent">
+    <div class="header">
+        <div class="headerBox">
+            <div class="topBtns">
+                <a href="./index.html">首页</a>
+                <a onclick="reload()">刷新</a>
+                <a onclick="newSetup()">选择文章</a>
+                <a id="startBtn">开始测试</a>
+                <button id="resultBtn" onclick="showResult()">提交</button>
+            </div>
+            <div id="tips"><span id="rateBox">已输入0/<span id="letterNum">0</span>字，正确率：0%，速率：0字/分，</span></span>时间：<span id="minute">00</span>分<span id="second">00</span>秒</div>
+        </div>
+    </div>
+    <div class="mainBox">
+        
+        <!-- 打字测试 -->
+        <div id="testBox">
+            <div id="testLetter"></div>
+            <textarea id="inputText" autofocus placeholder="开始输入.."></textarea>
+            <div class="separateBox"></div>
+            <div id="myLetters"></div>
+        </div>
+    </div>
+</div>
+    
+    <!-- 显示结果 -->
+    <div id="resultBox"></div>
+
+    <!-- 弹窗 -->
+    <div id="popup">
+        <div class="popupBox">
+            <div class="popupHeader">选择文章：</div>
+            <span class="close" onclick="closePop()">×</span>
+            <div class="popupBody inputCommon">
+                <select name="choseArticle" id="choseArticle">
+                    <option value="">请选择文章</option>
+                    <option value="">最美的微笑</option>
+                    <option value="">安妮最好的朋友</option>
+                    <option value="">百家姓</option>
+                    <option value="">口技</option>
+                    <option value="">千里马</option>
+                    <option value="">岳阳楼记</option>
+                    <option value="">沁园春雪</option>
+                    <option value="">明月几时有</option>
+                    <option value="">纪念刘和珍君</option>
+                    <option value="">劝学</option>
+                    <option value="">桃花源记</option>
+                    <option value="">送东阳马生序</option>
+                    <option value="">伤仲永</option>
+                    <option value="">春</option>
+                    <option value="">陈情表</option>
+                    <option value="">晏子使楚</option>
+                </select>
+            </div>
+            <div class="popupFooter">
+                <a onclick="closePop()">确认</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/timer.js"></script>
+    <script src="./js/wenzhang.js"></script>
+</body>
+</html>

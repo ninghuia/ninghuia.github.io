@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用汉字打字测试</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/article.css">
+    <script>
+        window.onerror=function(){return true;}
+    </script>
+</head>
+<body>
+    <!-- <div id="type" >hanzi</div> -->
+<div class="outContent">
+    <div class="header">
+        <div class="headerBox">
+            <div class="topBtns">
+                <a href="./index.html">首页</a>
+                <a onclick="reload()">刷新</a>
+                <a onclick="newSetup()">设置</a>
+                <a id="startBtn">开始测试</a>
+                <button id="resultBtn" onclick="showResult()" >提交</button>
+            </div>
+            <div id="tips"><span id="rateBox">已输入0/<span id="letterNum">0</span>字，正确率：0%，速率：0字/分，</span></span>时间：<span id="minute">00</span>分<span id="second">00</span>秒</div>
+        </div>
+    </div>
+    <div class="mainBox">
+        
+        <!-- 打字测试 -->
+        <div id="testBox" class="hanziTestBox">
+            <div id="testLetter"></div>
+            <textarea id="inputText" autofocus placeholder="开始输入.."></textarea>
+            <div class="separateBox"></div>
+            <div id="myLetters"></div>
+        </div>
+    </div>
+</div>
+    
+    <!-- 显示结果 -->
+    <div id="resultBox"></div>
+
+    <!-- 弹窗 -->
+    <div id="popup">
+        <div class="popupBox">
+            <div class="popupHeader">设置：</div>
+            <span class="close" onclick="closePop()">×</span>
+            <div class="popupBody">
+                <p style="margin-top:38px;">设置汉字总数： <input id="textNum" autofocus style="width:30px;padding:0 10px;" type="text"> 个</p>
+                <p id="setTips" style="color:blue">输入20-500之间的数字</p>
+            </div>
+            <div class="popupFooter">
+                <a onclick="closePop()">确认</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/timer.js"></script>
+    <script src="./js/hanzi.js"></script>
+</body>
+</html>

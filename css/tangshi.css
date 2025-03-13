@@ -1,0 +1,133 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-image: url(../pages/keyboard/images/background.png);
+}
+
+/* index css begin */
+#content{
+    width:100%;
+    height:100vh;
+    background: radial-gradient(#313131, #0a0a0a);
+}
+.contentBox{
+    /* width:400px; */
+    width:100%;
+    height:620px;
+    color:#eee;
+    /* border:1px dashed #eee; */
+    position:absolute;
+    top:50%;
+    /* left:50%; */
+    margin-top:-310px;
+    /* margin-left:-200px; */
+    text-align: center;
+    font-size:24px;
+    font-weight:lighter;
+    overflow-y: scroll;
+}
+ul{
+    list-style: none;
+    
+}
+ul li a{
+    /* padding:0 20px; */
+    display:inline-block;
+    height:40px;
+    line-height: 40px;
+    color:#eee;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+ul li a:hover{
+    padding:0 15px;
+    color:#fff;
+    text-decoration:solid;
+    border:1px dashed #fff;
+}
+
+.unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    }
+#tip{
+    width:13px;
+    height:50px;
+    position:fixed;
+    left:10px;
+    top:50%;
+    margin-top:-25px;
+    color:#999;
+    font-size:12px;
+}
+#num{
+    width:13px;
+    height:50px;
+    position:fixed;
+    right:10px;
+    top:50%;
+    margin-top:-25px;
+    color:#999;
+    font-size:12px;
+}
+/* index css end */
+
+p{
+    margin-bottom:5px;
+    
+}
+#playImg{
+    margin-left: 10px;
+    vertical-align: baseline;
+    width: 33px;
+    height: 33px;
+}
+.unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    }
+    .auther{
+        text-align: center;
+        font-size:20px;
+        color:#666;
+    }
+    .mb20{
+        margin-bottom:30px;
+    }
+    #messageBox{
+        /* border:1px solid red; */
+        height:472px;
+        width:362px;
+        position:absolute;
+        top:50%;
+        left:50%;
+        margin-top:-236px;
+        margin-left:-181px;
+        color:#333;
+        font-size:40px;
+        line-height:60px;
+        text-align: center;
+        letter-spacing: 5px;
+        overflow: visible;
+    }
+    #messageBox>p:nth-child(1){
+        font-size:40px;
+        letter-spacing: 1px;
+        text-align: center;
+        color:#111;
+    }
+    #messageBox>p:nth-child(2){
+        font-size:22px;
+        color:#666;
+        letter-spacing: 0px;
+    }
+audio{
+    display:block;
+    margin:20px auto 0 auto;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html style="font-size:72px;">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../css/danci.css">
+    <title>幼儿单词启蒙</title>
+    <script>
+       !new function(){var a=this;a.width=750,a.fontSize=100,a.widthProportion=function(){var b=(document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/a.width;return b>1?1:b},a.changePage=function(){document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+a.widthProportion()*a.fontSize+"px !important")},a.changePage(),window.addEventListener("resize",function(){a.changePage()},!1)};
+    </script>
+</head>
+<body class="unselectable">
+    <audio id="myAudio" src=""></audio>
+    <div id="main">
+        <div class="content">
+            <div class="letterList"></div>
+        </div>
+    </div>
+    <script src="../js/danci.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 当元素被单击时执行的函数
+            $('.letterBox').click(function() {
+                $('.letterBox').removeClass('active');
+                // 将元素的class设置为"active"
+                $(this).addClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

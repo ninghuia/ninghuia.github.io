@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"/>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+    <meta name="description" content="中国体育彩票大乐透,体彩大乐透随机选号"/>
+    <meta name="keywords" content="中国体育彩票大乐透,体彩大乐透随机选号,体彩大乐透,双色球选号助手"/>
+    <title>体育彩票大乐透随机选号</title>
+    <style>
+        *{
+        margin:0;
+        padding:0;
+        }
+        body{
+            width:100%;
+            height:100vh;
+            background: radial-gradient(#313131, #0a0a0a);
+        }
+        .unselectable {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            }
+        .tips-box{
+            padding:32px 10px;
+            color:teal;
+            font-size:18px;
+            text-align: center;
+        }
+        .red{
+            color:#f54646;
+            font-weight:bold;
+        }
+        .blue{
+            color:#39f;
+            font-weight:bold;
+        }
+        .ball-box{
+            margin:32px 0;
+            /* padding:10px; */
+            text-align: center;
+        }
+        .ball-box .name{
+            color:teal;
+            font-size:18px;
+            font-weight:bold;
+            padding:20px 0;
+        }
+        .ball{
+            display:inline-block;
+            margin-right: 5px;
+            width: 38px;
+            height: 38px;
+            background: #fff;
+            line-height: 38px;
+            vertical-align: middle;
+            font-size: 20px;
+            font-weight:bold;
+            text-align: center;
+            /* border:2px solid #fff; */
+            border-radius: 50%;
+        }
+        .ball-gold{
+            color:#fff;
+            background: gold;
+            border:2px solid gold;
+        }
+        .ball-blue{
+            color: #fff;
+            background: #39f;
+            border:2px solid #39f;
+            margin-right:0;
+        }
+        .btn-box{
+            text-align: center;
+        }
+        #creat-btn{
+            display:inline-block;
+            width:123px;
+            height:50px;
+            background-color:#fff;
+            line-height: 50px;
+            text-align: center;
+            font-size:20px;
+            /* border:1px solid teal; */
+            border:1px solid #ccc;
+            border-radius: 10px;
+            cursor:pointer;
+            transition: all .2s;
+        }
+        #creat-btn:hover{
+            border:1px solid teal;
+            background: teal;
+            color:#fff;
+        }
+        .told{
+            padding-top:40px;
+            width:100%;
+            height:32px;
+            color:gold;
+            font-size:16px;
+            text-align: center;
+            line-height: 32px;
+        }
+        .content{
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:380px;
+            height:300px;
+            margin-top:-150px;
+            margin-left:-190px;
+            /* background: #fff; */
+            /* transition: all 1s; */
+            /* border:1px solid red; */
+        }
+        .content h1{
+            color:#fff;
+            text-align: center;
+            font-weight: normal;
+        }
+        .wishball{
+            display:inline-block;
+            width: 26px;
+            height: 26px;
+            /* background: #fff; */
+            color:gold;
+            line-height: 26px;
+            vertical-align: middle;
+            font-size: 18px;
+            font-weight:lighter;
+            text-align: center;
+            border:2px solid gold;
+            border-radius: 50%;
+        }
+        .rule{
+            width:100%;
+            padding-top:10px;
+            text-align: center;
+            color:#999;
+            font-size:12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content unselectable">
+        <h1>中国体育彩票大乐透</h1>
+        <div class="ball-box">
+            <span class="ball ball-blue ">感</span>
+            <span class="ball ball-blue">觉</span>
+            <span class="ball ball-blue">这</span>
+            <span class="ball ball-blue">次</span>
+            <span class="ball ball-blue">要</span>
+            <span class="ball ball-gold">中</span>
+            <span class="ball ball-gold">奖</span>
+        </div>
+        <div class="btn-box">
+            <button id="creat-btn">开始选号</button>
+            <!-- <div class="told">祝君好运中大奖</div> -->
+            <div class="told">
+                <span class="wishball">祝</span>
+                <span class="wishball">您</span>
+                <span class="wishball">好</span>
+                <span class="wishball">运</span>
+                <!-- <span class="wishball">中</span>
+                <span class="wishball">大</span>
+                <span class="wishball">奖</span> -->
+            </div>
+        </div>
+        <p class="rule">每注由前区5个号和后区2个号组成。前区1～35后区从1～12中选</p>
+    </div>
+    
+    <script>
+        var creatBtn = document.getElementById('creat-btn');
+        var redBalls = document.getElementsByClassName('ball-blue');
+        var goldballs = document.getElementsByClassName('ball-gold');
+        // var blueBall2 = document.getElementsByClassName('ball-gold')[1];
+        var redballs = [];
+        var goldBalls = [];
+        var isGo = true;
+        creatBtn.addEventListener('click',function(){
+            if(isGo) {
+                creatBtn.innerHTML="停止";
+                timer = setInterval(function(){
+                    creatReadBalls(5,1,35);
+                    for(var i=0;i<5;i++){
+                        redBalls[i].innerHTML = redballs[i];
+                    }
+                    creatGoldBalls(2,1,12);
+                    for(var m=0;m<2;m++){
+                        goldballs[m].innerHTML = goldBalls[m];
+                    }
+                },100)
+            } else {
+                creatBtn.innerHTML="再次选号";
+                clearInterval(timer);
+            }	
+            isGo = !isGo;  //按钮冲突改变
+        })
+        function creatReadBalls(n,min,max){
+            var arr=[];
+            for(i=0;i<n;i++){
+                arr[i]=parseInt(Math.random()*(max-min+1)+min);
+            }
+            for(i=0;i<n;i++){
+                for(j=i+1;j<n;j++){
+                    if(arr[i]==arr[j]){
+                        creatReadBalls(n,min,max);
+                        return false;
+                    }
+                }
+            }
+            redballs = arr;
+            redballs.sort(function (a,b){
+                return a - b
+            });
+            for(var i=0;i<redballs.length;i++){
+                if(redballs[i]<10){
+                    redballs[i]='0'+redballs[i];
+                }
+            }
+        }
+        function creatGoldBalls(n,min,max){
+            var arr=[];
+            for(i=0;i<n;i++){
+                arr[i]=parseInt(Math.random()*(max-min+1)+min);
+            }
+            for(i=0;i<n;i++){
+                for(j=i+1;j<n;j++){
+                    if(arr[i]==arr[j]){
+                        creatGoldBalls(n,min,max);
+                        return false;
+                    }
+                }
+            }
+            goldBalls = arr;
+            goldBalls.sort(function (a,b){
+                return a - b
+            });
+            for(var j=0;j<goldBalls.length;j++){
+                if(goldBalls[j]<10){
+                    goldBalls[j]='0'+goldBalls[j];
+                }
+            }
+        }
+        </script>
+</body>
+</html>

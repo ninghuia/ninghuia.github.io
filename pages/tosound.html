@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+    <title>文字转语音</title>
+    <style>
+        body{
+            background: radial-gradient(#313131, #0a0a0a);
+            height:100vh;
+        }
+        #mainBox{
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:396px;
+            height:300px;
+            margin-top:-150px;
+            margin-left:-198px;
+        }
+        #txt{
+            width:100%;
+            margin-bottom: 30px;
+            /* padding:20px; */
+            font-size:16px;
+            overflow: auto;
+        }
+        .btnBox{
+            text-align: center;
+        }
+        .btnBox button{
+            cursor: pointer;
+            width: 160px;
+            height: 50px;
+            color:#fff;
+            line-height: 51px;
+            line-height: 50px \9;
+            background-color: #4e6ef2;
+            border-radius: 10px 10px 10px 10px;
+            font-size: 20px;
+            box-shadow: none;
+            font-weight: 400;
+            border: 0;
+            outline: 0;
+            letter-spacing: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- <iframe id="myIframe" src="https://tts.baidu.com/text2audio?tex=你数啊啊啊&cuid=dict&lan=ZH&ctp=1&pdt=30&vol=9" width="100%" height="100" style="border:2px solid red;">
+    </iframe> -->
+    
+ 
+    <div id="mainBox">
+        <textarea name="" id="txt" cols="36" rows="10"></textarea>
+        <div class="btnBox">
+            <button id="go">转换</button>
+            <!-- <p style="color:#fff;">PC端输入后点击按钮，点一下地址栏敲回车</p> -->
+        </div>
+    </div>
+    <script>
+        
+        var btn = document.getElementById("go");
+        btn.onclick = function(){
+            var txt = document.getElementById("txt").value;
+            // console.log(txt);
+            var result = 'https://tts.baidu.com/text2audio?tex='+txt+'&cuid=dict&lan=ZH&ctp=1&pdt=30&vol=9';
+            alert('语音下载地址：'+result);
+            console.log('语音下载地址：'+result);
+            window.location.href = result;
+            // document.getElementById('myIframe').src =result;
+        }
+    </script>
+</body>
+</html>

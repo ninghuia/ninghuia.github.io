@@ -1,0 +1,133 @@
+body{
+    box-shadow: inset 0 0 50px green;
+}
+.topBtns{
+    top:30px;
+    left:30px;
+}
+.main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -211px;
+    margin-left: -543px;
+    width: 1086px;
+    height: 490px;
+    border-radius: 6px;
+    text-align: center;
+    border:1px solid red;
+}
+#lettersBox{
+    height:100px;
+    color:#666;
+    font-size:42px;
+    text-align: center;
+    transition: all .5s;
+}
+#lettersBox div{
+    display:inline-block;
+    width:70px;
+    height:70px;
+    margin:0 14px;
+    line-height: 70px;
+    border:2px solid #999;
+    transition:all 1s;
+}
+#lettersBox .right{
+    background-color: green;
+    border:2px solid green;
+    color:#fff;
+}
+#lettersBox .wrong{
+    border:2px solid red;
+    color:red;
+}
+#lettersBox .common{
+    color:#666;
+}
+#keyboardBox{
+    border:3px solid #999;
+    border-radius: 6px;
+}
+#main{
+    border:none;
+}
+.main .line>span{
+    margin-right:10px;
+    display:inline-block;
+    width:58px;
+    height:58px;
+    background: #fff;
+    color:#888;
+    text-align: center;
+    line-height: 58px;
+    font-size:36px;
+    border:1px solid #999;
+    transition: all .5s;
+}
+.main .line>span:last-child{
+    margin-right:0;
+}
+.main .line>span.normal{
+    color:#888;
+}
+.main span.normal{
+    color:#999;
+    border-color:#999;
+}
+#keyboardBox{
+    padding:20px 0 10px 0;
+    background-color: #fff;
+}
+.main .line{
+    margin-bottom:10px;
+}
+.main .line.line3{
+    margin-top:-11px;
+}
+.main .line.line5 .space{
+    width:401px;
+}
+.main .line>span{
+    position: relative;
+}
+.main .line>span>i:first-child{
+    position: absolute;
+    top:8px;
+    left:12px;
+    font-style: normal;
+    line-height:10px;
+    font-size: 22px;
+}
+.main .line>span>i:last-child{
+    position: absolute;
+    bottom:8px;
+    left:12px;
+    font-style: normal;
+    line-height:10px;
+    font-size: 22px;
+}
+/* .main #keyboardBox .line.line2 .tab{
+    width:96px;
+}
+.main #keyboardBox .line.line3 .capslock{
+    width:123px;
+}
+.main #keyboardBox .line.line4 .shift{
+    width:163px;
+}
+.main #keyboardBox .line.line5 .ctrl{
+    width:79px;
+}
+.main #keyboardBox .line.line2 .enterTop{
+    width:90px;
+    height:70px;
+    border-bottom:0;
+    z-index:2;
+    background: #fff;
+    color:#fff;
+}
+.main #keyboardBox .line.line3 .enterBottom{
+    width:133px;
+    z-index:1;
+} */

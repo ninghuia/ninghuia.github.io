@@ -1,0 +1,200 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    background-image: url(../images/background.png);
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* border: 3px solid #fff; */
+    /* box-shadow: inset 0 0 50px green; */
+}
+::selection {
+    background: transparent;
+}
+.topBtns{
+    position:fixed;
+    top:0px;
+    text-align: center;
+    z-index:3;
+}
+.topBtns >a{
+    display:inline-block;
+    padding:0 20px;
+    height:40px;
+    margin-right:5px;
+    background-color: #fff;
+    color:#666;
+    border:1px solid #999;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+    line-height: 40px;
+    font-size:18px;
+    text-decoration: none;
+    cursor:pointer;
+}
+.topBtns>button{
+    display:inline-block;
+    padding:0 20px;
+    height:40px;
+    margin-right:5px;
+    /* background-color: #fff; */
+    color:#666;
+    border:1px solid #999;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+    line-height: 40px;
+    font-size:18px;
+    text-decoration: none;
+    cursor:pointer;
+}
+#msgBox{
+    position: absolute;
+    top:30px;
+    left:50%;
+    margin-left:-150px;
+    width:300px;
+    height:60px;
+    background: green;
+    color:#fff;
+    border-radius: 10px;
+    font-size:20px;
+    line-height: 60px;
+    text-align: center;
+    opacity: 0;
+    transition: all 1.5s;
+}
+/* 弹框 */
+#popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,.3);
+    transition: all .5s;
+    display:none;
+    z-index:5;
+}
+#popup .popupBox{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-150px;
+    margin-left:-149px;
+    padding:0 20px;
+    width:298px;
+    height:300px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+#popup .popupBox .close{
+    position:absolute;
+    top:12px;
+    right:20px;
+    display:block;
+    width:36px;
+    height:36px;
+    border:1px solid #999;
+    border-radius: 18px;
+    color:#999;
+    font-size:28px;
+    text-align: center;
+    line-height: 34px;
+    cursor:pointer;
+}
+#popup .popupBox .popupHeader{
+    height:60px;
+    line-height: 60px;
+    font-size:22px;
+}
+#popup .popupBox .popupBody{
+    text-align: center;
+}
+#popup .popupBox .popupBody.inputCommon{
+    padding:62px 0 0 0;
+}
+#popup .popupBox .popupBody input{
+    padding:0 10px;
+    width:275px;
+    height:30px;
+    font-size:18px;
+    line-height:30px;
+}
+#popup .popupBox .popupBody select{
+    padding:0 10px;
+    width:275px;
+    height:36px;
+    font-size:20px;
+    line-height:36px;
+}
+#popup .popupBox .popupBody .choseArticle{
+    padding:0 10px;
+    width:275px;
+    height:36px;
+    font-size:20px;
+    line-height:36px;
+}
+#popup .popupBox .popupBody p{
+    margin-bottom:20px;
+}
+#popup .popupBox .popupFooter{
+    margin-top:30px;
+    text-align: center;
+}
+#popup .popupBox .popupFooter>a{
+    display:inline-block;
+    width:100px;
+    height:40px;
+    background-color: #fff;
+    color:#999;
+    border:1px solid #999;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.err{
+    color:red;
+}
+.right{
+    color:green;
+}
+
+#resultBox{
+    display:none;
+    position:absolute;
+    bottom:-15px;
+    left:50%;
+    margin-left:-400px;
+    width:800px;
+    height:40px;
+    color:green;
+    border:2px solid green;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 40px;
+    font-size:22px;
+    transition:all 2s;
+}
+.current{
+    color:green;
+}
+.over{
+    color:#c5c5c5;
+}
+.red{
+    color:red;
+}
