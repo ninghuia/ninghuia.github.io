@@ -81,7 +81,8 @@ var saying = getTime();
               , o = e.getSeconds();
             return "".concat(t).concat(n < 10 ? ":0" : ":").concat(n).concat(o < 10 ? ":0" : ":").concat(o)
         }
-          , l = ["H".concat("i！ "+saying, "."), {
+        //   , l = [saying+"H".concat("i！ Welcome back ！Nice to meet you again."), {
+            , l = ['Hello! Welcome back !  '+ saying, {
             type: "system",
             label: "System",
             content: "cd ".concat("Xiao Chen")
@@ -185,8 +186,8 @@ var saying = getTime();
                         ))
                     }
                 },
-                blog: {
-                    description: "Open the blog page.",
+                tool: {
+                    description: "Open the small tool page.",
                     run: function(e) {
                         return new Promise((function(t) {
                             e({
@@ -194,7 +195,7 @@ var saying = getTime();
                                 label: "Success",
                                 content: "Opening"
                             }),
-                            window.open("blog.html", "_blank"),
+                            window.open("ideas.html", "_blank"),
                             t({
                                 type: "success",
                                 label: "Done",
@@ -204,8 +205,8 @@ var saying = getTime();
                         ))
                     }
                 },
-                ruyi: {
-                    description: "Go to the page ruyi study in a new tab.",
+                blog: {
+                    description: "Go to the blog page.",
                     run: function(e) {
                         return new Promise((function(t) {
                             e({
@@ -213,7 +214,7 @@ var saying = getTime();
                                 label: "Success",
                                 content: "Opening"
                             }),
-                            window.open("ruyi.html", "_blank"),
+                            window.open("blog.html", "_blank"),
                             t({
                                 type: "success",
                                 label: "Done",
@@ -252,6 +253,25 @@ var saying = getTime();
                                 content: "Opening"
                             }),
                             window.open("https://www.gequbao.com/", "_blank"),
+                            t({
+                                type: "success",
+                                label: "Done",
+                                content: ":)"
+                            })
+                        }
+                        ))
+                    }
+                },
+                game: {
+                    description: "You can play a game.",
+                    run: function(e) {
+                        return new Promise((function(t) {
+                            e({
+                                type: "success",
+                                label: "Success",
+                                content: "Opening"
+                            }),
+                            window.open("game.html", "_blank"),
                             t({
                                 type: "success",
                                 label: "Done",
@@ -407,4 +427,4 @@ var saying = getTime();
 }, [[13, 1, 2]]]);
 //# sourceMappingURL=main.0b9a5b84.chunk.js.map
 
-document.getElementsByClassName('dcoqCz')[0].innerHTML = 'terminal';
+document.getElementsByClassName('dcoqCz')[0].innerHTML = '柿柿如意';

@@ -1,5 +1,10 @@
 var words = [
     {
+        h:"demo",
+        e:"this is a test demo.",
+        src:"assets/mp3/kouyu/ruyi.mp3"
+    },
+    {
         h:"早上好！",
         e:"Good morning!",
         src:"assets/mp3/kouyu/ky1.mp3"
@@ -89,6 +94,11 @@ var words = [
         h:"非常感谢你！",
         e:"Thank you very much！",
         src:"assets/mp3/kouyu/ky18.mp3"
+    },
+    {
+        h:"不客气",
+        e:"You are welcome.",
+        src:"assets/mp3/kouyu/ky102.mp3"
     },
     {
         h:"太棒了！",
@@ -496,7 +506,7 @@ var words = [
     },
     {
         h:"你真勇敢",
-        e:"Brave boy!",
+        e:"Brave girl!",
         src:"assets/mp3/kouyu/ky99.mp3"
     },
     {

@@ -31,6 +31,7 @@ var qujian = document.getElementById("qujian");
         var buttons = document.getElementsByClassName("number");
         console.log(buttons)
         
+        var qujianmaBox = document.getElementsByClassName("qujianmaBox")[0];
         // 循环遍历按钮元素
         for(var index=0;index<buttons.length;index++){
             (function(i){
@@ -45,10 +46,13 @@ var qujian = document.getElementById("qujian");
                     if(i==9){
                         // audioSelf.src = 'https://tts.baidu.com/text2audio?tex=0&cuid=dict&lan=ZH&ctp=1&pdt=30&vol=9';
                         // audioSelf.play();
-                        document.getElementsByClassName("qujianmaBox")[0].innerHTML+=0;
+                        qujianmaBox.innerHTML+=0;
                     }else{
-                        document.getElementsByClassName("qujianmaBox")[0].innerHTML+=i+1;
+                        qujianmaBox.innerHTML+=i+1;
                     }
+                    // if(qujianmaBox.length>6){
+                    //     qujianmaBox = qujianmaBox.substring(0,3)
+                    // }
                 }
                 
             })(index)
@@ -93,5 +97,5 @@ var qujian = document.getElementById("qujian");
             audioSelf.play();
             setTimeout(function(){
                 window.location.reload();
-            },3200)
+            },3600)
         }

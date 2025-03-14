@@ -2,97 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <title>Blog</title>
-    <style>
-        *{
-            margin:0;
-            padding:0;
-        }
-        #content{
-            width:100%;
-            height:100vh;
-            background: radial-gradient(#313131, #0a0a0a);
-        }
-        .contentBox{
-            width:400px;
-            height:100px;
-            color:#eee;
-            /* border:1px dashed #eee; */
-            position:absolute;
-            top:50%;
-            left:50%;
-            margin-top:-50px;
-            margin-left:-200px;
-            text-align: center;
-            /* line-height: 60px; */
-            font-size:24px;
-            font-weight:lighter;
-        }
-        #name{
-            color:#fff;
-        }
-        .unselectable {
-            user-select: none;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            }
-            #close{
-      display:block;
-      position:fixed;
-      top:30px;
-      right:20px;
-      width:40px;
-      height:40px;
-      text-align: center;
-      line-height: 40px;
-      border:1px solid pink;
-      border-radius: 20px 20px;
-      cursor: pointer;
-      transition:  all 1s;
-    }
-    #close:hover{
-      background: pink;
-      color:#fff;
-    }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c6a16e7744f5e96b195b98f5a2818207";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
 </head>
 <body>
-    <!-- <a id="close" class="unselectable" title="关闭" href="./index.html">❌</a> -->
-    <div id="content">
-        <div class="contentBox unselectable">
-            <div id="saying"></div>
-            <!-- <div id="name"></div> -->
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        // 打字机
-        let divTyping = document.getElementById('saying')
-        var options = {
-            strings: ['紧张施工中，工期未知...','即将为您返回首页','Bye～'], // 要显示的文本数组
-            typeSpeed:100, // 打字速度，单位是毫秒/字符
-            backSpeed:30, // 回退速度，设置为0表示不回退，即不删除字符
-            startDelay: 200, // 开始之前的延迟300毫秒
-            showCursor: false, // 是否显示光标
-            shuffle: false, //洗牌
-            backDelay: 1000,
-            loop: false, // 是否循环显示文本数组中的文本
-            /**
-                * 停止后调用的回调函数
-                * @param {number} arrayPos
-                * @param {Typed} self
-                */
-                onComplete: function(self, i) {
-                    window.location.href = '../index.html'
-                },
-        };
-        
-        var typed = new Typed('#saying', options);
-    </script>
-    
+        (function(){
+          if(prompt('Input your password')!=='620'){
+            alert("Password is wrong ，bye～");
+            window.location.href='/';
+          }
+        })();
+      </script>
+
+
+    cd ..<br/>
+    git clone https://github.com/ninghuia/ninghuia.github.io.git<br/>
+    git init<br/>
+    git add .<br/>
+    git status<br/>
+    git commit -m "first commit"<br/>
+    git push -u origin main<br/>
+
+<br/>
+
+    git checkout -b main
 </body>
 </html>

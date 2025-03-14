@@ -365,6 +365,11 @@ var words = [
         src:"assets/mp3/danci/juice.mp3"
     },
     {
+        h:"冰淇淋",
+        e:"Ice cream",
+        src:"assets/mp3/danci/icecream.mp3"
+    },
+    {
         h:"水",
         e:"water",
         src:"assets/mp3/danci/water.mp3"

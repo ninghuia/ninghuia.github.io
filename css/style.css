@@ -97,6 +97,12 @@ a {
     outline: 0
 }
 
+/* @font-face {
+    font-family: iconfont;
+    src: url(//at.alicdn.com/t/font_1636368_1bd52uvx2ex.eot?t=1606640071622);
+    src: url(//at.alicdn.com/t/font_1636368_1bd52uvx2ex.eot?t=1606640071622#iefix) format("embedded-opentype"),url("data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAApYAAsAAAAAEdQAAAoLAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCETAqUYJBiATYCJAMwCxoABCAFhG0HgRYb8g4jEbaCsRIg+6sD83B48UIkFrO39YoWWxqD5c5CCN12G5jBs0+nwsDhDQzvpxHE7/e/2SNX7IvhFmnmkUQikwgdkiWxFEg0UqB7I5R3OJf33I2FzEA+y1cjUujT9pJe208KLAdGvZAjZTYhNzsewjm7JMWSKtIOL+JSim1YkyJW9J2Jd79PX9jTbF4Dn2Eyx31SeROpHeY0P5bPAYKy6fdz1S2kmbSlgrTy38QdUU2LHGkhE9JEPG1tixyh4dcJsdDoHRPaxgFGL8iaGT8pTGBwRFft7sHZJRgKYge2PSPJwShJlJ7x0PGbloRFvGOkS29SAG/jt49/MA5TkppRUY+e7tuw9RNZJlcvlGYSeToVpt7IuASUKe9bq/ArcGI92TDspXkJ2GfVNXY/G/RnnLepZ2Tm597nwFYrcDHPHvZpQPPw/+KNqiJpDbKeaBBnQvenxZGfDSXS8NMgEvycZ6tzN0GxcnsQqeCOIFLAnUEkgfsKIi2/9kSGmPsAIpn/XPW3lGAfcA3khwDlHhDviafp1R9alZVQXczufK3HdpvkoQVjW1uamaVCDMiMvbARjh+DTnez9GwMwkcQGuThag+hMIebmZkZ6uBsJc3FCwiWKE+cXyl3RbVakVaX1zdmDUblODXJwyA0QmaImTWI9XqRTod3aWOtprR8tEMfv6MXGwxidSXAII6yju/PajjNr1GJAVTKXNLyaVd1AtaqwcXomv5466wH6+Y0AFrRA62vZspVcSdcr81VQSeYcu6iAb+JUQkDiz63DWKYnDp4/4nssfwh+UhMKUmFXCVTS7WfiHRv4jfVEKHV84ZnLPt7rO5Og3mdR+sIT68nOg0+Kn2ITIdvUhkGAxjTWvbp7B8iqnLIXkQqPQxvi/WflaDk0N34HZENT8gfDErQ9kfUOU6lq6TMOw/taKUWh7HuP3E06nhcU8cqY8r7IaRWqcQoNa+eRvZK5QoANFMoU75jY9S6i7GoaWuYVFJqCJE9TmPe0do9cFuYtycQJFOJVXLLGkXP93n1alkVXa7QKDEGpZapRPle6bA+U93CJYiBvkUihcZKK5rT8nW4TshPt1IDJNNXUTwxrsTwbIWVE6GyFLmoufuefijSygk9+SNkhoARQ9ZekUJp2E3x1Fwix2pch32A1OYSGEC1XbROKoO4Kq6ILI+fxyzBlVZWcADws+BJZaIaopbAJQRRL6keMDieFizAU/R4VRenHPXsWaXclgWockyHUxE91LJbSwevaiWN243KXVtbuBN6qNNgyHr9e9bjxnX2kAr195LWMkii0Oxx/62qu4PKw+/t3JLd3o24T4Xd3R6zJkc9oYOyAaqP7H3KLhCWDeOtU2wgbE4i5xKqAV6tcLEaw6gByEjW/xnmegGN7CsDQ6Eoeu+xg1HnkwjW3Uf2tLaHoahIUdzdf9T78SR4Pdo8Tc3KZuRTEpScsIp/NBHZd2Tw5MEHAHcAnsCcqvuGxqokMnz+G1lK5TsOu9VjOsoQom7JPFi2bWEuDcHZWc7C6QifZfBerjkHbmC2trIb0KJ4tfa13yveLuhEPJHOgsuIj6d7tuO70VKQiTSNjzelPQsuXICfNfOTpIIkX6Kys9wLzzUNPGIqoItPHBejj77/J+OFDL6qQoI8TuvMygoPdg4iB28kXc64DMKRiMX53Fy7fXYOcz515uXS99HxckL3n2cce7j4wTGHwWfg9Mi4YGHw36yAzW8br1jOiIVGJoFdwkXs8qPODCnnMDf5t5snHf6tKK0wKnI4Fn2dxPPxvNr8Wo9j2LtcbjrgI4fepPH5tDfhgVmkJdT5f0x5PStN4O6dCPRribgUSRODFyPgB0VGVD1y3swmVV5kInRFUkzT/R6++hBQ0jrE1URYJLdJNUMunK0rpL2dAIOz2P/OLaGzCDxAe5PPB89V5TZN40HrJ0JOrgeNy3f2lJmk5qTmqmnbo9wEZA4KwuHP5vbXmdBN6vbHjTxzqSh/iJ41xwKsP69NHTMz+lBU+xxgARB68ZHZBDqCWToWONKwLzDYaY4lFmw2aTFpFhwwyC74ITPK8QtOVtQHBezBgBF0o/EXnFM70V3HeZdTN94tMH/h1TJ0AJ5Ew7lJi03TNwv9yESmE5abIPzlgLdzBKaNxKiUEZYjtBCG5ySVdBGNFYGxOMe5AQV5/Cy+8OgLWQ45DoMgx9GDdhXxhfys/Gin5xdWTNN8knyT0kxxM02jzfeEkyRPI3xv06i5+VSVwDbDrivdLsrwhbqo10BGOL/2m7dyk7gCC5H1v680eHHmTohJ6lEv8wJB0q+5KdFih6qwzOjXDr35vguJBVTQLvhDgCvXPSEAIyEcDl+yP3T+5A1rFTbi8pP9Ip+Gihte+be7AAu6YWtanQWfSnu08ZHS+iS3tTrJofGHdqrkx6/8n3Ri+BvndFMovfr5XCvTI8stl2ElvNqFHDf2q1BOhUX//ldU7QsP6aN/yFLzQEAr4mty9JMvmnRPJdqxu10sg7jv9Qa4ZnvTvfPzkiVXTl+RyPZ6CYXgR84BWHUCLrEIAoZSRMtsth0OR3n4nzvV+WXCF52nzpW2PzfyBste0Qiyq/e86Ho64LQ+4EHvZKsrH0M8O54r3LgQ1I5swf+ODE1FRZONs83rGRnpGRrGB0wOE0BFMpxipROjMg9qa86sJHFTYIqTJL79BCc0U52BE56TngOe/QMgZfUD8vZOAOL/B4xjsWd49TG1vdDhWNwKaAaSuHUanU5bZznbB7Nog59+OhgwaRMpbTBPfBjMHA6ve07ddqI04fj7Z84AI8SQF2H9osfX2qyTTd3ZwvKk4+JVmN3ddDJL+zV46QdAa/7v9p+GGLbuRxFr5AHkMIAFWYB+hWoO/rxtrsv7SCVgCwaRBNiySSQGNmMafg/2vqsItHTdu0jZyDgQcHSAb1SwYn+VZIx/0G4/vm9yGZfRdFIXKzaUUS/VeKts6CSdyup6lHIwYvIFYy5hYBdGuIZNH5fg7Zip43neTo5KWodRWedUe+m+hKpGl1GNzg3U4KLD5KMtkYYoPS64d1Bh3QsqWXxn5bbuN1ZB9zuq2vXPbDAcCGrwOCwyHJ2Jp+dTIuQJ2swsGVlaCZEn88n2c5SpzyOX7oe6xigmrdioP9wtH6LC6BRR4kyOk0QwEekpO3AioO9rFkTaRSvpO1gKJoOBmEftW3oK8+6IIC4JcW2MqSQlFk0Rjyfma69/DkkpHxf1nLsmvYYiMXo6M9I3NLQfcpTp3FvZG8tIY4mrEpgejWhTzIGrQj4vaEzQ7s+FLIk+54C5wMTAvU9YOf3L86bfOMfXdyHVf4oUOUrUaKKNLvoYYowpZnWml2Ej7xTElbSwLSlxUrOlw8owauGUk2+Y2sMy5WquIEcrGTtkVLpaILm0kKOGglTP0kHZ9iktuTJM4jokJQE=") format("woff2"),url(//at.alicdn.com/t/font_1636368_1bd52uvx2ex.woff?t=1606640071622) format("woff"),url(//at.alicdn.com/t/font_1636368_1bd52uvx2ex.ttf?t=1606640071622) format("truetype"),url(//at.alicdn.com/t/font_1636368_1bd52uvx2ex.svg?t=1606640071622#iconfont) format("svg")
+} */
+
 @font-face {
     font-family: iconfont;
     src: url(//at.alicdn.com/t/font_1636368_1bd52uvx2ex.eot?t=1606640071622);
@@ -234,12 +240,13 @@ main {
     font-family: Comic Sans MS,Helvetica Neue,Microsoft Yahei,-apple-system,sans-serif;
     font-size: 4.7rem;
     font-weight: 200;
-    color: var(--color-title);
+    /* color: var(--color-title); */
+    color:#EF6140;
     line-height: 1;
     margin-top: .8em;
     margin-bottom: .3em;
-    animation: whiteShadow 1.5s ease-in-out infinite alternate;
-    text-shadow: #452d2d 0 0 1px,#fffffb 0 0 1px,#fffffb 0 0 2px
+    /* animation: whiteShadow 1.5s ease-in-out infinite alternate; */
+    /* text-shadow: #452d2d 0 0 1px,#fffffb 0 0 1px,#fffffb 0 0 2px */
 }
 
 @media screen and (max-width: 50em) {
