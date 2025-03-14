@@ -262,8 +262,8 @@ var saying = getTime();
                         ))
                     }
                 },
-                game: {
-                    description: "You can play a game.",
+                saolei: {
+                    description: "Open a saolei game in a new page.",
                     run: function(e) {
                         return new Promise((function(t) {
                             e({
@@ -271,7 +271,7 @@ var saying = getTime();
                                 label: "Success",
                                 content: "Opening"
                             }),
-                            window.open("game.html", "_blank"),
+                            window.open("saolei.html", "_blank"),
                             t({
                                 type: "success",
                                 label: "Done",
