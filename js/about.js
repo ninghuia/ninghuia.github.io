@@ -256,8 +256,8 @@ var saying = getTime();
                         ))
                     }
                 },
-                saolei: {
-                    description: "Open a saolei game in a new page.",
+                game: {
+                    description: "Open a game in a new page.",
                     run: function(e) {
                         return new Promise((function(t) {
                             e({
