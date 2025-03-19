@@ -14,20 +14,14 @@ function getTime(){
         helloText = "早点休息，身体是革命的本钱啊";
     }else if(hours>=3&&hours<5){
         helloText = "这个点来，你这是还没睡呢？还是已经醒了";
-    }else if(hours>=5&&hours<7){
-        helloText = "一句简单的早安, 愿你一天如诗般美好, 阳光满溢";
-    }else if(hours>=7&&hours<8){
-        helloText = "上午好，愿你的一天从一缕阳光开始，温馨又美好‌‌";
-    }else if(hours>=8&&hours<9){
-        helloText = "新的一天又开始了，祝你过得快乐呀";
-    }else if(hours>=9&&hours<10){
-        helloText = "每当你坚定前行，生活总会赠你温暖与惊喜‌‌";
-    }else if(hours>=10&&hours<11){
-        helloText = "上午的阳光如此温暖，希望你的一天也如阳光般明媚‌‌";
-    }else if(hours>=11&&hours<12){
-        helloText = "马上该吃午饭啦！忙一上午了，中午记得吃点好的";
+    }else if(hours>=5&&hours<8){
+        helloText = "清晨的第一缕阳光, 带来我满满的祝福与希望";
+    }else if(hours>=8&&hours<10){
+        helloText = "不是每个人都能听到我的早安, 但你是那特别的例外";
+    }else if(hours>=10&&hours<12){
+        helloText = "愿你每个小时都充满阳光，上午愉快！";
     }else if(hours>=12&&hours<13){
-        helloText = "午后的小憩，愿你的思绪如云般自由飘荡‌‌";
+        helloText = "不能控制未来,但可以把握现在,午安";
     }else if(hours>=13&&hours<14){
         helloText = "午后的时光，愿你的工作或学习充满灵感和效率‌‌";
     }else if(hours>=14&&hours<15){
@@ -41,7 +35,7 @@ function getTime(){
     }else if(hours>=18&&hours<19){
         helloText = "傍晚的时光，愿你的生活充满温馨和甜蜜‌‌";
     }else if(hours>=19&&hours<22){
-        helloText = "傍晚时分，愿你回顾一天的美好，心中充满满足和幸福‌‌";
+        helloText = "‌晚上的问候，愿你疲惫一天后得到放松和安宁。";
     }else if(hours>=22&&hours<23){
         helloText = "夜幕降临，愿你拥有一个宁静而美好的夜晚‌‌";
     }else if(hours=23){
@@ -82,7 +76,7 @@ var saying = getTime();
             return "".concat(t).concat(n < 10 ? ":0" : ":").concat(n).concat(o < 10 ? ":0" : ":").concat(o)
         }
         //   , l = [saying+"H".concat("i！ Welcome back ！Nice to meet you again."), {
-            , l = ['Hello! Welcome back !  '+ saying, {
+            , l = ['Hello! '+ saying, {
             type: "system",
             label: "System",
             content: "cd ".concat("Xiao Chen")
