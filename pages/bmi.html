@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>身体质量指数（BMI）</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?c6a16e7744f5e96b195b98f5a2818207";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            width:100%;
+            height:100vh;
+            background: radial-gradient(#313131, #0a0a0a);
+        }
+        #content{
+            width:400px;
+            height:600px;
+            color:#eee;
+            /* border:1px dashed red; */
+            margin:0 auto;
+            padding-top:32px;
+            text-align: center;
+            font-size:18px;
+            font-weight:lighter;
+            overflow: visible;
+        }
+        .title{
+            margin-bottom:32px;
+            color:#72e176;
+            font-size:32px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+            text-indent: 10px;
+        }
+        input[type="number"] {
+            background-color: #3d3d3d;
+            width: 360px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #4d4d4d;
+            border-radius: 4px;
+            color: #e0e0e0;
+            transition: all 0.2s ease;
+        }
+        .calculateBtn {
+            margin-top:25px;
+            width: 300px;
+            padding: 10px;
+            background-color: #207a38;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        .result{
+            /* font-size:18px; */
+            padding:30px 6px 0 6px;
+        }
+        .tips{
+            width:100%;
+            font-size:12px;
+            position:absolute;
+            bottom:5px;
+            color:#999;
+            text-align: center;
+        }
+        .unselectable {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            }
+            
+    </style>
+</head>
+<body>
+    <div id="content" class="unselectable">
+        <h2 class="title">BMI计算器</h2>
+        <label for="weight">体重 (kg):</label>
+        <input type="number" id="weight" placeholder="请输入体重" required>
+        <label for="height">身高 (cm):</label>
+        <input type="number" id="height" placeholder="请输入身高" required>
+        <button class="calculateBtn" onclick="calculateBMI()">计算 BMI</button>
+        <div id="result" class="result"></div>
+    </div>
+    <div class="tips">BMI=体重（公斤）/身高（米）的平方计算得来<br>身体质量指数是用来测量身体肥胖程度及是否健康的一个指标。<br>我国成年人BMI参考值：<br>18.5-23.9 kg/m^2属正常范围；低于18.5 kg/m^2表示体重过低；24.0-27.9 kg/m^2表示超重；大于等于28.0kg/m^2时表示人体可能处于肥胖状态。</div>
+<script>
+    // BMI 计算函数
+    function calculateBMI() {
+        const weight = parseFloat(document.getElementById('weight').value);
+        const height = parseFloat(document.getElementById('height').value);
+        const result = document.getElementById('result');
+
+        if (weight > 0 && height > 0 && height <= 272) {
+            const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+            let category = '';
+            let color = '';
+
+
+            // BMI 分类和颜色设置
+            if (bmi < 18.5) {
+                category = "偏廋";
+                text = "您目前的体重偏轻哦，建议适当增加营养摄入，合理锻炼增加体重呢，营养不良、免疫力低，增加高热量食物摄入";
+                sport = "运动推荐：力量训练、高强度间歇训练、游泳。";
+                food = "饮食方面：多吃富含优质蛋白食物如鸡胸、鱼虾等，增加主食摄入，像米饭、馒头可适当多吃些，多吃蔬果如苹果、西红柿，适当加餐，例如可准备些坚果、牛奶在两餐之间食用，还可多吃些高热量但健康的食物如牛油果、奶酪，帮助增加体重、增强体质。";
+                color = '#FFC107'; // 黄色
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = "正常";
+                text = "您的体重处于正常范围呀，继续保持良好的生活和饮食习惯就好啦，健康风险低，均衡饮食";
+                sport = "推荐运动：有氧运动、力量训练、瑜伽或普拉提。";
+                food = "饮食方面：主食粗细搭配，如将白米搭配上糙米、把白面馒头换成杂粮馒头，丰富蛋白质来源，除了常见的畜禽肉、鱼虾，也可常吃些豆制品如豆腐、腐竹，多吃蔬菜水果，像菠菜、香蕉等，控制油盐摄入，烹饪少用油炸、油煎，多用蒸、煮、炖，且减少放盐量。";
+                color = '#4CAF50'; // 绿色
+            } else if (bmi >= 25 && bmi < 29.9) {
+                category = "超重";
+                text = "您目前的体重有些超重了哦，建议合理控制饮食，增加运动量来减轻体重呀，心血管疾病风险增加，减少高热量食物摄入";
+                sport = "运动推荐：有氧运动、力量训练、高强度间歇训练。";
+                food = "饮食方面：控制总热量，可借助饮食记录软件了解每日热量摄入情况，增加膳食纤维，多吃芹菜、燕麦等富含膳食纤维的食物，选低脂肪食物，比如优先选择清蒸鱼、水煮虾这类低脂高蛋白食物，少吃油炸零食、五花肉等高脂肪食物。";
+                color = '#FF9800'; // 橙色
+            } else {
+                category = "肥胖";
+                text = "您目前体重处于肥胖状态了，建议咨询专业医生或健身教练，制定个性化的减肥计划哦，多种慢性疾病风险，严格控制饮食";
+                sport = "运动推荐：低冲击有氧运动、力量训练、步行。";
+                food = "饮食方面：严控热量，依据自身基础代谢等情况制定合理热量范围，吃高纤维低热量食物，像冬瓜、黄瓜等蔬菜可大量吃，水果选择低糖的如草莓、柠檬等，规律少食多餐，可将一天食物量分成5到6餐，避免一次进食过多，每餐间隔3到4小时左右，减少饮料、糕点等高糖高热量食物的摄入。";
+                color = '#F44336'; // 红色
+            }
+            // 计算建议体重范围，这里使用简单常见的计算方式（仅供参考，实际健康建议更复杂）
+            let minSuggestedWeight = (height - 105) * 0.9;
+            let maxSuggestedWeight = (height - 105) * 1.05;
+            // 根据语言显示结果
+            result.innerHTML = `
+                <div style="color: ${color}; font-weight: bold; font-size: 16px;">
+                    您的BMI是：${bmi}（${category}）
+                    <br>
+                    <br>
+                ${text}合适的体重范围大致在${minSuggestedWeight}kg~${maxSuggestedWeight}kg 之间呢。
+                <br>
+                ${sport}
+                <br>
+                ${food}
+                </div>
+            `;
+        } else {
+            result.innerHTML = '无计算结果';
+        }
+    }
+</script>
+</body>
+</html>

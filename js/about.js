@@ -37,7 +37,7 @@ function getTime(){
     }else if(hours>=19&&hours<22){
         helloText = "‌晚上的问候，愿你疲惫一天后得到放松和安宁。";
     }else if(hours>=22&&hours<23){
-        helloText = "夜幕降临，愿你拥有一个宁静而美好的夜晚‌‌";
+        helloText = "愿你拥有一个宁静而美好的夜晚‌‌";
     }else if(hours=23){
         helloText = "夜深了，你还没睡呀";
     }else{
@@ -94,12 +94,13 @@ var saying = getTime();
             type: "info",
             label: "Sex:",
             content: "Male"
-        }, {
-            time: r(),
-            type: "info",
-            label: "Age:",
-            content: "24"
-        },
+        }, 
+        // {
+        //     time: r(),
+        //     type: "info",
+        //     label: "Age:",
+        //     content: "24"
+        // },
         //  {
         //     time: r(),
         //     type: "info",

@@ -1,0 +1,159 @@
+<!DOCTYPE html style="font-size:72px;">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+    <title>这个没炸弹</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?c6a16e7744f5e96b195b98f5a2818207";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+}
+.unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+body, html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: url(assets/bg.gif);
+    background-repeat: repeat;
+}
+body, button, input, select, textarea {
+    font-family: PingFang SC, Microsoft YaHei, Arial, sans-serif !important;
+}
+#foot{
+    width:100%;
+    position: fixed;
+    top:0;
+    font-size:40px;
+    text-align: center;
+    color:rgba(0,0,0,.2);
+}
+#main{
+    width:368px;
+    height:370px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-185px;
+    margin-left:-181px;
+    /* border:2px solid red; */
+    overflow: hidden;
+}
+.letterList{
+    margin-bottom:10px;
+}
+.letterList .letterBox{
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align: center;
+    line-height: 30px;
+    margin-right:10px;
+    font-size:20px;
+    border:1px solid #47cc9b;
+    border-radius: 8px;;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.letterList .letterBox:last-child{
+    margin-right:0;
+}
+    </style>
+    <script>
+       !new function(){var a=this;a.width=750,a.fontSize=100,a.widthProportion=function(){var b=(document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/a.width;return b>1?1:b},a.changePage=function(){document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+a.widthProportion()*a.fontSize+"px !important")},a.changePage(),window.addEventListener("resize",function(){a.changePage()},!1)};
+    </script>
+</head>
+<body class="unselectable">
+    <audio id="myAudio" src=""></audio>
+    <div id="main">
+        <div class="letterList">
+            <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
+        </div>
+        <div class="letterList">
+            <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
+        </div>
+        <div class="letterList">
+            <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
+        </div>
+        <div class="letterList">
+            <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
+        </div>
+        <div class="letterList">
+            <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
+        </div>
+        <div class="letterList">
+            <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
+        </div>
+        <div class="letterList">
+            <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
+        </div>
+        <div class="letterList">
+            <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
+        </div>
+        <div class="letterList">
+            <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
+        </div>
+    </div>
+    <!-- <div id="foot"></div> -->
+    <!-- <script src="../js/zimu.js"></script> -->
+     <script>
+     var letterBoxes = document.getElementsByClassName("letterBox");
+     var myAudio = document.getElementById("myAudio");
+     // 生成一个范围在[min, max]之间的随机整数
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+     var randomNum = getRandomInt(1,81);
+     var leiNum = randomNum+1;
+    //  document.getElementById("foot").innerHTML = leiNum;
+     console.log(randomNum);
+     for(var index=0;index<letterBoxes.length;index++){
+        (function(i){
+            // if(i!==randomNum){
+                letterBoxes[i].onclick = function(){
+                    myAudio.src = 'assets/mp3/game_click.wav';
+                    myAudio.play();
+                    letterBoxes[i].innerHTML = '😊';
+                    letterBoxes[i].style.background = "#fff";
+                    letterBoxes[i].style.borderColor = "#fff";
+                }
+            // }    
+        })(index)
+     }
+    //  letterBoxes[randomNum].onclick = function(){
+    //     for(var j=0;j<30;j++){
+    //         letterBoxes[j].innerHTML = '😭';
+    //         letterBoxes[j].style.background = "#fff";
+    //         letterBoxes[j].style.borderColor = "#fff";
+    //     }
+    //     letterBoxes[randomNum].innerHTML = '💣';
+    //     letterBoxes[randomNum].style.background = "red";
+    //     letterBoxes[randomNum].style.borderColor = "red";
+    //     letterBoxes[randomNum].style.fontSize = "24px";
+    
+    //     myAudio.src = 'assets/mp3/zhadan.wav';
+    //     myAudio.play();
+    //     myAudio.onended = function(){
+    //         alert('地雷爆炸了，游戏结束，再来一局');
+    //         window.location.reload();
+    //     }
+    //  }
+     </script>
+</body>
+
+</html>
