@@ -71,6 +71,17 @@ body, button, input, select, textarea {
 .letterList .letterBox:last-child{
     margin-right:0;
 }
+/* #foot{
+    position: fixed;
+    bottom:10px;
+    width:150px;
+    height:50px;
+    margin:0 auto;
+    line-height: 50px;
+    text-align: center;
+    border:1px solid #999;
+    color:#999;
+} */
     </style>
     <script>
        !new function(){var a=this;a.width=750,a.fontSize=100,a.widthProportion=function(){var b=(document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/a.width;return b>1?1:b},a.changePage=function(){document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+a.widthProportion()*a.fontSize+"px !important")},a.changePage(),window.addEventListener("resize",function(){a.changePage()},!1)};
@@ -107,6 +118,7 @@ body, button, input, select, textarea {
             <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
         </div>
     </div>
+    <!-- <div id="foot">继续</div> -->
     <!-- <div id="foot"></div> -->
     <!-- <script src="../js/zimu.js"></script> -->
      <script>
@@ -122,13 +134,20 @@ body, button, input, select, textarea {
      var leiNum = randomNum+1;
     //  document.getElementById("foot").innerHTML = leiNum;
      console.log(randomNum);
+
+     var biaoqing = ['🍅','🍎','🌶','🍓','🍄','🍒','🍉','🍇','🌽','🥕','🍑','🍊','🥭','🎃','🍈','🍐','🍏','🥦','🧁','🍭','🍡','🎂','🍔','🍕','🍩','🍟 ','🍰','🍤','🫐','🍳','🍿','🌮','🥟','🥐','🌭','🍬','🍼','🍽','🍖','🍗','🥘','🍲','🍱','🐳','🦀','🐓','🐙','🦊','🍁','🌵','🌳','🌴','🍀','🌱','🌹','🌼','🌻','🌸','🌺'];
+     function getRandomItem(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+     }
+
      for(var index=0;index<letterBoxes.length;index++){
         (function(i){
             // if(i!==randomNum){
                 letterBoxes[i].onclick = function(){
                     myAudio.src = 'assets/mp3/game_click.wav';
                     myAudio.play();
-                    letterBoxes[i].innerHTML = '😊';
+                    var randomItem = getRandomItem(biaoqing);
+                    letterBoxes[i].innerHTML = randomItem;
                     letterBoxes[i].style.background = "#fff";
                     letterBoxes[i].style.borderColor = "#fff";
                 }
