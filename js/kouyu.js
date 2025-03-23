@@ -1,7 +1,7 @@
 var words = [
     {
-        h:"demo",
-        e:"this is a test demo.",
+        h:"测试案例",
+        e:"如意如意你真棒",
         src:"assets/mp3/kouyu/ruyi.mp3"
     },
     {
