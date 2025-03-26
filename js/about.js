@@ -181,25 +181,25 @@ var saying = getTime();
                         ))
                     }
                 },
-                // tool: {
-                //     description: "Open the small tool page.",
-                //     run: function(e) {
-                //         return new Promise((function(t) {
-                //             e({
-                //                 type: "success",
-                //                 label: "Success",
-                //                 content: "Opening"
-                //             }),
-                //             window.open("ideas.html", "_blank"),
-                //             t({
-                //                 type: "success",
-                //                 label: "Done",
-                //                 content: "Page Opened!"
-                //             })
-                //         }
-                //         ))
-                //     }
-                // },
+                ruyihuahua: {
+                    description: "Open the page about ruyi huahua.",
+                    run: function(e) {
+                        return new Promise((function(t) {
+                            e({
+                                type: "success",
+                                label: "Success",
+                                content: "Opening"
+                            }),
+                            window.open("ruyihuahua/index.html", "_blank"),
+                            t({
+                                type: "success",
+                                label: "Done",
+                                content: "Page Opened!"
+                            })
+                        }
+                        ))
+                    }
+                },
                 blog: {
                     description: "Go to the blog page.",
                     run: function(e) {
