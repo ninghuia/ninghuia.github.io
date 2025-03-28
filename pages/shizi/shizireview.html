@@ -25,6 +25,59 @@
             font-size:28px;
             vertical-align: middle;
         }
+        #bigBox{
+    /* display: none; */
+    width:300px;
+    height:300px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:-180px;
+    margin-left:-150px;
+    /* border:1px solid green; */
+    /* background-image:url(assets/zi.webp);
+    background-position: center center;
+    background-size: cover; */
+    z-index:999;
+}
+#bigBox .txt{
+    /* display: none; */
+    width:300px;
+    height:300px;
+    background: #fff;
+    color:#000;
+    border:2px solid #eee;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 300px;
+    font-size:200px;
+    cursor: pointer;
+}
+.btnBox{
+    padding-top:20px;
+    width:300px;
+    height:100px;
+    /* line-height: 100px; */
+    text-align: center;
+    /* border:1px solid blue; */
+}
+.sound{
+    display:inline-block;
+    /* margin-right:50px; */
+}
+.changeBtn{
+    display: inline-block;
+    width:130px;
+    height:42px;
+    font-size:26px;
+    text-align: center;
+    line-height: 42px;
+    color:#999;
+    /* border:1px solid #999; */
+    border-radius: 21px 21px;
+    cursor: pointer;
+    vertical-align: middle;
+}
     </style>
     <script>
         var _hmt = _hmt || [];
@@ -40,229 +93,79 @@
     </script>
 </head>
 <body class="unselectable">
-    <audio id="myAudio" src=""></audio>
-    <div id="main" style="z-index:1000">
-        <div class="content">
-            <div class="letterList"></div>
-        </div>
-    </div>
-    <!-- <div id="mask"></div> -->
+    <!-- <audio id="myAudio" src=""></audio> -->
     <div id="bigBox">
         <div class="txt">一</div>
         <div class="btnBox">
-            <span class="sound"><img id="playImg" src="../assets/play.png" alt=""></span>
-            <span class="close" id="next">换</span>
+            <!-- <span class="sound"><img id="playImg" src="../assets/play.png" alt=""></span> -->
+            <span class="changeBtn" id="prev">👈</span>
+            <span class="changeBtn" id="next">👉</span>
         </div>
     </div>
     <div id="close"></div>
     <script>
         var text = '一二三个人大山上下小雨天车开火门口月羊只有牛水中风头田土里在日白马手出王子儿女刀木鸟伞鱼瓜气飞虫米云电石了来玉去回多少问早巴父工力不干几男坐打四五六闪的花朵果比午面高包文分平我连元丁厂目见兔禾是把笑着看会自己画好爱心也可家爸妈这爷奶们书串球圆形长方正角灯块冰那弓买哪乐谢想抱竹要立耳红色吃香穿身它发衣他她毛朋友哥弟兄眉鼻光星阳亮今明走兴空两哭牙肚尾你脸黑半呀吗七八九十又很太宝贝和关园生公苗叶林草先岛';
-        var text = [
-            {
-                "txt":"一",
-                "audioSrc":"../assets/mp3/hanzi/hz1.mp3"
-            },
-            {
-                "txt":"二",
-                "audioSrc":"../assets/mp3/hanzi/hz2.mp3"
-            },
-            {
-                "txt":"三",
-                "audioSrc":"../assets/mp3/hanzi/hz3.mp3"
-            },
-            {
-                "txt":"个",
-                "audioSrc":"../assets/mp3/hanzi/hz4.mp3"
-            },
-            {
-                "txt":"人",
-                "audioSrc":"../assets/mp3/hanzi/hz5.mp3"
-            },
-            {
-                "txt":"大",
-                "audioSrc":"../assets/mp3/hanzi/hz6.mp3"
-            },
-            {
-                "txt":"山",
-                "audioSrc":"../assets/mp3/hanzi/hz7.mp3"
-            },
-            {
-                "txt":"上",
-                "audioSrc":"../assets/mp3/hanzi/hz8.mp3"
-            },
-            {
-                "txt":"下",
-                "audioSrc":"../assets/mp3/hanzi/hz9.mp3"
-            },
-            {
-                "txt":"小",
-                "audioSrc":"../assets/mp3/hanzi/hz10.mp3"
-            },
-            {
-                "txt":"雨",
-                "audioSrc":"../assets/mp3/hanzi/hz11.mp3"
-            },
-            {
-                "txt":"天",
-                "audioSrc":"../assets/mp3/hanzi/hz12.mp3"
-            },
-            {
-                "txt":"车",
-                "audioSrc":"../assets/mp3/hanzi/hz13.mp3"
-            },
-            {
-                "txt":"开",
-                "audioSrc":"../assets/mp3/hanzi/hz14.mp3"
-            },
-            {
-                "txt":"火",
-                "audioSrc":"../assets/mp3/hanzi/hz15.mp3"
-            },
-            {
-                "txt":"门",
-                "audioSrc":"../assets/mp3/hanzi/hz16.mp3"
-            },
-            {
-                "txt":"口",
-                "audioSrc":"../assets/mp3/hanzi/hz17.mp3"
-            },
-            {
-                "txt":"月",
-                "audioSrc":"../assets/mp3/hanzi/hz18.mp3"
-            },
-            {
-                "txt":"羊",
-                "audioSrc":"../assets/mp3/hanzi/hz19.mp3"
-            },
-            {
-                "txt":"只",
-                "audioSrc":"../assets/mp3/hanzi/hz20.mp3"
-            },
-            {
-                "txt":"有",
-                "audioSrc":"../assets/mp3/hanzi/hz21.mp3"
-            },
-            {
-                "txt":"牛",
-                "audioSrc":"../assets/mp3/hanzi/hz22.mp3"
-            },
-            {
-                "txt":"水",
-                "audioSrc":"../assets/mp3/hanzi/hz23.mp3"
-            },
-            {
-                "txt":"中",
-                "audioSrc":"../assets/mp3/hanzi/hz24.mp3"
-            },
-            {
-                "txt":"风",
-                "audioSrc":"../assets/mp3/hanzi/hz25.mp3"
-            },
-            {
-                "txt":"头",
-                "audioSrc":"../assets/mp3/hanzi/hz26.mp3"
-            },
-            {
-                "txt":"田",
-                "audioSrc":"../assets/mp3/hanzi/hz27.mp3"
-            },
-            {
-                "txt":"土",
-                "audioSrc":"../assets/mp3/hanzi/hz28.mp3"
-            },
-            {
-                "txt":"里",
-                "audioSrc":"../assets/mp3/hanzi/hz29.mp3"
-            },
-            {
-                "txt":"在",
-                "audioSrc":"../assets/mp3/hanzi/hz30.mp3"
-            },
-            {
-                "txt":"日",
-                "audioSrc":"../assets/mp3/hanzi/hz31.mp3"
-            },
-            {
-                "txt":"白",
-                "audioSrc":"../assets/mp3/hanzi/hz32.mp3"
-            },
-            {
-                "txt":"马",
-                "audioSrc":"../assets/mp3/hanzi/hz33.mp3"
-            },
-            {
-                "txt":"手",
-                "audioSrc":"../assets/mp3/hanzi/hz34.mp3"
-            },
-            {
-                "txt":"出",
-                "audioSrc":"../assets/mp3/hanzi/hz35.mp3"
-            },
-            {
-                "txt":"王",
-                "audioSrc":"../assets/mp3/hanzi/hz36.mp3"
-            },
-            {
-                "txt":"子",
-                "audioSrc":"../assets/mp3/hanzi/hz37.mp3"
-            },
-            {
-                "txt":"儿",
-                "audioSrc":"../assets/mp3/hanzi/hz38.mp3"
-            },
-            {
-                "txt":"女",
-                "audioSrc":"../assets/mp3/hanzi/hz39.mp3"
-            },
-            {
-                "txt":"刀",
-                "audioSrc":"../assets/mp3/hanzi/hz40.mp3"
-            }
-        ];
-
-        function getRandomItem(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];
-        }
-        var randomItem = getRandomItem(text);
-
-        var myAudio = document.getElementById("myAudio");
-        var nextBtn = document.getElementById("next");
+        var arrs = text.split("");
         var txt = document.getElementsByClassName("txt")[0];
-        var playImg = document.getElementById("playImg");
-        txt.innerHTML = randomItem.txt;
-        myAudio.src = randomItem.audioSrc;
-
+        var nextBtn = document.getElementById("next");
+        var prevBtn = document.getElementById("prev");
+        var index = 0;
+        var arrLength = arrs.length;
+        txt.innerHTML = "一";
         nextBtn.onclick = function(){
-            playImg.src = '../assets/play.png';
-            txt.style.color = "#555";
-            var randomItem = getRandomItem(text);
-            txt.innerHTML = randomItem.txt;
-            myAudio.src = randomItem.audioSrc;
+            
+            if(index<arrLength-1){
+                index++;
+                txt.innerHTML = arrs[index];
+            }else{
+                index=0;
+                txt.innerHTML = arrs[index];
+            }
         }
+        prevBtn.onclick = function(){
+            if(index!=0){
+                index--;
+                txt.innerHTML = arrs[index];
+            }else{
+                index = 0;
+                txt.innerHTML = arrs[index];
+            }
+        }
+        
 
-        playImg.onclick = function(){
-            txt.style.color = "#000";
-            playImg.src = '../assets/play.gif';
-            myAudio.play();
-        }
-        myAudio.onended = function(){
-            playImg.src = '../assets/play.png';
-            txt.style.color = "#555";
-        }
+        // function getRandomItem(arr) {
+        //     return arr[Math.floor(Math.random() * arr.length)];
+        // }
+        // var randomItem = getRandomItem(text);
+
+        // var myAudio = document.getElementById("myAudio");
+        // var nextBtn = document.getElementById("next");
+        // var txt = document.getElementsByClassName("txt")[0];
+        // var playImg = document.getElementById("playImg");
+        // txt.innerHTML = randomItem.txt;
+        // myAudio.src = randomItem.audioSrc;
+
+        // nextBtn.onclick = function(){
+        //     playImg.src = '../assets/play.png';
+        //     txt.style.color = "#555";
+        //     var randomItem = getRandomItem(text);
+        //     txt.innerHTML = randomItem.txt;
+        //     myAudio.src = randomItem.audioSrc;
+        // }
+
+        // playImg.onclick = function(){
+        //     txt.style.color = "#000";
+        //     playImg.src = '../assets/play.gif';
+        //     myAudio.play();
+        // }
+        // myAudio.onended = function(){
+        //     playImg.src = '../assets/play.png';
+        //     txt.style.color = "#555";
+        // }
 
     </script>
     <!-- <script src="../../js/shizi.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // 当元素被单击时执行的函数
-            $('.letterBox').click(function() {
-                $('.letterBox').removeClass('active');
-                // 将元素的class设置为"active"
-                $(this).addClass('active');
-            });
-        });
-    </script>
+    
 </body>
 
 </html>
