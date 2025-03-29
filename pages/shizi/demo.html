@@ -1,0 +1,330 @@
+<!DOCTYPE html style="font-size:72px;">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon"/>
+    <!-- <link rel="stylesheet" href="../../css/shizi.css"> -->
+    <title>幼儿识字启蒙</title>
+    <style>
+        body{
+            /* background: radial-gradient(#313131, #0a0a0a);; */
+        }
+        .unselectable {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+        .bigBox{
+            display:block;
+        }
+        #playImg{
+            vertical-align: middle;
+            margin-right:60px;
+            cursor: pointer;
+        }
+        .bigBox .txt{
+            color:#555;
+        }
+        #next{
+            /* font-size:24px; */
+            vertical-align: middle;
+        }
+        .bigBox{
+    /* display: none; */
+    width:300px;
+    height:300px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:-120px;
+    margin-left:-150px;
+    /* border:1px solid green; */
+    /* background-image:url(assets/zi.webp);
+    background-position: center center;
+    background-size: cover; */
+    z-index:999;
+}
+.bigBox .txt{
+    /* display: none; */
+    width:300px;
+    height:300px;
+    background: #fff;
+    color:#000;
+    border:2px solid #eee;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 300px;
+    font-size:200px;
+    cursor: pointer;
+}
+#hanziBox1{
+    display:block;
+}
+#hanziBox2{
+    display:none;
+}
+.btnBox{
+    padding-top:40px;
+    margin: 0 auto;
+    width:300px;
+    height:50px;
+    /* line-height: 100px; */
+    /* text-align: center; */
+    /* border:1px solid blue; */
+}
+.sound{
+    display:inline-block;
+    /* margin-right:50px; */
+}
+.changeBtn{
+    display: inline-block;
+    width:100px;
+    height:50px;
+    font-size:24px;
+    text-align: center;
+    line-height: 50px;
+    color:#999;
+    border:1px solid #eee;
+    border-radius: 10px 10px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.mr22{
+    margin-right:22px;
+}
+.noBackground{
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-user-select: none;
+    -moz-user-focus: none;
+    -moz-user-select: none;
+}
+#allLetters{
+    margin-right:96px;
+    border-color: #EF6140;
+    color:#EF6140;
+}
+#addStudy{
+    width:50px;
+    border-radius: 25px;
+}
+#removeStudy{
+    width:50px;
+    border-radius: 25px;
+}
+#tips{
+    display:none;
+    padding-top:90px;
+    text-align: center;
+    font-size:20px;
+    color:#EF6140;
+}
+    </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?c6a16e7744f5e96b195b98f5a2818207";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+       !new function(){var a=this;a.width=750,a.fontSize=100,a.widthProportion=function(){var b=(document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/a.width;return b>1?1:b},a.changePage=function(){document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+a.widthProportion()*a.fontSize+"px !important")},a.changePage(),window.addEventListener("resize",function(){a.changePage()},!1)};
+    </script>
+</head>
+<body class="unselectable">
+    <!-- <audio id="myAudio" src=""></audio> -->
+    <div class="btnBox">
+        <span class="changeBtn noBackground" id="allLetters">未学习<br><em id="num1">0</em></span><span class="changeBtn noBackground" id="myStydy">已学习<br><em id="num2">0</em></span>
+    </div>
+    <div id="tips"></div>
+    <div class="bigBox" id="hanziBox1">
+        <div class="txt noBackground">一</div>
+        <div class="btnBox">
+            <span class="changeBtn mr22 noBackground" id="prev1">上一个</span><span class="changeBtn mr22 noBackground" id="addStudy">已学</span><span class="changeBtn noBackground" id="next1">下一个</span>
+        </div>
+    </div>
+    <div class="bigBox" id="hanziBox2">
+        <div class="txt noBackground">一</div>
+        <div class="btnBox">
+            <span class="changeBtn mr22 noBackground" id="prev2">上一个</span><span class="changeBtn mr22 noBackground" id="removeStudy">未学</span><span class="changeBtn noBackground" id="next2">下一个</span>
+        </div>
+    </div>
+    <script>
+        var num1 = document.getElementById("num1");
+        var num2 = document.getElementById("num2");
+        var txt1 = document.getElementsByClassName("txt")[0];
+        var txt2 = document.getElementsByClassName("txt")[1];
+        var tips = document.getElementById("tips");
+        var hanziBox1 = document.getElementById("hanziBox1");
+        var hanziBox2 = document.getElementById("hanziBox2");
+        var nextBtn1 = document.getElementById("next1");
+        var prevBtn1 = document.getElementById("prev1");
+        var nextBtn2 = document.getElementById("next2");
+        var prevBtn2 = document.getElementById("prev2");
+        var allLetters = document.getElementById("allLetters");
+        var myStydy = document.getElementById("myStydy");
+        var addSyudy = document.getElementById("addStudy");
+        var removeStudy = document.getElementById("removeStudy");
+        function showTip(msg){
+            tips.innerHTML = msg;
+            tips.style.display = "block";
+            setTimeout(function(){
+                tips.style.display = "none";
+            },2000)
+            clearTimeout();
+        }
+        var text = '一二三个人大山上下小雨天车开火门口月羊只有牛水中风头田土里在日白马手出王子儿女刀木鸟伞鱼瓜气飞虫米云电石了来玉去回多少问早巴父工力不干几男坐打四五六闪的花朵果比午面高包文分平我连元丁厂目见兔禾是把笑着看会自己画好爱心也可家爸妈这爷奶们书串球圆形长方正角灯块冰那弓买哪乐谢想抱竹要立耳红色吃香穿身它发衣他她毛朋友哥弟兄眉鼻光星阳亮今明走兴空两哭牙肚尾你脸黑半呀吗七八九十又很太宝贝和关园生公苗叶林草先岛';
+        var arrs = text.split("");
+        var index1 = 0;
+        var index2 = 0;
+        var arrLength1 = arrs.length;
+        num1.innerHTML = arrLength1;
+        txt1.innerHTML = "一";
+        var studyLetters = [];
+        var newStudyLetters = [];
+        addSyudy.onclick = function(){
+            showTip("汉字 【 "+ txt1.innerHTML + " 】 添加到了已学习")
+            studyLetters.push(txt1.innerHTML);
+            newStudyLetters = Array.from(new Set(studyLetters));
+            console.log(newStudyLetters);
+            num2.innerHTML = newStudyLetters.length;
+        }
+        nextBtn1.onclick = function(){
+            if(index1<arrLength1-1){
+                index1++;
+                txt1.innerHTML = arrs[index1];
+            }else{
+                index1=0;
+                txt1.innerHTML = arrs[index1];
+            }
+        }
+        prevBtn1.onclick = function(){
+            if(index1!=0){
+                index1--;
+                txt1.innerHTML = arrs[index1];
+            }else{
+                index1=arrs.length-1;
+                txt1.innerHTML = arrs[index1];
+            }
+        }
+
+        allLetters.onclick = function(){
+            hanziBox1.style.display = "block";
+            hanziBox2.style.display = "none";
+            myStydy.style.color = "#999";
+            myStydy.style.borderColor= "#eee";
+            allLetters.style.color = "#EF6140";
+            allLetters.style.borderColor= "#EF6140";
+        }
+
+        // 已学习
+        num2.innerHTML = newStudyLetters.length;
+        var index2 = 0;
+        var arrLength2 = 0;
+        myStydy.onclick = function(){
+            hanziBox1.style.display = "none";
+            hanziBox2.style.display = "block";
+            arrs1 = newStudyLetters;
+            arrLength2 = newStudyLetters.length;
+            if(studyLetters.length!=0){
+                txt2.innerHTML = newStudyLetters[0];
+            }else{
+                txt2.innerHTML = '';
+            }
+            if(newStudyLetters.length==0){
+                hanziBox2.style.display = "none";
+                showTip("暂时为空哦")
+            }
+            
+            myStydy.style.color = "#EF6140";
+            myStydy.style.borderColor= "#EF6140";
+            allLetters.style.color = "#999";
+            allLetters.style.borderColor= "#eee";
+        }
+        removeStudy.onclick = function(){
+            console.log(txt2.innerHTML)
+            showTip("汉字 【 "+ txt2.innerHTML + " 】 添加到了未学习")
+            // var m = arrs1.indexOf(txt2.innerHTML);
+            var nowValue = txt2.innerHTML;
+            arrs1.filter(item => item !== nowValue);
+            console.log(newArr);
+            // if(m!=arrs1.length-1){
+            // if(newArr.length!=0){
+                txt2.innerHTML = arrs1[0];
+                num2.innerHTML = arrs1.length;
+            // }else{
+            // if(newArr.length==0){
+            //     hanziBox2.style.display = "none";
+            //     showTip("已为空哦");
+            // }
+                
+            // }
+                
+            // }else{
+                
+        
+            
+            // studyLetters.push(txt2.innerHTML);
+            // newStudyLetters = Array.from(new Set(studyLetters));
+            // console.log(newStudyLetters);
+            
+        }
+        nextBtn2.onclick = function(){
+            if(index2<arrLength2-1){
+                index2++;
+                txt2.innerHTML = arrs1[index2];
+            }else{
+                index2=0;
+                txt2.innerHTML = arrs1[index2];
+            }
+        }
+        prevBtn2.onclick = function(){
+            if(index2!=0){
+                index2--;
+                txt2.innerHTML = arrs1[index2];
+            }else{
+                index2=arrs1.length-1;
+                txt2.innerHTML = arrs1[index2];
+            }
+        }
+        
+
+        // function getRandomItem(arr) {
+        //     return arr[Math.floor(Math.random() * arr.length)];
+        // }
+        // var randomItem = getRandomItem(text);
+
+        // var myAudio = document.getElementById("myAudio");
+        // var nextBtn = document.getElementById("next");
+        // var txt = document.getElementsByClassName("txt")[0];
+        // var playImg = document.getElementById("playImg");
+        // txt.innerHTML = randomItem.txt;
+        // myAudio.src = randomItem.audioSrc;
+
+        // nextBtn.onclick = function(){
+        //     playImg.src = '../assets/play.png';
+        //     txt.style.color = "#555";
+        //     var randomItem = getRandomItem(text);
+        //     txt.innerHTML = randomItem.txt;
+        //     myAudio.src = randomItem.audioSrc;
+        // }
+
+        // playImg.onclick = function(){
+        //     txt.style.color = "#000";
+        //     playImg.src = '../assets/play.gif';
+        //     myAudio.play();
+        // }
+        // myAudio.onended = function(){
+        //     playImg.src = '../assets/play.png';
+        //     txt.style.color = "#555";
+        // }
+
+    </script>
+    <!-- <script src="../../js/shizi.js"></script> -->
+    
+</body>
+
+</html>

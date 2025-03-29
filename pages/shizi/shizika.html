@@ -1,14 +1,20 @@
-<!DOCTYPE html style="font-size:72px;">
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <meta name="keywords" content="如意识字,识字,幼儿认汉字,幼儿识字,幼儿识字启蒙"/>
+	<meta name="description" content="如意识字是针对幼儿园小朋友开发制作的识字卡，家长配合快教快会，随时随地掏出手机，快速翻页问答记忆，希望有幸能帮到您。" />
     <link rel="icon" href="../../favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="../../css/shizi.css">
-    <title>识字复习</title>
+    <!-- <link rel="stylesheet" href="../../css/shizi.css"> -->
+    <title>如意识字</title>
+    <script>
+        window.__decodeQ ='如意识字'
+    </script>
     <style>
-        body{
-            /* background: radial-gradient(#313131, #0a0a0a);; */
+        *{
+            margin:0;
+            padding:0;
         }
         #bigBox{
             display:block;
@@ -22,62 +28,67 @@
             color:#555;
         }
         #next{
-            font-size:28px;
             vertical-align: middle;
         }
         #bigBox{
-    /* display: none; */
-    width:300px;
-    height:300px;
-    position:fixed;
-    top:50%;
-    left:50%;
-    margin-top:-180px;
-    margin-left:-150px;
-    /* border:1px solid green; */
-    /* background-image:url(assets/zi.webp);
-    background-position: center center;
-    background-size: cover; */
-    z-index:999;
-}
-#bigBox .txt{
-    /* display: none; */
-    width:300px;
-    height:300px;
-    background: #fff;
-    color:#000;
-    border:2px solid #eee;
-    border-radius: 20px;
-    text-align: center;
-    line-height: 300px;
-    font-size:200px;
-    cursor: pointer;
-}
-.btnBox{
-    padding-top:20px;
-    width:300px;
-    height:100px;
-    /* line-height: 100px; */
-    text-align: center;
-    /* border:1px solid blue; */
-}
-.sound{
-    display:inline-block;
-    /* margin-right:50px; */
-}
-.changeBtn{
-    display: inline-block;
-    width:130px;
-    height:42px;
-    font-size:26px;
-    text-align: center;
-    line-height: 42px;
-    color:#999;
-    /* border:1px solid #999; */
-    border-radius: 21px 21px;
-    cursor: pointer;
-    vertical-align: middle;
-}
+            width:320px;
+            height:320px;
+            position:fixed;
+            top:50%;
+            left:50%;
+            margin-top:-200px;
+            margin-left:-162px;
+            z-index:999;
+        }
+        #bigBox .txt{
+            width:320px;
+            height:320px;
+            background: #fff;
+            color:#000;
+            border:2px solid #eee;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 310px;
+            font-size:240px;
+            cursor: pointer;
+        }
+        .btnBox{
+            padding-top:20px;
+            width:320px;
+            height:100px;
+        }
+        /* .sound{
+            display:inline-block;
+        } */
+        .changeBtn{
+            margin-top:32px;
+            display: inline-block;
+            width:100px;
+            height:50px;
+            font-size:24px;
+            text-align: center;
+            line-height: 50px;
+            color:#999;
+            border:1px solid #eee;
+            border-radius: 10px 10px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        #prev{
+            margin-right:116px;
+        }
+        .noBackground{
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            -webkit-user-select: none;
+            -moz-user-focus: none;
+            -moz-user-select: none;
+        }
+        .number{
+            padding-top:20px;
+            color:#999;
+            text-align: center;
+            font-size:16px;
+        }
     </style>
     <script>
         var _hmt = _hmt || [];
@@ -93,46 +104,56 @@
     </script>
 </head>
 <body class="unselectable">
-    <!-- <audio id="myAudio" src=""></audio> -->
+    <audio id="myAudio" src=""></audio>
     <div id="bigBox">
-        <div class="txt">一</div>
+        <div class="txt noBackground">一</div>
+        <div class="number"><span id="nowNum">1</span> / <span id="total">100</span></div>
         <div class="btnBox">
             <!-- <span class="sound"><img id="playImg" src="../assets/play.png" alt=""></span> -->
-            <span class="changeBtn" id="prev">👈</span>
-            <span class="changeBtn" id="next">👉</span>
+            <span class="changeBtn noBackground" id="prev">上一个</span><span class="changeBtn noBackground" id="next">下一个</span>
         </div>
     </div>
     <div id="close"></div>
     <script>
+        // var text = "一二三个人";
         var text = '一二三个人大山上下小雨天车开火门口月羊只有牛水中风头田土里在日白马手出王子儿女刀木鸟伞鱼瓜气飞虫米云电石了来玉去回多少问早巴父工力不干几男坐打四五六闪的花朵果比午面高包文分平我连元丁厂目见兔禾是把笑着看会自己画好爱心也可家爸妈这爷奶们书串球圆形长方正角灯块冰那弓买哪乐谢想抱竹要立耳红色吃香穿身它发衣他她毛朋友哥弟兄眉鼻光星阳亮今明走兴空两哭牙肚尾你脸黑半呀吗七八九十又很太宝贝和关园生公苗叶林草先岛';
         var arrs = text.split("");
         var txt = document.getElementsByClassName("txt")[0];
         var nextBtn = document.getElementById("next");
         var prevBtn = document.getElementById("prev");
+        var total = document.getElementById("total");
+        var nowNum = document.getElementById("nowNum");
+        var myAudio = document.getElementById("myAudio");
+        total.innerHTML = arrs.length;
         var index = 0;
         var arrLength = arrs.length;
         txt.innerHTML = "一";
         nextBtn.onclick = function(){
-            
+            myAudio.src = "../assets/mp3/dianji.wav";
+            myAudio.play();
             if(index<arrLength-1){
                 index++;
                 txt.innerHTML = arrs[index];
+                nowNum.innerHTML = index+1;
             }else{
                 index=0;
                 txt.innerHTML = arrs[index];
+                nowNum.innerHTML = 1;
             }
         }
         prevBtn.onclick = function(){
+            myAudio.src = "../assets/mp3/dianji.wav";
+            myAudio.play();
             if(index!=0){
                 index--;
                 txt.innerHTML = arrs[index];
+                nowNum.innerHTML = index+1;
             }else{
-                index = 0;
+                index = arrs.length-1;
                 txt.innerHTML = arrs[index];
+                nowNum.innerHTML = index+1;
             }
         }
-        
-
         // function getRandomItem(arr) {
         //     return arr[Math.floor(Math.random() * arr.length)];
         // }
@@ -162,10 +183,7 @@
         //     playImg.src = '../assets/play.png';
         //     txt.style.color = "#555";
         // }
-
     </script>
-    <!-- <script src="../../js/shizi.js"></script> -->
-    
 </body>
 
 </html>

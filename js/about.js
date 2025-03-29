@@ -181,7 +181,7 @@ var saying = getTime();
                         ))
                     }
                 },
-                ruyihuahua: {
+                huahua: {
                     description: "Open the page about ruyi huahua.",
                     run: function(e) {
                         return new Promise((function(t) {
@@ -276,7 +276,7 @@ var saying = getTime();
                         ))
                     }
                 },
-                lyp:{
+                pingping:{
                     description: "Open a page about our annivesary.",
                     run: function(e) {
                         return new Promise((function(t) {
