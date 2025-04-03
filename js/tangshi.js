@@ -112,6 +112,16 @@ window.onload = function(){
             "audioSrc":"../assets/mp3/ts/ts57.mp3"
         },
         {
+            "title":"清明",
+            "txt":"清明，杜牧，清明时节雨纷纷，路上行人欲断魂，借问酒家何处有，牧童遥指杏花村",
+            "audioSrc":"../assets/mp3/ts/ts29.mp3"
+        },
+        {
+            "title":"赋得古原草送别",
+            "txt":"赋得古原草送别，白居易，离离原上草，一岁一枯荣，野火烧不尽，春风吹又生",
+            "audioSrc":"../assets/mp3/ts/ts22.mp3"
+        },
+        {
             "title":"静夜思",
             "txt":"静夜思，李白，床前明月光，疑是地上霜，举头望明月，低头思故乡",
             "audioSrc":"../assets/mp3/ts/ts0.mp3"
@@ -151,21 +161,13 @@ window.onload = function(){
             "txt":"望庐山瀑布，李白，日照香炉生紫烟，遥看瀑布挂前川，飞流直下三千尺，疑是银河落九天",
             "audioSrc":"../assets/mp3/ts/ts16.mp3"
         },
-        {
-            "title":"赋得古原草送别",
-            "txt":"赋得古原草送别，白居易，离离原上草，一岁一枯荣，野火烧不尽，春风吹又生",
-            "audioSrc":"../assets/mp3/ts/ts22.mp3"
-        },
+        
         {
             "title":"咏柳",
             "txt":"咏柳，贺知章，碧玉妆成一树高，万条垂下绿丝绦，不知细叶谁裁出，二月春风似剪刀",
             "audioSrc":"../assets/mp3/ts/ts28.mp3"
         },
-        {
-            "title":"清明",
-            "txt":"清明，杜牧，清明时节雨纷纷，路上行人欲断魂，借问酒家何处有，牧童遥指杏花村",
-            "audioSrc":"../assets/mp3/ts/ts29.mp3"
-        },
+        
         {
             "title":"九月九日忆山东兄弟",
             "txt":"九月九日忆山东兄弟，王维，独在异乡为异客，每逢佳节倍思亲，遥知兄弟登高处，遍插茱萸少一人",

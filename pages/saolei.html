@@ -33,13 +33,14 @@ body, html {
 body, button, input, select, textarea {
     font-family: PingFang SC, Microsoft YaHei, Arial, sans-serif !important;
 }
-#foot{
-    width:100%;
+#tips{
+    display: inline-block;
+    /* width:100%; */
     position: fixed;
     top:0;
     font-size:40px;
     text-align: center;
-    color:rgba(0,0,0,.2);
+    /* color:rgba(0,0,0,.2); */
 }
 #main{
     width:366px;
@@ -88,7 +89,7 @@ body, button, input, select, textarea {
     </script>
 </head>
 <body class="unselectable">
-    <audio id="myAudio" src=""></audio>
+    <audio id="myAudio" src="assets/mp3/dianji.wav"></audio>
     <div id="main">
         <div class="letterList">
             <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
@@ -109,13 +110,14 @@ body, button, input, select, textarea {
             <div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div><div class="letterBox"></div>
         </div>
     </div>
-    <div id="foot"></div>
+    <span id="tips"></span>
     <div id="mask"></div>
     <!-- <script src="../js/zimu.js"></script> -->
      <script>
      var letterBoxes = document.getElementsByClassName("letterBox");
      var myAudio = document.getElementById("myAudio");
      var mask = document.getElementById("mask");
+     var tips = document.getElementById("tips");
      // 生成一个范围在[min, max]之间的随机整数
     function getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -124,7 +126,14 @@ body, button, input, select, textarea {
     }
      var randomNum = getRandomInt(1,30);
      var leiNum = randomNum+1;
-     document.getElementById("foot").innerHTML = leiNum;
+     tips.innerHTML = leiNum;
+     tips.onclick = function(){
+    tips.style.color = "#222";
+        setTimeout(function(){
+            tips.style.color = "#000"; 
+        },300);
+        clearTimeout();
+    }
      console.log(randomNum);
 
      var biaoqing = ['🍅','🍎','🌶','🍓','🍄','🍒','🍉','🍇','🌽','🥕','🍑','🍊','🥭','🎃','🍈','🍐','🍏','🥦','🧁','🍭','🍡','🎂','🍔','🍕','🍩','🍟 ','🍰','🍤','🫐','🍳','🍿','🌮','🥟','🥐','🌭','🍬','🍼','🍽','🍖','🍗','🥘','🍲','🍱','🐳','🦀','🐓','🐙','🦊','🍁','🌵','🌳','🌴','🍀','🌱','🌹','🌼','🌻','🌸','🌺'];
