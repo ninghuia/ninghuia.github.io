@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <title>猜数字</title>
+    <title>用最少的次数「猜中数字」</title>
     <script>
         var _hmt = _hmt || [];
         (function() {
@@ -29,25 +29,25 @@
             position:absolute;
             top:50%;
             left:50%;
-            margin-top:-280px;
+            margin-top:-297px;
             margin-left:-180px;
             width:360px;
-            height:560px;
+            height:594px;
             /* border:1px solid green; */
         }
         .tips{
             height:30px;
             text-align: center;
-            font-size:18px;
+            font-size:24px;
             color:#333;
         }
         #tips3{
-            margin-top:20px;
-            margin-bottom:30px;
+            margin-top:25px;
+            margin-bottom:25px;
             color:red;
         }
         .numBox{
-            font-size:20px;
+            font-size:22px;
             text-align: center;
             color:#333;
         }
@@ -60,9 +60,9 @@
             margin-bottom:10px;
         }
         #nowNum{
-            font-size:24px;
+            font-size:32px;
             font-style: normal;
-            color:blue;
+            color:#EF6140;
             font-weight:bold;
         }
         .btnBox{
@@ -76,7 +76,8 @@
             font-size:24px;
             line-height: 50px;
             text-align: center;
-            border:1px solid blue;
+            border:1px solid #EF6140;
+            cursor: pointer;
         }
         #random{
             position:fixed;
@@ -86,11 +87,56 @@
             color:#fff;
             font-size:30px;
         }
+        #mask{
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100vh;
+            background: rgba(0,0,0,.5);
+            z-index: 100;
+        }
+        #modelBox{
+            display:none;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:-100px;
+            margin-left:-160px;
+            width:320px;
+            height:200px;
+            background-color: #fff;
+            border-radius: 10px;
+            z-index: 101;
+        }
+        #result{
+            height:100px;
+            font-size:20px;
+            padding:30px 10px 0 10px;
+            text-align: justify;
+        }
+        .modelButton{
+            text-align: center;
+        }
+        .modelButton span{
+            display:inline-block;
+            width:100px;
+            height:40px;
+            font-size:24px;
+            line-height: 40px;
+            text-align: center;
+            border:1px solid #EF6140;
+            cursor: pointer;
+        }
+        #back{
+            margin-right:70px;
+        }
     </style>
 </head>
 <body class="unselectable">
     <div class="content">
-        <div class="tips" id="tips2">当前选的是：<em id="nowNum">??</em></div>
+        <div class="tips" id="tips2">当前所选：<em id="nowNum">??</em></div>
         <div class="tips" id="tips3"></div>
         <div class="numBox">
             <p><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></p>
@@ -109,6 +155,13 @@
         </div>
     </div>
     <div id="random">00</div>
+    <div id="mask"></div>
+    <div id="modelBox">
+        <div id="result">没错就是数字98，恭喜您在第10次猜中了，还继续吗？</div>
+        <div class="modelButton">
+            <span id="back">取消</span><span id="goon">继续</span>
+        </div>
+    </div>
     <script>
         function generateRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -123,8 +176,14 @@
         var spans = document.getElementsByTagName("span");
         var nowNum = document.getElementById("nowNum");
         var random = document.getElementById("random");
+        var result = document.getElementById("result");
+        var backBtn = document.getElementById("back");
+        var goonBtn = document.getElementById("goon");
+        var modelBox = document.getElementById("modelBox");
+        var mask = document.getElementById("mask");
         var selectNum = 0;
         var time = 0;
+        var say = "";
         random.innerHTML = randomInt;
 
         for(var index=0;index<spans.length;index++){
@@ -146,16 +205,33 @@
                 tips3.innerHTML = "猜错了，比 "+selectNum+" 小";
             }else{
                 time+=1;
-                con=confirm("没错是数字 "+selectNum+" ，恭喜您在第 "+time+" 次猜对了，还要继续吗?"); //在页面上弹出对话框
-                setTimeout(function(){
-                    if(con==true){
-                        window.location.reload();
-                    }else{
-                        window.location.href = "./ideas.html"
-                    }
-                },500)
+                tips3.style.color = "#fff";
+                tips3.style.color = "green";
+                tips3.innerHTML = "猜对啦";
+                button.style.display = "none";
+                mask.style.display = "block";
+                modelBox.style.display = "block";
+                if(time==1){
+                    say = "你也太厉害了吧";
+                }else if(1<time&&time<=3){
+                    say = "三次以内猜中都算很棒";
+                }else if(3<time&&time<=10){
+                    say = "十次以内猜中还可以吧";
+                }else{
+                    say = "猜的次数太...不做评价";
+                }
+                result.innerHTML = "恭喜您在第( "+time+" )次猜对了，"+say+" ，还要继续吗?"
             }
         }
+        backBtn.onclick = function(){
+            window.location.href = "./ideas.html";
+        }
+        goonBtn.onclick = function(){
+            window.location.reload();
+            mask.style.display = "none";
+            modelBox.style.display = "none";
+        }
+
         random.onclick = function(){
             random.style.color = "#eee";
             setTimeout(function(){
