@@ -127,8 +127,8 @@ body, button, input, select, textarea {
      var randomNum = getRandomInt(1,30);
      var leiNum = randomNum+1;
      tips.innerHTML = leiNum;
-     tips.onclick = function(){
-    tips.style.color = "#222";
+     tips.ondblclick = function(){
+        tips.style.color = "#222";
         setTimeout(function(){
             tips.style.color = "#000"; 
         },300);

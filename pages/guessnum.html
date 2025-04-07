@@ -19,6 +19,9 @@
             margin:0;
             padding:0;
         }
+        body,html{
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
         .unselectable {
             user-select: none;
             -moz-user-select: none;
@@ -29,14 +32,14 @@
             position:absolute;
             top:50%;
             left:50%;
-            margin-top:-297px;
+            margin-top:-311px;
             margin-left:-180px;
             width:360px;
-            height:594px;
+            height:622px;
             /* border:1px solid green; */
         }
         .tips{
-            height:30px;
+            height:80px;
             text-align: center;
             font-size:24px;
             color:#333;
@@ -47,13 +50,17 @@
             color:red;
         }
         .numBox{
-            font-size:22px;
+            font-size:20px;
             text-align: center;
             color:#333;
         }
         .numBox span{
             display: inline-block;
-            width:36px;
+            width:34px;
+            height:34px;
+            line-height: 34px;
+            border:1px solid #999;
+            border-radius: 17px;
             cursor: pointer;
         }
         .numBox p{
@@ -78,6 +85,7 @@
             text-align: center;
             border:1px solid #EF6140;
             cursor: pointer;
+            border-radius: 10px;
         }
         #random{
             position:fixed;
@@ -97,23 +105,51 @@
             background: rgba(0,0,0,.5);
             z-index: 100;
         }
+        #tipBox{
+            display:none;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:-50px;
+            margin-left:-160px;
+            padding:15px 0;
+            width:320px;
+            height:100px;
+            background-color: #fff;
+            text-align: center;
+            z-index: 101;
+            font-size:20px;
+            border-radius: 10px;
+        }
+        #tipBox h4{
+            margin-bottom:20px;
+            color:red;
+            font-size:30px;
+        }
         #modelBox{
             display:none;
             position:absolute;
             top:50%;
             left:50%;
-            margin-top:-100px;
+            margin-top:-120px;
             margin-left:-160px;
             width:320px;
-            height:200px;
+            height:240px;
             background-color: #fff;
             border-radius: 10px;
             z-index: 101;
         }
+        #modelBox h4{
+            margin-top:20px;
+            margin-bottom:5px;
+            color:green;
+            font-size:30px;
+            text-align: center;
+        }
         #result{
             height:100px;
             font-size:20px;
-            padding:30px 10px 0 10px;
+            padding:5px 10px 0 10px;
             text-align: justify;
         }
         .modelButton{
@@ -128,6 +164,7 @@
             text-align: center;
             border:1px solid #EF6140;
             cursor: pointer;
+            border-radius: 6px;
         }
         #back{
             margin-right:70px;
@@ -135,9 +172,9 @@
     </style>
 </head>
 <body class="unselectable">
+    <audio id="myAudio" src="assets/mp3/failed.mp3"></audio>
     <div class="content">
-        <div class="tips" id="tips2">当前所选：<em id="nowNum">??</em></div>
-        <div class="tips" id="tips3"></div>
+        <div class="tips" id="tips2">选数字：<em id="nowNum">??</em></div>
         <div class="numBox">
             <p><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></p>
             <p><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span></p>
@@ -157,10 +194,15 @@
     <div id="random">00</div>
     <div id="mask"></div>
     <div id="modelBox">
-        <div id="result">没错就是数字98，恭喜您在第10次猜中了，还继续吗？</div>
+        <h4>正确提示</h4>
+        <div id="result"></div>
         <div class="modelButton">
             <span id="back">取消</span><span id="goon">继续</span>
         </div>
+    </div>
+    <div id="tipBox">
+        <h4>错误提示</h4>
+        <div id="errTip">第3次猜错了，比67要大</div>
     </div>
     <script>
         function generateRandomInt(min, max) {
@@ -181,6 +223,9 @@
         var goonBtn = document.getElementById("goon");
         var modelBox = document.getElementById("modelBox");
         var mask = document.getElementById("mask");
+        var myAudio = document.getElementById("myAudio");
+        var errTip = document.getElementById("errTip");
+        var tipBox = document.getElementById("tipBox");
         var selectNum = 0;
         var time = 0;
         var say = "";
@@ -192,25 +237,45 @@
                     selectNum = spans[i].innerHTML;
                     console.log(selectNum);
                     nowNum.innerHTML = selectNum;
+                    myAudio.src="assets/mp3/dianji.wav";
+                    myAudio.play();
                 }
             })(index)
         }
         button.onclick = function(){
-            spans[selectNum-1].style.color = "#eee";
+            spans[selectNum-1].style.borderColor = "#EF6140";
+            spans[selectNum-1].style.backgroundColor = "#EF6140";
+            spans[selectNum-1].style.color = "#fff";
             if(selectNum!=randomInt&&selectNum<randomInt){
                 time+=1;
-                tips3.innerHTML = "猜错了，比 "+selectNum+" 大";
+                mask.style.display = "block";
+                tipBox.style.display = "block";
+                errTip.innerHTML = '第 '+ time +" 次猜错了，比 "+selectNum+" 大";
+                myAudio.src="assets/mp3/failed.mp3";
+                myAudio.play();
+                setTimeout(function(){
+                    mask.style.display = "none";
+                    tipBox.style.display = "none";
+                },1200)
+                clearTimeout();
             }else if(selectNum!=randomInt&&selectNum>randomInt){
                 time+=1;
-                tips3.innerHTML = "猜错了，比 "+selectNum+" 小";
+                mask.style.display = "block";
+                tipBox.style.display = "block";
+                errTip.innerHTML = '第 '+ time +" 次猜错了，比 "+selectNum+" 小";
+                myAudio.src="assets/mp3/failed.mp3";
+                myAudio.play();
+                setTimeout(function(){
+                    mask.style.display = "none";
+                    tipBox.style.display = "none";
+                },1200)
+                clearTimeout();
             }else{
                 time+=1;
-                tips3.style.color = "#fff";
-                tips3.style.color = "green";
-                tips3.innerHTML = "猜对啦";
                 button.style.display = "none";
                 mask.style.display = "block";
                 modelBox.style.display = "block";
+                document.getElementsByClassName("tips")[0].innerHTML = "猜对啦没错是数字 "+randomInt;
                 if(time==1){
                     say = "你也太厉害了吧";
                 }else if(1<time&&time<=3){
@@ -220,9 +285,14 @@
                 }else{
                     say = "猜的次数太...不做评价";
                 }
-                result.innerHTML = "恭喜您在第( "+time+" )次猜对了，"+say+" ，还要继续吗?"
+                result.innerHTML = "恭喜您在第( "+time+" )次猜对了，"+say+" ，还要继续吗?";
+                myAudio.src="assets/mp3/victory.wav";
+                myAudio.play();
             }
         }
+
+        
+        
         backBtn.onclick = function(){
             window.location.href = "./ideas.html";
         }
@@ -232,7 +302,7 @@
             modelBox.style.display = "none";
         }
 
-        random.onclick = function(){
+        random.ondblclick = function(){
             random.style.color = "#eee";
             setTimeout(function(){
                 random.style.color = "#fff"; 
