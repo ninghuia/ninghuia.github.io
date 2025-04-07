@@ -1,0 +1,278 @@
+<!DOCTYPE html style="font-size:72px;">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+    <title>人机大战「 石头剪刀布 」</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?c6a16e7744f5e96b195b98f5a2818207";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+}
+.unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+body, html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /* background-image: url(assets/bg.gif);
+    background-repeat: repeat; */
+}
+body, button, input, select, textarea {
+    font-family: PingFang SC, Microsoft YaHei, Arial, sans-serif !important;
+}
+.main{
+    width:350px;
+    height:520px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-260px;
+    margin-left:-175px;
+    /* border:1px solid red; */
+    text-align: center;
+}
+h4{
+    height:35px;
+    line-height: 35px;
+    color:#EF6140;
+    font-size:30px;
+    font-weight: normal;
+}
+.contBox{
+    width:100%;
+    height:110px;
+}
+.contBox span{
+    margin-right:10px;
+    display: inline-block;
+    width:98px;
+    height:98px;
+    border:6px solid #eee;
+    background-size: cover;
+    background-position: center center;
+}
+.contBox>span:nth-child(1){
+    background-image: url("assets/shitou.webp");
+}
+.contBox>span:nth-child(2){
+    background-image: url("assets/jiandao.jpg");
+}
+.contBox>span:nth-child(3){
+    background-image: url("assets/bu.jpg");
+}
+.contBox>span:nth-child(3){
+    margin-right:0;
+}
+h4:nth-child(1){
+    margin-bottom:15px;
+}
+.middleBox{
+    width:100%;
+    height:204px;
+    /* line-height: 204px; */
+    color:#eee;
+    /* font-size:100px; */
+}
+#tips{
+    display: inline-block;
+    width:30px;
+    height:30px;
+    line-height: 30px;
+    position: fixed;
+    left:5px;
+    bottom:5px;
+    font-size:40px;
+    text-align: center;
+    cursor: pointer;
+}
+#sureBtn{
+    display: inline-block;
+    margin-top:77px;
+    width:130px;
+    height:50px;
+    color:#EF6140;
+    font-size:30px;
+    line-height: 50px;
+    border:1px solid #EF6140;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#mask{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background: rgba(0,0,0,.7);
+    /* background-color: red; */
+    z-index: 1000;
+}
+#message{
+    display:none;
+    width:320px;
+    height:98px;
+    padding:30px 0;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-79px;
+    margin-left:-160px;
+    background-color: #fff;
+    color:#333;
+    font-size:16px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+#goon{
+    margin-top:30px;
+    display: inline-block;
+    width:130px;
+    height:40px;
+    line-height: 40px;
+    border:1px solid #999;
+    border-radius: 5px;
+
+}
+</style>
+    <script>
+       !new function(){var a=this;a.width=750,a.fontSize=100,a.widthProportion=function(){var b=(document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/a.width;return b>1?1:b},a.changePage=function(){document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+a.widthProportion()*a.fontSize+"px !important")},a.changePage(),window.addEventListener("resize",function(){a.changePage()},!1)};
+    </script>
+</head>
+<body class="unselectable">
+    <audio id="myAudio" src="assets/mp3/dianji.wav"></audio>
+    <div class="main">
+        <h4>我</h4>
+        <div class="contBox"><span id="shitou"></span><span id="jiandao"></span><span id="bu"></span></div>
+        <div class="middleBox">
+            <div id="sureBtn">V S</div>
+        </div>
+        <div class="contBox"><span></span><span></span><span></span></div>
+        <h4 style="margin-top:15px;">机器人</h4>
+    </div>
+    <span id="tips"></span>
+    <div id="mask"></div>
+    <div id="message">
+        <p id="result"></p>
+        <span id="goon">确定</span>
+    </div>
+    
+     <script>
+     var p = ["石头","剪刀","布"] // 电脑：石头，剪刀，布
+     var shitou = document.getElementById("shitou");
+     var jiandao = document.getElementById("jiandao");
+     var bu = document.getElementById("bu");
+     var spans = document.getElementsByTagName("span");
+     var sureBtn = document.getElementById("sureBtn");
+     var result = document.getElementById("result");
+     var mask = document.getElementById("mask");
+     var messageBox = document.getElementById("message");
+     var goonBtn = document.getElementById("goon");
+     var mine = '石头';
+     spans[0].style.borderColor = "#EF6140";
+     function getRandomItem(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+     }
+     var computer = getRandomItem(p);
+     console.log(computer);
+     var cpIndex = p.indexOf(computer);
+    console.log(cpIndex);  // 输出1
+
+    shitou.onclick = function(){
+        myAudio.src = 'assets/mp3/dianji.wav';
+        myAudio.play();
+        mine = "石头";
+        shitou.style.borderColor = "#EF6140";
+        jiandao.style.borderColor = "#eee";
+        bu.style.borderColor = "#eee";
+    }
+    jiandao.onclick = function(){
+        myAudio.src = 'assets/mp3/dianji.wav';
+        myAudio.play();
+        mine = "剪刀";
+        shitou.style.borderColor = "#eee";
+        jiandao.style.borderColor = "#EF6140";
+        bu.style.borderColor = "#eee";
+    }
+    bu.onclick = function(){
+        myAudio.src = 'assets/mp3/dianji.wav';
+        myAudio.play();
+        mine = "布";
+        shitou.style.borderColor = "#eee";
+        jiandao.style.borderColor = "#eee";
+        bu.style.borderColor = "#EF6140";
+    }
+
+    var cpNow = cpIndex+3;
+    sureBtn.onclick = function(){
+        mask.style.display = "block";
+        messageBox.style.display = "block";
+        spans[cpNow].style.borderColor = "#EF6140";
+        if(mine==computer){
+            result.innerHTML = "你和机器人都出的：「"+mine+"」，平局";
+            myAudio.src="assets/mp3/failed.mp3";
+            myAudio.play();
+        }else if(mine=="石头"&&computer=="剪刀"){
+            result.innerHTML = "机器人出的：「剪刀」，你获胜";
+            myAudio.src="assets/mp3/victory.wav";
+            myAudio.play();
+        }else if(mine=="石头"&&computer=="布"){
+            result.innerHTML = "机器人出的：「布」，机器人获胜";
+            myAudio.src="assets/mp3/failed.mp3";
+            myAudio.play();
+        }else if(mine=="剪刀"&&computer=="石头"){
+            result.innerHTML = "机器人出的：「石头」，机器人获胜";
+            myAudio.src="assets/mp3/failed.mp3";
+            myAudio.play();
+        }else if(mine=="剪刀"&&computer=="布"){
+            result.innerHTML = "机器人出的：「布」，你获胜";
+            myAudio.src="assets/mp3/victory.wav";
+            myAudio.play();
+        }else if(mine=="布"&&computer=="石头"){
+            result.innerHTML = "机器人出的：「石头」，你获胜";
+            myAudio.src="assets/mp3/victory.wav";
+            myAudio.play();
+        }else if(mine=="布"&&computer=="剪刀"){
+            result.innerHTML = "机器人出的：「剪刀」，机器人获胜";
+            myAudio.src="assets/mp3/failed.mp3";
+            myAudio.play();
+        }
+    }
+
+    goonBtn.onclick = function(){
+        window.location.reload();
+     }
+
+
+
+
+
+
+
+     var nowCP = cpIndex+3;
+     tips.ondblclick = function(){
+        spans[nowCP].style.borderColor = "red";
+        setTimeout(function(){
+            spans[nowCP].style.borderColor = "#eee";
+        },300);
+        clearTimeout();
+    }
+     </script>
+</body>
+
+</html>

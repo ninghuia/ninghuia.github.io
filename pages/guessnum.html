@@ -56,9 +56,10 @@
         }
         .numBox span{
             display: inline-block;
-            width:34px;
-            height:34px;
-            line-height: 34px;
+            margin-right:4px;
+            width:30px;
+            height:30px;
+            line-height: 30px;
             border:1px solid #999;
             border-radius: 17px;
             cursor: pointer;
@@ -94,6 +95,7 @@
             text-indent: 30px;
             color:#fff;
             font-size:30px;
+            cursor: pointer;
         }
         #mask{
             display:none;
@@ -111,14 +113,15 @@
             top:50%;
             left:50%;
             margin-top:-50px;
-            margin-left:-160px;
+            margin-left:-150px;
             padding:15px 0;
-            width:320px;
+            width:300px;
             height:100px;
             background-color: #fff;
             text-align: center;
             z-index: 101;
             font-size:20px;
+            border:1px solid #EF6140;
             border-radius: 10px;
         }
         #tipBox h4{
@@ -147,7 +150,8 @@
             text-align: center;
         }
         #result{
-            height:100px;
+            margin-top:15px;
+            height:90px;
             font-size:20px;
             padding:5px 10px 0 10px;
             text-align: justify;
@@ -157,7 +161,7 @@
         }
         .modelButton span{
             display:inline-block;
-            width:100px;
+            width:130px;
             height:40px;
             font-size:24px;
             line-height: 40px;
@@ -166,9 +170,9 @@
             cursor: pointer;
             border-radius: 6px;
         }
-        #back{
+        /* #back{
             margin-right:70px;
-        }
+        } */
     </style>
 </head>
 <body class="unselectable">
@@ -194,14 +198,15 @@
     <div id="random">00</div>
     <div id="mask"></div>
     <div id="modelBox">
-        <h4>正确提示</h4>
+        <h4>猜对了</h4>
         <div id="result"></div>
         <div class="modelButton">
-            <span id="back">取消</span><span id="goon">继续</span>
+            <!-- <span id="back">取消</span> -->
+            <span id="goon">继续</span>
         </div>
     </div>
     <div id="tipBox">
-        <h4>错误提示</h4>
+        <h4>不对</h4>
         <div id="errTip">第3次猜错了，比67要大</div>
     </div>
     <script>
@@ -219,13 +224,14 @@
         var nowNum = document.getElementById("nowNum");
         var random = document.getElementById("random");
         var result = document.getElementById("result");
-        var backBtn = document.getElementById("back");
+        // var backBtn = document.getElementById("back");
         var goonBtn = document.getElementById("goon");
         var modelBox = document.getElementById("modelBox");
         var mask = document.getElementById("mask");
         var myAudio = document.getElementById("myAudio");
         var errTip = document.getElementById("errTip");
         var tipBox = document.getElementById("tipBox");
+        var content = document.getElementsByClassName("content")[0];
         var selectNum = 0;
         var time = 0;
         var say = "";
@@ -248,25 +254,29 @@
             spans[selectNum-1].style.color = "#fff";
             if(selectNum!=randomInt&&selectNum<randomInt){
                 time+=1;
-                mask.style.display = "block";
+                // mask.style.display = "block";
+                content.style.display = "none";
                 tipBox.style.display = "block";
-                errTip.innerHTML = '第 '+ time +" 次猜错了，比 "+selectNum+" 大";
+                errTip.innerHTML = '错 '+ time +" 次，比 "+selectNum+" 大";
                 myAudio.src="assets/mp3/failed.mp3";
                 myAudio.play();
                 setTimeout(function(){
-                    mask.style.display = "none";
+                    // mask.style.display = "none";
+                    content.style.display = "block";
                     tipBox.style.display = "none";
                 },1200)
                 clearTimeout();
             }else if(selectNum!=randomInt&&selectNum>randomInt){
                 time+=1;
-                mask.style.display = "block";
+                // mask.style.display = "block";
+                content.style.display = "none";
                 tipBox.style.display = "block";
-                errTip.innerHTML = '第 '+ time +" 次猜错了，比 "+selectNum+" 小";
+                errTip.innerHTML = '错 '+ time +"次 ，比 "+selectNum+" 小";
                 myAudio.src="assets/mp3/failed.mp3";
                 myAudio.play();
                 setTimeout(function(){
-                    mask.style.display = "none";
+                    // mask.style.display = "none";
+                    content.style.display = "block";
                     tipBox.style.display = "none";
                 },1200)
                 clearTimeout();
@@ -275,17 +285,17 @@
                 button.style.display = "none";
                 mask.style.display = "block";
                 modelBox.style.display = "block";
-                document.getElementsByClassName("tips")[0].innerHTML = "猜对啦没错是数字 "+randomInt;
+                document.getElementsByClassName("tips")[0].innerHTML = "没错是数字 "+randomInt;
                 if(time==1){
-                    say = "你也太厉害了吧";
+                    say = "你也太厉害了";
                 }else if(1<time&&time<=3){
                     say = "三次以内猜中都算很棒";
                 }else if(3<time&&time<=10){
                     say = "十次以内猜中还可以吧";
                 }else{
-                    say = "猜的次数太...不做评价";
+                    say = "次数太...不做评价";
                 }
-                result.innerHTML = "恭喜您在第( "+time+" )次猜对了，"+say+" ，还要继续吗?";
+                result.innerHTML = "您在第( "+time+" )次猜对了，"+say+" ，再来一局吧";
                 myAudio.src="assets/mp3/victory.wav";
                 myAudio.play();
             }
@@ -293,9 +303,9 @@
 
         
         
-        backBtn.onclick = function(){
-            window.location.href = "./ideas.html";
-        }
+        // backBtn.onclick = function(){
+        //     window.location.href = "./ideas.html";
+        // }
         goonBtn.onclick = function(){
             window.location.reload();
             mask.style.display = "none";
@@ -303,7 +313,7 @@
         }
 
         random.ondblclick = function(){
-            random.style.color = "#eee";
+            random.style.color = "#EF6140";
             setTimeout(function(){
                 random.style.color = "#fff"; 
             },300);

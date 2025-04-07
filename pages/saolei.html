@@ -35,11 +35,15 @@ body, button, input, select, textarea {
 }
 #tips{
     display: inline-block;
-    /* width:100%; */
+    width:30px;
+    height:30px;
+    line-height: 30px;
     position: fixed;
-    top:0;
+    left:5px;
+    bottom:5px;
     font-size:40px;
     text-align: center;
+    cursor: pointer;
     /* color:rgba(0,0,0,.2); */
 }
 #main{
@@ -79,9 +83,37 @@ body, button, input, select, textarea {
     left:0;
     width:100%;
     height:100vh;
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.7);
     /* background-color: red; */
     z-index: 1000;
+}
+#message{
+    display:none;
+    width:320px;
+    height:98px;
+    padding:30px 0;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-49px;
+    margin-left:-160px;
+    background-color: #fff;
+    color:#333;
+    font-size:18px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+#goon{
+    margin-top:30px;
+    display: inline-block;
+    width:130px;
+    height:40px;
+    line-height: 40px;
+    border:1px solid #999;
+    border-radius: 5px;
+
 }
     </style>
     <script>
@@ -112,12 +144,18 @@ body, button, input, select, textarea {
     </div>
     <span id="tips"></span>
     <div id="mask"></div>
-    <!-- <script src="../js/zimu.js"></script> -->
+    <div id="message">
+        <p>地雷爆炸了，游戏结束，再来一局</p>
+        <span id="goon">确定</span>
+    </div>
+    
      <script>
      var letterBoxes = document.getElementsByClassName("letterBox");
      var myAudio = document.getElementById("myAudio");
      var mask = document.getElementById("mask");
      var tips = document.getElementById("tips");
+     var goonBtn = document.getElementById("goon");
+     var messageBox = document.getElementById("message");
      // 生成一个范围在[min, max]之间的随机整数
     function getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -125,18 +163,20 @@ body, button, input, select, textarea {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
      var randomNum = getRandomInt(1,30);
-     var leiNum = randomNum+1;
-     tips.innerHTML = leiNum;
+    //  var leiNum = randomNum+1;
+    //  tips.innerHTML = leiNum;
      tips.ondblclick = function(){
-        tips.style.color = "#222";
+        // tips.style.color = "#222";
+        letterBoxes[randomNum].style.borderColor = "red";
         setTimeout(function(){
-            tips.style.color = "#000"; 
+            // tips.style.color = "#000"; 
+            letterBoxes[randomNum].style.borderColor = "#47cc9b";
         },300);
         clearTimeout();
     }
-     console.log(randomNum);
+    //  console.log(randomNum);
 
-     var biaoqing = ['🍅','🍎','🌶','🍓','🍄','🍒','🍉','🍇','🌽','🥕','🍑','🍊','🥭','🎃','🍈','🍐','🍏','🥦','🧁','🍭','🍡','🎂','🍔','🍕','🍩','🍟 ','🍰','🍤','🫐','🍳','🍿','🌮','🥟','🥐','🌭','🍬','🍼','🍽','🍖','🍗','🥘','🍲','🍱','🐳','🦀','🐓','🐙','🦊','🍁','🌵','🌳','🌴','🍀','🌱','🌹','🌼','🌻','🌸','🌺'];
+     var biaoqing = ['🍅','🍎','🌶','🍓','🍄','🍒','🍉','🍇','🌽','🥕','🍑','🍊','🥭','🎃','🍈','🍐','🍏','🥦','🧁','🍭','🍡','🎂','🍔','🍕','🍩','🍟 ','🍰','🍤','🫐','🍳','🍿','🌮','🥟','🥐','🌭','🍬','🍼','🍖','🍗','🥘','🍲','🍱','🐳','🦀','🐓','🐙','🦊','🍁','🌵','🌳','🌴','🍀','🌱','🌹','🌼','🌻','🌸','🌺'];
      function getRandomItem(arr) {
         return arr[Math.floor(Math.random() * arr.length)];
      }
@@ -165,16 +205,16 @@ body, button, input, select, textarea {
         letterBoxes[randomNum].style.background = "red";
         letterBoxes[randomNum].style.borderColor = "red";
         letterBoxes[randomNum].style.fontSize = "55px";
-        // setTimeout(function(){
-        //     alert('地雷爆炸了，游戏结束')
-        // },1000)
         mask.style.display = "block";
         myAudio.src = 'assets/mp3/zhadan.wav';
         myAudio.play();
         myAudio.onended = function(){
-            alert('地雷爆炸了，游戏结束，再来一局');
-            window.location.reload();
+            mask.style.display = "block";
+            messageBox.style.display = "block";
         }
+     }
+     goonBtn.onclick = function(){
+        window.location.reload();
      }
      </script>
 </body>
