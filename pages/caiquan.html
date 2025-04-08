@@ -123,14 +123,14 @@ h4:nth-child(1){
 }
 #message{
     display:none;
-    width:320px;
+    width:340px;
     height:98px;
     padding:30px 0;
     position: absolute;
     top:50%;
     left:50%;
     margin-top:-79px;
-    margin-left:-160px;
+    margin-left:-170px;
     background-color: #fff;
     color:#333;
     font-size:16px;
@@ -183,15 +183,15 @@ h4:nth-child(1){
      var mask = document.getElementById("mask");
      var messageBox = document.getElementById("message");
      var goonBtn = document.getElementById("goon");
-     var mine = '石头';
-     spans[0].style.borderColor = "#EF6140";
+     var mine = '';
+    //  spans[0].style.borderColor = "#EF6140";
      function getRandomItem(arr) {
         return arr[Math.floor(Math.random() * arr.length)];
      }
      var computer = getRandomItem(p);
-     console.log(computer);
+    //  console.log(computer);
      var cpIndex = p.indexOf(computer);
-    console.log(cpIndex);  // 输出1
+    // console.log(cpIndex);  
 
     shitou.onclick = function(){
         myAudio.src = 'assets/mp3/dianji.wav';
@@ -220,35 +220,38 @@ h4:nth-child(1){
 
     var cpNow = cpIndex+3;
     sureBtn.onclick = function(){
+        if(mine==""){
+            return false;
+        }
         mask.style.display = "block";
         messageBox.style.display = "block";
         spans[cpNow].style.borderColor = "#EF6140";
         if(mine==computer){
             result.innerHTML = "你和机器人都出的：「"+mine+"」，平局";
-            myAudio.src="assets/mp3/failed.mp3";
+            myAudio.src="assets/mp3/pingju.mp3";
             myAudio.play();
         }else if(mine=="石头"&&computer=="剪刀"){
-            result.innerHTML = "机器人出的：「剪刀」，你获胜";
-            myAudio.src="assets/mp3/victory.wav";
+            result.innerHTML = "你:「石头」，机器人:「剪刀」，你获胜";
+            myAudio.src="assets/mp3/yeyes.mp3";
             myAudio.play();
         }else if(mine=="石头"&&computer=="布"){
-            result.innerHTML = "机器人出的：「布」，机器人获胜";
+            result.innerHTML = "你:「石头」，机器人:「布」，机器人获胜";
             myAudio.src="assets/mp3/failed.mp3";
             myAudio.play();
         }else if(mine=="剪刀"&&computer=="石头"){
-            result.innerHTML = "机器人出的：「石头」，机器人获胜";
+            result.innerHTML = "你:「剪刀」，机器人:「石头」，机器人获胜";
             myAudio.src="assets/mp3/failed.mp3";
             myAudio.play();
         }else if(mine=="剪刀"&&computer=="布"){
-            result.innerHTML = "机器人出的：「布」，你获胜";
-            myAudio.src="assets/mp3/victory.wav";
+            result.innerHTML = "你:「剪刀」，机器人:「布」，你获胜";
+            myAudio.src="assets/mp3/yeyes.mp3";
             myAudio.play();
         }else if(mine=="布"&&computer=="石头"){
-            result.innerHTML = "机器人出的：「石头」，你获胜";
-            myAudio.src="assets/mp3/victory.wav";
+            result.innerHTML = "你:「布」，机器人:「石头」，你获胜";
+            myAudio.src="assets/mp3/yeyes.mp3";
             myAudio.play();
         }else if(mine=="布"&&computer=="剪刀"){
-            result.innerHTML = "机器人出的：「剪刀」，机器人获胜";
+            result.innerHTML = "你:「布」，机器人:「剪刀」，机器人获胜";
             myAudio.src="assets/mp3/failed.mp3";
             myAudio.play();
         }

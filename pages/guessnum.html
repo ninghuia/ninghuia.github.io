@@ -32,10 +32,10 @@
             position:absolute;
             top:50%;
             left:50%;
-            margin-top:-311px;
+            margin-top:-294px;
             margin-left:-180px;
             width:360px;
-            height:622px;
+            height:588px;
             /* border:1px solid green; */
         }
         .tips{
@@ -47,10 +47,10 @@
         #tips3{
             margin-top:25px;
             margin-bottom:25px;
-            color:red;
+            color:#EF6140;
         }
         .numBox{
-            font-size:20px;
+            font-size:18px;
             text-align: center;
             color:#333;
         }
@@ -66,6 +66,9 @@
         }
         .numBox p{
             margin-bottom:10px;
+        }
+        .numBox p>span:nth-child(10){
+            margin-right:0px;
         }
         #nowNum{
             font-size:32px;
@@ -85,6 +88,7 @@
             line-height: 50px;
             text-align: center;
             border:1px solid #EF6140;
+            color:#EF6140;
             cursor: pointer;
             border-radius: 10px;
         }
@@ -241,7 +245,7 @@
             (function(i){
                 spans[i].onclick = function(){
                     selectNum = spans[i].innerHTML;
-                    console.log(selectNum);
+                    // console.log(selectNum);
                     nowNum.innerHTML = selectNum;
                     myAudio.src="assets/mp3/dianji.wav";
                     myAudio.play();
@@ -249,9 +253,12 @@
             })(index)
         }
         button.onclick = function(){
+            if(selectNum==""){
+                return false;
+            }
             spans[selectNum-1].style.borderColor = "#EF6140";
-            spans[selectNum-1].style.backgroundColor = "#EF6140";
-            spans[selectNum-1].style.color = "#fff";
+            // spans[selectNum-1].style.backgroundColor = "#EF6140";
+            spans[selectNum-1].style.color = "#EF6140";
             if(selectNum!=randomInt&&selectNum<randomInt){
                 time+=1;
                 // mask.style.display = "block";
@@ -264,7 +271,7 @@
                     // mask.style.display = "none";
                     content.style.display = "block";
                     tipBox.style.display = "none";
-                },1200)
+                },1500)
                 clearTimeout();
             }else if(selectNum!=randomInt&&selectNum>randomInt){
                 time+=1;
@@ -278,7 +285,7 @@
                     // mask.style.display = "none";
                     content.style.display = "block";
                     tipBox.style.display = "none";
-                },1200)
+                },1500)
                 clearTimeout();
             }else{
                 time+=1;
@@ -287,16 +294,16 @@
                 modelBox.style.display = "block";
                 document.getElementsByClassName("tips")[0].innerHTML = "没错是数字 "+randomInt;
                 if(time==1){
-                    say = "你也太厉害了";
-                }else if(1<time&&time<=3){
-                    say = "三次以内猜中都算很棒";
+                    say = "你也太厉害了，怎么做到的";
+                }else if(1<time&&time<=5){
+                    say = "5次以内猜中都算很棒，点赞";
                 }else if(3<time&&time<=10){
-                    say = "十次以内猜中还可以吧";
+                    say = "10次以内猜中也给你👍";
                 }else{
-                    say = "次数太...不做评价";
+                    say = "你竟然猜了"+time+"次...不做评价";
                 }
                 result.innerHTML = "您在第( "+time+" )次猜对了，"+say+" ，再来一局吧";
-                myAudio.src="assets/mp3/victory.wav";
+                myAudio.src="assets/mp3/yeyes.mp3";
                 myAudio.play();
             }
         }
