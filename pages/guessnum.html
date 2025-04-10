@@ -32,17 +32,25 @@
             position:absolute;
             top:50%;
             left:50%;
-            margin-top:-294px;
+            margin-top:-285px;
             margin-left:-180px;
             width:360px;
-            height:588px;
+            height:570px;
             /* border:1px solid green; */
         }
         .tips{
-            height:80px;
+            height:50px;
             text-align: center;
             font-size:24px;
             color:#333;
+        }
+        #probability{
+            margin-bottom:10px;
+            height:30px;
+            line-height: 30px;
+            color:#999;
+            font-size:14px;
+            text-align: center;
         }
         #tips3{
             margin-top:25px;
@@ -59,9 +67,10 @@
             margin-right:4px;
             width:30px;
             height:30px;
-            background-color: #fff;
+            background-color: #EF6140;
+            color:#fff;
             line-height: 30px;
-            border:1px solid #999;
+            border:1px solid #EF6140;
             border-radius: 17px;
             cursor: pointer;
         }
@@ -183,7 +192,8 @@
 <body class="unselectable">
     <audio id="myAudio" src="assets/mp3/failed.mp3"></audio>
     <div class="content">
-        <div class="tips" id="tips2">选数字：<em id="nowNum">??</em></div>
+        <div class="tips" id="tips2">猜数字：<em id="nowNum">?</em></div>
+        <div id="probability">剩余 100 选 1，猜中概率：1%</div>
         <div class="numBox">
             <p><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></p>
             <p><button>11</button><button>12</button><button>13</button><button>14</button><button>15</button><button>16</button><button>17</button><button>18</button><button>19</button><button>20</button></p>
@@ -212,7 +222,7 @@
     </div>
     <div id="tipBox">
         <h4>不对</h4>
-        <div id="errTip">第3次猜错了，比67要大</div>
+        <div id="errTip"></div>
     </div>
     <script>
         function generateRandomInt(min, max) {
@@ -237,10 +247,14 @@
         var errTip = document.getElementById("errTip");
         var tipBox = document.getElementById("tipBox");
         var content = document.getElementsByClassName("content")[0];
+        var probability = document.getElementById("probability");
+        // var disabletEles = document.getElementsByClassName("disabled");
         var selectNum = 0;
         var time = 0;
         var say = "";
         random.innerHTML = randomInt;
+        var disabledNum = 0;
+        var leftNum = 100;
 
         for(var index=0;index<spans.length;index++){
             (function(i){
@@ -265,10 +279,15 @@
                 // mask.style.display = "block";
                 for(var m=0;m<selectNum;m++){
                     spans[m].setAttribute("disabled","disabled");
+                    spans[m].setAttribute("class","disabled");
+                    spans[m].style.color = "#999";
+                    spans[m].style.background = "#fff";
+                    spans[m].style.borderColor = "#999";
                 }
+                calDisabledNum();
                 content.style.display = "none";
                 tipBox.style.display = "block";
-                errTip.innerHTML = '错 '+ time +" 次，比 "+selectNum+" 大";
+                errTip.innerHTML = '猜错 '+ time +" 次，比 "+selectNum+" 大";
                 myAudio.src="assets/mp3/failed.mp3";
                 myAudio.play();
                 setTimeout(function(){
@@ -281,11 +300,16 @@
                 time+=1;
                 for(var n=selectNum-1;n<100;n++){
                     spans[n].setAttribute("disabled","disabled");
+                    spans[n].setAttribute("class","disabled");
+                    spans[n].style.color = "#999";
+                    spans[n].style.background = "#fff";
+                    spans[n].style.borderColor = "#999";
                 }
+                calDisabledNum();
                 // mask.style.display = "block";
                 content.style.display = "none";
                 tipBox.style.display = "block";
-                errTip.innerHTML = '错 '+ time +"次 ，比 "+selectNum+" 小";
+                errTip.innerHTML = '猜错 '+ time +" 次 ，比 "+selectNum+" 小";
                 myAudio.src="assets/mp3/failed.mp3";
                 myAudio.play();
                 setTimeout(function(){
@@ -296,6 +320,7 @@
                 clearTimeout();
             }else{
                 time+=1;
+                calDisabledNum();
                 spans[selectNum-1].style.borderColor = "#EF6140";
                 spans[selectNum-1].style.backgroundColor = "#EF6140";
                 spans[selectNum-1].style.color = "#fff";
@@ -303,6 +328,7 @@
                 mask.style.display = "block";
                 modelBox.style.display = "block";
                 document.getElementsByClassName("tips")[0].innerHTML = "没错是数字 "+randomInt;
+                probability.innerHTML = "👍";
                 if(time==1){
                     say = "你也太厉害了，怎么做到的";
                 }else if(1<time&&time<=5){
@@ -318,7 +344,11 @@
             }
         }
 
-        
+        function calDisabledNum(){
+            disabledNum = document.getElementsByClassName("disabled").length;
+            leftNum = 100-disabledNum;
+            probability.innerHTML ="剩余 "+leftNum+" 选 1，猜中概率："+((1/leftNum)*100).toFixed(1)+"%";
+        }
         
         // backBtn.onclick = function(){
         //     window.location.href = "./ideas.html";
