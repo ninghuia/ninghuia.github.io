@@ -88,12 +88,12 @@ h4:nth-child(1){
 }
 #tips{
     display: inline-block;
-    width:30px;
-    height:30px;
-    line-height: 30px;
+    width:50px;
+    height:50px;
+    line-height: 50px;
     position: fixed;
-    left:5px;
-    bottom:5px;
+    left:0px;
+    bottom:0px;
     font-size:40px;
     text-align: center;
     cursor: pointer;
@@ -101,7 +101,7 @@ h4:nth-child(1){
 #sureBtn{
     display: inline-block;
     margin-top:77px;
-    width:130px;
+    width:150px;
     height:50px;
     color:#EF6140;
     font-size:30px;
@@ -124,12 +124,12 @@ h4:nth-child(1){
 #message{
     display:none;
     width:340px;
-    height:98px;
+    height:40px;
     padding:30px 0 40px 0;
     position: absolute;
     top:50%;
     left:50%;
-    margin-top:-79px;
+    margin-top:-55px;
     margin-left:-170px;
     background-color: #fff;
     color:#333;
@@ -140,8 +140,8 @@ h4:nth-child(1){
     z-index: 1000;
 }
 #message img{
-    width:50px;
-    vertical-align: bottom;
+    width:70px;
+    vertical-align: middle;
 }
 #goon{
     margin-top:30px;
@@ -151,7 +151,14 @@ h4:nth-child(1){
     line-height: 40px;
     border:1px solid #999;
     border-radius: 5px;
-
+}
+#total{
+    width:100%;
+    position: fixed;
+    bottom:10px;
+    text-align: center;
+    color:#999;
+    font-size:12px;
 }
 </style>
     <script>
@@ -164,7 +171,7 @@ h4:nth-child(1){
         <h4>我</h4>
         <div class="contBox"><span id="shitou"></span><span id="jiandao"></span><span id="bu"></span></div>
         <div class="middleBox">
-            <div id="sureBtn">V S</div>
+            <div id="sureBtn">公布胜负</div>
         </div>
         <div class="contBox"><span></span><span></span><span></span></div>
         <h4 style="margin-top:15px;">机器人</h4>
@@ -173,9 +180,9 @@ h4:nth-child(1){
     <div id="mask"></div>
     <div id="message">
         <p id="result"></p>
-        <span id="goon">确定</span>
+        <!-- <span id="goon">确定</span> -->
     </div>
-    
+    <div id="total">今天一共对战了 0 局，胜率为 0%</div>
      <script>
      var p = ["石头","剪刀","布"] // 电脑：石头，剪刀，布
      var shitou = document.getElementById("shitou");
@@ -187,7 +194,11 @@ h4:nth-child(1){
      var mask = document.getElementById("mask");
      var messageBox = document.getElementById("message");
      var goonBtn = document.getElementById("goon");
+     var total = document.getElementById("total");
      var mine = '';
+     var winNum = 0;
+     var totalNum = 0;
+     var equal = 0;
     //  spans[0].style.borderColor = "#EF6140";
      function getRandomItem(arr) {
         return arr[Math.floor(Math.random() * arr.length)];
@@ -196,6 +207,7 @@ h4:nth-child(1){
     //  console.log(computer);
      var cpIndex = p.indexOf(computer);
     // console.log(cpIndex);  
+    // tips.innerHTML = computer;
 
     shitou.onclick = function(){
         myAudio.src = 'assets/mp3/dianji.wav';
@@ -227,12 +239,15 @@ h4:nth-child(1){
         if(mine==""){
             return false;
         }
+        totalNum+=1;
         mask.style.display = "block";
         messageBox.style.display = "block";
         spans[cpNow].style.borderColor = "#EF6140";
         if(mine==computer){
             myAudio.src="assets/mp3/pingju.mp3";
             myAudio.play();
+            equal+=1;
+            closeModelBox()
             if(mine=="石头"){
                 result.innerHTML = "<img src='assets/shitou.webp' /> "+"VS <img src='assets/shitou.webp' />，平局";
             }else if(mine=="剪刀"){
@@ -241,50 +256,95 @@ h4:nth-child(1){
                 result.innerHTML = "<img src='assets/bu.jpg' /> "+"VS <img src='assets/bu.jpg' />，平局";
             }
         }else if(mine=="石头"&&computer=="剪刀"){
-            result.innerHTML = "<img src='assets/shitou.webp' /> VS <img src='assets/jiandao.jpg' />，你获胜";
+            result.innerHTML = "<img src='assets/shitou.webp' /> VS <img src='assets/jiandao.jpg' />，你赢了";
             myAudio.src="assets/mp3/yeyes.mp3";
             myAudio.play();
+            winNum+=1;
+            closeModelBox()
         }else if(mine=="石头"&&computer=="布"){
-            result.innerHTML = "<img src='assets/shitou.webp' /> VS <img src='assets/bu.jpg' />，机器人获胜";
+            result.innerHTML = "<img src='assets/shitou.webp' /> VS <img src='assets/bu.jpg' />，你输了";
             myAudio.src="assets/mp3/failed.mp3";
             myAudio.play();
+            closeModelBox()
         }else if(mine=="剪刀"&&computer=="石头"){
-            result.innerHTML = "<img src='assets/jiandao.jpg' /> VS <img src='assets/shitou.webp' />，机器人获胜";
+            result.innerHTML = "<img src='assets/jiandao.jpg' /> VS <img src='assets/shitou.webp' />，你输了";
             myAudio.src="assets/mp3/failed.mp3";
             myAudio.play();
+            closeModelBox()
         }else if(mine=="剪刀"&&computer=="布"){
-            result.innerHTML = "<img src='assets/jiandao.jpg' /> VS <img src='assets/bu.jpg' />，你获胜";
+            result.innerHTML = "<img src='assets/jiandao.jpg' /> VS <img src='assets/bu.jpg' />，你赢了";
             myAudio.src="assets/mp3/yeyes.mp3";
             myAudio.play();
+            winNum+=1;
+            closeModelBox()
         }else if(mine=="布"&&computer=="石头"){
-            result.innerHTML = "<img src='assets/bu.jpg' /> VS <img src='assets/shitou.webp' />，你获胜";
+            result.innerHTML = "<img src='assets/bu.jpg' /> VS <img src='assets/shitou.webp' />，你赢了";
             myAudio.src="assets/mp3/yeyes.mp3";
             myAudio.play();
+            winNum+=1;
+            closeModelBox()
         }else if(mine=="布"&&computer=="剪刀"){
-            result.innerHTML = "<img src='assets/bu.jpg' /> VS <img src='assets/jiandao.jpg' />，机器人获胜";
+            result.innerHTML = "<img src='assets/bu.jpg' /> VS <img src='assets/jiandao.jpg' />，你输了";
             myAudio.src="assets/mp3/failed.mp3";
             myAudio.play();
+            closeModelBox()
         }
+        var shenglv = (((winNum/(totalNum-equal)))*100).toFixed(1)+"%"
+        if(shenglv=="NaN%"){
+            shenglv = "0%"
+        }
+        total.innerHTML = "共对战:"+totalNum+" 局，其中胜:"+winNum+"，平:"+equal+" ，输:"+(totalNum-winNum-equal)+" ，胜率为："+shenglv;
     }
 
-    goonBtn.onclick = function(){
-        window.location.reload();
-     }
+    // goonBtn.onclick = function(){
+    //     window.location.reload();
+    // }
 
-
-
-
-
-
-
-     var nowCP = cpIndex+3;
-     tips.ondblclick = function(){
-        spans[nowCP].style.borderColor = "red";
+    function closeModelBox(){
         setTimeout(function(){
-            spans[nowCP].style.borderColor = "#eee";
+            computer = getRandomItem(p);
+            cpIndex = p.indexOf(computer);
+            cpNow = cpIndex+3;
+            // console.log(computer);
+            mask.style.display = "none";
+            messageBox.style.display = "none";
+            for(var k=0;k<spans.length;k++){
+                spans[k].style.borderColor = "#eee";
+            }
+            // window.location.reload();
+        },2000);
+        clearTimeout();
+    }
+
+
+
+
+
+    //  var nowCP = cpIndex+3;
+     tips.ondblclick = function(){
+        spans[cpNow].style.borderColor = "green";
+        setTimeout(function(){
+            spans[cpNow].style.borderColor = "#eee";
         },300);
         clearTimeout();
     }
+
+    // 每天凌晨清空前天数据
+    function clearSessionStorageAtMidnight() {
+        const now = new Date();
+        const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1); // 获取明天的日期
+        const delay = tomorrow.getTime() - now.getTime(); // 计算到明天的时间差
+    
+        setTimeout(() => {
+            sessionStorage.clear();
+            console.log('Session Storage Cleared at Midnight');
+            // 设置下一次执行时间为明天的这个时候
+            setTimeout(clearSessionStorageAtMidnight, 24 * 60 * 60 * 1000); // 24小时后再次调用
+        }, delay);
+    }
+ 
+    // 初始化调用
+    clearSessionStorageAtMidnight();
      </script>
 </body>
 
