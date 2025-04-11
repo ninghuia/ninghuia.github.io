@@ -87,16 +87,14 @@ h4:nth-child(1){
     /* font-size:100px; */
 }
 #tips{
-    display: inline-block;
+    display: block;
     width:50px;
     height:50px;
-    line-height: 50px;
-    position: fixed;
+    /* position: fixed;
     left:0px;
-    bottom:0px;
-    font-size:40px;
-    text-align: center;
+    bottom:0px; */
     cursor: pointer;
+    /* border:1px solid red; */
 }
 #sureBtn{
     display: inline-block;
@@ -182,7 +180,7 @@ h4:nth-child(1){
         <p id="result"></p>
         <!-- <span id="goon">确定</span> -->
     </div>
-    <div id="total">今天一共对战了 0 局，胜率为 0%</div>
+    <div id="total">一共玩了 0 局，胜率为 0%</div>
      <script>
      var p = ["石头","剪刀","布"] // 电脑：石头，剪刀，布
      var shitou = document.getElementById("shitou");
@@ -293,7 +291,7 @@ h4:nth-child(1){
         if(shenglv=="NaN%"){
             shenglv = "0%"
         }
-        total.innerHTML = "共对战:"+totalNum+" 局，其中胜:"+winNum+"，平:"+equal+" ，输:"+(totalNum-winNum-equal)+" ，胜率为："+shenglv;
+        total.innerHTML = "共玩: "+totalNum+" 局，胜: "+winNum+"，平局: "+equal+" ，输: "+(totalNum-winNum-equal)+" ，胜率："+shenglv;
     }
 
     // goonBtn.onclick = function(){
@@ -305,6 +303,7 @@ h4:nth-child(1){
             computer = getRandomItem(p);
             cpIndex = p.indexOf(computer);
             cpNow = cpIndex+3;
+            mine = "";
             // console.log(computer);
             mask.style.display = "none";
             messageBox.style.display = "none";
