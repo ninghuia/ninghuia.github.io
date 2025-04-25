@@ -190,7 +190,7 @@ var saying = getTime();
                                 label: "Success",
                                 content: "Opening"
                             }),
-                            window.open("ruyihuahua/index.html", "_blank"),
+                            window.open("huahua/index.html", "_blank"),
                             t({
                                 type: "success",
                                 label: "Done",
