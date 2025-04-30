@@ -1,6 +1,7 @@
 var startBtn = document.getElementById("startBtn");
 var oCount = document.getElementById("count");
 var num = 18;
+var guoqi = document.getElementById("red");
 var audioDom = document.getElementById("audioDom");
 var audioTaoyita = document.getElementById("audioTaoyita");
 var audioZhutuiqi = document.getElementById("audioZhutuiqi");
@@ -8,8 +9,10 @@ var audioErjifenli = document.getElementById("audioErjifenli");
 var audioChuanfenli = document.getElementById("audioChuanfenli");
 var rocketBox = document.getElementsByClassName("rocketBox")[0];
 var location2 = document.getElementsByClassName("location")[0];
+var earth = document.getElementById("earth");
 var fire_1 = document.getElementById("fire1");
 var fire_2 = document.getElementById("fire2");
+var part1 = document.getElementsByClassName("part_1")[0];
 var part2 = document.getElementsByClassName("part_2")[0];
 var part5 = document.getElementsByClassName("part_5")[0];
 var part4 = document.getElementsByClassName("part_4")[0];
@@ -31,6 +34,15 @@ var zhengliuzhao_2 = document.getElementsByClassName("zhengliuzhao_2")[0];
 var feichuanBox = document.getElementsByClassName("feichuanBox")[0];
 var solarsys = document.getElementsByClassName("solarsys")[0];
 var process = document.getElementById("process");
+
+function getRandomItem(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+const items = ['‌酒泉卫星发射中心｜神舟一号', '‌酒泉卫星发射中心｜神舟二号','‌酒泉卫星发射中心｜神舟三号','‌酒泉卫星发射中心｜神舟四号','‌酒泉卫星发射中心｜神舟五号','‌酒泉卫星发射中心｜神舟六号','‌酒泉卫星发射中心｜神舟七号','‌酒泉卫星发射中心｜神舟八号','‌酒泉卫星发射中心｜神舟九号','‌酒泉卫星发射中心｜神舟十号','‌酒泉卫星发射中心｜神舟十一号','‌酒泉卫星发射中心｜神舟十二号','‌酒泉卫星发射中心｜神舟十三号','‌酒泉卫星发射中心｜神舟十四号','‌酒泉卫星发射中心｜神舟十五号','‌酒泉卫星发射中心｜神舟十六号','‌酒泉卫星发射中心｜神舟十七号','‌酒泉卫星发射中心｜神舟十八号','‌酒泉卫星发射中心｜神舟十九号','‌酒泉卫星发射中心｜神舟二十号','‌太原卫星发射中心', '‌西昌卫星发射中心', '‌文昌航天发射场','‌中国东方航天港','北小卫星发射中心'];
+const randomItem = getRandomItem(items);
+location2.innerHTML = randomItem;
+console.log(randomItem);
+
 startBtn.onclick = function(){
     audioDom.play();
     startBtn.style.display = "none";
@@ -108,6 +120,8 @@ startBtn.onclick = function(){
                                 erji.style.marginTop = "30px";
                             }
                             setTimeout(function(){
+                                document.getElementsByClassName("main")[0].style.background = "#000";
+                                earth.style.display = "block";
                                 block_2.style.display = "none";
                                 erji.style.display = "none";
                                 part6.style.display = "block";
@@ -120,14 +134,17 @@ startBtn.onclick = function(){
                                         part2.style.marginTop = "30px";
                                     }
                                     setTimeout(function(){
+                                        earth.style.right = "-120px";
+                                        earth.style.bottom = "-120px";
                                         part2.style.display = "none";
                                         part7.style.display = "block";
-                                        
-                                        document.getElementsByClassName("main")[0].style.background = "#000";
+                                        feichuanBox.style.transform = "rotate(60deg)";
+                                        // document.getElementsByClassName("main")[0].style.background = "#000";
                                         // 抛整流罩
                                         setTimeout(function(){
                                             topBox.style.display = "none";
                                             part7.style.display = "none";
+                                            guoqi.style.display = "none";
                                             zhengliuzhao_1.style.transform = "translate(-50px)";
                                             zhengliuzhao_2.style.transform = "translate(50px)";
                                             feichuanBox.style.display = "block";
@@ -137,6 +154,7 @@ startBtn.onclick = function(){
                                                 zhengliuzhao_2.style.display = "none";
                                                 feichuanBox.style.transform = "rotate(90deg)";
                                                 setTimeout(function(){
+                                                    earth.style.display = "none";
                                                     feichuanBox.style.display = "none";
                                                     solarsys.style.display = "block";
                                                 },2000)
