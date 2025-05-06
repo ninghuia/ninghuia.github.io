@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>彩票选号辅助</title>
+    <style>
+        .btn{
+            width:260px;
+            height:100px;
+            border:1px solid #999;
+            line-height: 100px;
+            text-align: center;
+            color:#333;
+            font-size:32px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #btn_1{
+            position:fixed;
+            top:30%;
+            left:50%;
+            margin-left:-130px;
+        }
+        #btn_2{
+            position:fixed;
+            bottom:30%;
+            left:50%;
+            margin-left:-130px;
+        }
+    </style>
+</head>
+<body>
+    <span class="btn" id="btn_1">福彩大乐透</span>
+    <span class="btn" id="btn_2">体彩大乐透</span>
+    <script>
+        document.getElementById("btn_1").onclick = function(){
+            window.location.href = "./daletoufucai.html";
+        }
+        document.getElementById("btn_2").onclick = function(){
+            window.location.href = "./daletouticai.html";
+        }
+    </script>
+</body>
+</html>
