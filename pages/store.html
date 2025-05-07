@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>🍹</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        .unselectable {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+        body, html {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        #main{
+            width:350px;
+            height:570px;
+            margin:0 auto;
+            /* border:1px solid red; */
+        }
+        .content{
+            padding-top:60px;
+            width:100%;
+        }
+        .top{
+            width:100%;
+            height:20px;
+        }
+        .top>span{
+            display:inline-block;
+            width:40px;
+            height:20px;
+            background: #e9467f;
+        }
+        .top>span:nth-child(1){
+            margin-left: 100px;
+            margin-right:65px;
+            border-top-left-radius:6px;
+            border-top-right-radius:6px;
+        }
+        .top>span:nth-child(2){
+            border-top-left-radius:6px;
+            border-top-right-radius:6px;
+        }
+        .block_1{
+            margin:0 auto;
+            width:300px;
+            height:20px;
+            background: #e9467f;
+            border-top-left-radius:6px;
+            border-top-right-radius:6px;
+        }
+        .block_2{
+            width:100%;
+            height:40px;
+            background: #e9467f;
+            line-height: 40px;
+            text-align: center;
+            color:#fff;
+            font-size:18px;
+            letter-spacing: 10px;
+            border-top-left-radius:6px;
+            border-top-right-radius:6px;
+        }
+        .block_3{
+            width:100%;
+            height:50px;
+            background: #f4dbec;
+            overflow: hidden;
+            border-bottom-left-radius:6px;
+            border-bottom-right-radius:6px;
+        }
+        .block_3>span{
+            margin-top:-30px;
+            display:inline-block;
+            width:70px;
+            height:70px;
+            border-radius: 35px;
+            background: #e9467f;
+        }
+        .block_4{
+            padding:20px;
+            width:310px;
+            height:300px;
+            background: #e9467f;
+            border-radius:6px;
+        }
+        .block_5{
+            width:310px;
+            height:100%;
+            background: #f4dbec;
+            background-color: #fff;
+            border-radius:20px;
+        }
+        .block_5 .line{
+            height:60px;
+        }
+        .block_5 .line .drink{
+            display:inline-block;
+            width:33.33%;
+            text-align: center;
+            line-height: 42px;
+            box-sizing: border-box;
+        }
+        .block_5 .line .drink:nth-child(1),.block_5 .line .drink:nth-child(2){
+            border-right:1px dashed #999;
+        }
+        .block_5 .line .drink>span{
+            display: inline-block;
+            width:30px;
+            height:45px;
+            margin-top:10px;
+            color:#fff;
+            border:1px solid #fff;
+            font-size:12px;
+            background-color: #e9467f;
+            border-radius: 4px;
+        }
+        .block_5 .price{
+            height:20px;
+            margin-bottom:25px;
+            font-size:18px;
+            color:#999;
+            text-align: center;
+        }
+        .block_5 .price .single_price{
+            display:inline-block;
+            width:33.33%;
+            box-sizing: border-box;
+        }
+        .block_5 .price .single_price:nth-child(1),.block_5 .price .single_price:nth-child(2){
+            border-right:1px dashed #999;
+        }
+        .block_5 .line .drink>span.drink_1{
+            background-color: #e93f33;
+        }
+        .block_5 .line .drink>span.drink_2{
+            background-color: #f29c33;
+        }
+        .block_5 .line .drink>span.drink_3{
+            background-color: #fde061;
+        }
+        .block_5 .line .drink>span.drink_4{
+            background-color: #ea4e33;
+        }
+        .block_5 .line .drink>span.drink_5{
+            background-color: #f09033;
+        }
+        .block_5 .line .drink>span.drink_6{
+            background-color: #50206a;
+        }
+        .block_5 .line .drink>span.drink_7{
+            background-color: #8cb722;
+        }
+        .block_5 .line .drink>span.drink_8{
+            background-color: #303d9a;
+        }
+        .block_5 .line .drink>span.drink_9{
+            background-color: #eb6777;
+        }
+        .block_6{
+            padding:10px 20px 20px 20px;
+            width:310px;
+            height:80px;
+            background: #f4dbec;
+            border-radius:6px;
+        }
+        .block_6 .get_box{
+            float:left;
+            width:150px;
+            height:60px;
+            border:1px solid green;
+            border-radius: 15px;
+            background-color: #e2b0d3;
+            border: 3px solid #eee;
+            overflow: hidden;
+        }
+        .mydrink{
+            display: none;
+            width:70px;
+            height:33px;
+            margin-top:-46px;
+            margin-left:40px;
+            color:#fff;
+            text-align: center;
+            border:1px solid #fff;
+            font-size:20px;
+            line-height: 33px;
+            background-color: #fff;
+            border-radius: 4px;
+            transition: all 2s;
+            /* overflow: visible; */
+        }
+        .drink_top{
+            display: block;
+            margin-top:-46px;
+            margin-left:111px;
+            width:10px;
+            height:10px;
+            background-color: #fff;
+            border:1px solid #fff;
+            border-left:none;
+            border-top-right-radius:2px;
+            border-bottom-right-radius:2px;
+            transition: all 2s;
+        }
+        .block_6 .button{
+           float:right;
+           margin-top:-5px;
+            width:116px;
+            height:50px;
+            border:1px solid #e9467f;
+            border-radius: 4px;
+            background-color: #fff;
+            color:#e9467f;
+            line-height: 50px;
+            font-size:26px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="unselectable">
+    <audio id="myAudio" src="../pages/assets/mp3/shouhuoji.mp3"></audio>
+    <div id="main">
+        <div class="content">
+            <div class="top">
+                <span></span>
+                <span></span>
+            </div>
+            <div class="block_1"></div>
+            <div class="block_2">如意果汁店</div>
+            <div class="block_3"><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="block_4">
+                <div class="block_5">
+                    <div class="drink_box">
+                        <div class="line line_1"><div class="drink"><span class="drink_1">果汁</span></div><div class="drink"><span class="drink_2">果汁</span></div><div class="drink"><span class="drink_3">果汁</span></div></div>
+                        <div class="price"><span class="single_price">🍓</span><span class="single_price">🥭</span><span class="single_price">🍌</span></div>
+                        <div class="line line_2"><div class="drink"><span class="drink_4">果汁</span></div><div class="drink"><span class="drink_5">果汁</span></div><div class="drink"><span class="drink_6">果汁</span></div></div>
+                        <div class="price"><span class="single_price">🍎</span><span class="single_price">🍊</span><span class="single_price">🍇</span></div>
+                        <div class="line line_1"><div class="drink"><span class="drink_7">果汁</span></div><div class="drink"><span class="drink_8">果汁</span></div><div class="drink"><span class="drink_9">果汁</span></div></div>
+                        <div class="price"><span class="single_price">🥝</span><span class="single_price">🫐</span><span class="single_price">🍉</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="block_6">
+                <p style="padding-left:40px;font-size:18px;overflow: hidden;color:#999;">果汁出口</p>
+                <div class="get_box">
+                    <div class="mydrink"></div><span class="drink_top"></span>
+                </div>
+                <button class="button">按钮</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var myAudio = document.getElementById("myAudio");
+        var get_juice = document.getElementsByClassName("button")[0];
+        var mydrink = document.getElementsByClassName("mydrink")[0];
+        var drink_top = document.getElementsByClassName("drink_top")[0];
+        var juice = ["🍓","🍎","🍌","🍊","🫐","🥝","🍉","🍇","🥭"];
+        function getRandomItem(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+        get_juice.onclick = function(){
+            get_juice.setAttribute("disabled","disabled");
+            myAudio.play();
+            var this_juice = getRandomItem(juice);
+            mydrink.innerHTML = this_juice+"果汁";
+            if(this_juice=='🍓'){
+                mydrink.style.background = "#e93f33";
+            }else if(this_juice=='🥭'){
+                mydrink.style.background = "#f29c33";
+            }else if(this_juice=='🍌'){
+                mydrink.style.background = "#fde061";
+            }else if(this_juice=='🍎'){
+                mydrink.style.background = "#ea4e33";
+            }else if(this_juice=='🍊'){
+                mydrink.style.background = "#f09033";
+            }else if(this_juice=='🍇'){
+                mydrink.style.background = "#50206a";
+            }else if(this_juice=='🥝'){
+                mydrink.style.background = "#8cb722";
+            }else if(this_juice=='🫐'){
+                mydrink.style.background = "#303d9a";
+            }else{
+                mydrink.style.background = "#eb6777";
+            }
+            mydrink.style.display = "block";
+            drink_top.style.display = "block";
+            setTimeout(function(){
+                mydrink.style.translate = "0 60px";
+                drink_top.style.translate = "0 83px";
+                setTimeout(function(){
+                    mydrink.style.display = "none";
+                    drink_top.style.display = "none";
+                    mydrink.style.translate = "0 -60px";
+                    drink_top.style.translate = "0 -83px";
+                    mydrink.innerHTML = "";
+                    get_juice.removeAttribute("disabled");
+                },4000)
+            },1000)
+        }
+    </script>
+</body>
+</html>
