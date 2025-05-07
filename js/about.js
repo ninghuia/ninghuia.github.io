@@ -238,8 +238,8 @@ var saying = getTime();
                         ))
                     }
                 },
-                gequ: {
-                    description: "You can download music in a new tab.",
+                type: {
+                    description: "You can pratice type word",
                     run: function(e) {
                         return new Promise((function(t) {
                             e({
@@ -247,7 +247,7 @@ var saying = getTime();
                                 label: "Success",
                                 content: "Opening"
                             }),
-                            window.open("https://www.gequbao.com/", "_blank"),
+                            window.open("keyboard/index.html", "_blank"),
                             t({
                                 type: "success",
                                 label: "Done",

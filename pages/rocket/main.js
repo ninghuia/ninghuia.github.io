@@ -42,7 +42,9 @@ const items = ['‌酒泉卫星发射中心','‌太原卫星发射中心', '‌
 const randomItem = getRandomItem(items);
 location2.innerHTML = randomItem;
 console.log(randomItem);
-
+location2.onclick = function(){
+    location2.innerHTML = getRandomItem(items);
+}
 startBtn.onclick = function(){
     audioDom.play();
     startBtn.style.display = "none";

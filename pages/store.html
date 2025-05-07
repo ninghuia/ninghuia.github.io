@@ -64,7 +64,7 @@
             line-height: 40px;
             text-align: center;
             color:#fff;
-            font-size:18px;
+            font-size:30px;
             letter-spacing: 10px;
             border-top-left-radius:6px;
             border-top-right-radius:6px;
@@ -108,6 +108,7 @@
             text-align: center;
             line-height: 42px;
             box-sizing: border-box;
+            cursor: pointer;
         }
         .block_5 .line .drink:nth-child(1),.block_5 .line .drink:nth-child(2){
             border-right:1px dashed #999;
@@ -229,6 +230,7 @@
 </head>
 <body class="unselectable">
     <audio id="myAudio" src="../pages/assets/mp3/shouhuoji.mp3"></audio>
+    <audio id="clickAudio" src="../pages/assets/mp3/dianji.wav"></audio>
     <div id="main">
         <div class="content">
             <div class="top">
@@ -239,6 +241,7 @@
             <div class="block_2">如意果汁店</div>
             <div class="block_3"><span></span><span></span><span></span><span></span><span></span></div>
             <div class="block_4">
+                <!-- <marquee behavior="" direction="" height="20">果汁多种，随意点击选取</marquee> -->
                 <div class="block_5">
                     <div class="drink_box">
                         <div class="line line_1"><div class="drink"><span class="drink_1">果汁</span></div><div class="drink"><span class="drink_2">果汁</span></div><div class="drink"><span class="drink_3">果汁</span></div></div>
@@ -255,6 +258,7 @@
                 <div class="get_box">
                     <div class="mydrink"></div><span class="drink_top"></span>
                 </div>
+                <p style="margin-top:-25px;margin-bottom:15px;text-indent: 36px;font-size:18px;color:#e9467f;float:right;">当前选择：<span id="now_chose">🍓</span></p>
                 <button class="button">按钮</button>
             </div>
         </div>
@@ -264,34 +268,68 @@
         var get_juice = document.getElementsByClassName("button")[0];
         var mydrink = document.getElementsByClassName("mydrink")[0];
         var drink_top = document.getElementsByClassName("drink_top")[0];
+        var drinks = document.getElementsByClassName("drink");
+        var now_chose = document.getElementById("now_chose");
         var juice = ["🍓","🍎","🍌","🍊","🫐","🥝","🍉","🍇","🥭"];
-        function getRandomItem(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];
+        var juice = [
+            {
+                "text":"🍓",
+                "color":"#e93f33"
+            },
+            {
+                "text":"🥭",
+                "color":"#f29c33"
+            },
+            {
+                "text":"🍌",
+                "color":"#fde061"
+            },
+            {
+                "text":"🍎",
+                "color":"#ea4e33"
+            },
+            {
+                "text":"🍊",
+                "color":"#f09033"
+            },
+            {
+                "text":"🍇",
+                "color":"#50206a"
+            },
+            {
+                "text":"🥝",
+                "color":"#8cb722"
+            },
+            {
+                "text":"🫐",
+                "color":"#303d9a"
+            },
+            {
+                "text":"🍉",
+                "color":"#eb6777"
+            }
+        ]
+        // function getRandomItem(arr) {
+        //     return arr[Math.floor(Math.random() * arr.length)];
+        // }
+        var chose_juice = "🍓";
+        var chose_juice_color = "#e93f33";
+        for(var index=0;index<drinks.length;index++){
+            (function(i){
+                drinks[i].onclick = function(){
+                    chose_juice = juice[i].text;
+                    now_chose.innerHTML = juice[i].text;
+                    chose_juice_color = juice[i].color;
+                    clickAudio.play();
+                }
+            })(index)
         }
         get_juice.onclick = function(){
             get_juice.setAttribute("disabled","disabled");
             myAudio.play();
-            var this_juice = getRandomItem(juice);
+            var this_juice = chose_juice;
             mydrink.innerHTML = this_juice+"果汁";
-            if(this_juice=='🍓'){
-                mydrink.style.background = "#e93f33";
-            }else if(this_juice=='🥭'){
-                mydrink.style.background = "#f29c33";
-            }else if(this_juice=='🍌'){
-                mydrink.style.background = "#fde061";
-            }else if(this_juice=='🍎'){
-                mydrink.style.background = "#ea4e33";
-            }else if(this_juice=='🍊'){
-                mydrink.style.background = "#f09033";
-            }else if(this_juice=='🍇'){
-                mydrink.style.background = "#50206a";
-            }else if(this_juice=='🥝'){
-                mydrink.style.background = "#8cb722";
-            }else if(this_juice=='🫐'){
-                mydrink.style.background = "#303d9a";
-            }else{
-                mydrink.style.background = "#eb6777";
-            }
+            mydrink.style.background = chose_juice_color;
             mydrink.style.display = "block";
             drink_top.style.display = "block";
             setTimeout(function(){
