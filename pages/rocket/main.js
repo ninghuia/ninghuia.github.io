@@ -38,7 +38,7 @@ var process = document.getElementById("process");
 function getRandomItem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
-const items = ['‌酒泉卫星发射中心','‌太原卫星发射中心', '‌西昌卫星发射中心', '‌文昌航天发射场','‌中国东方航天港','北小卫星发射中心'];
+const items = ['‌酒泉卫星发射中心','‌上海卫星发射中心', '‌龙湖天街航天发射场', '‌文昌航天发射场','‌河南航天发射场','北小卫星发射中心'];
 const randomItem = getRandomItem(items);
 location2.innerHTML = randomItem;
 console.log(randomItem);

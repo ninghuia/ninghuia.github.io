@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>礼物机</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        .unselectable {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+        body, html {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        .main{
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:-285px;
+            margin-left:-175px;
+            width:350px;
+            height:570px;
+            background-color: #c255ed;
+            border:1px solid #999;
+            border-radius: 10px;
+            transition: all 2s;
+        }
+        #block_1{
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:-250px;
+            margin-left:-155px;
+            width:310px;
+            height:370px;
+            background-color: #60d0e2;
+            border:1px solid #999;
+            border-radius: 10px;
+            border-bottom-left-radius:0;
+            border-bottom-right-radius:0;
+        }
+        #block_2{
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:-250px;
+            margin-left:-127px;
+            width: 237px;
+            height:300px;
+            background-color: #44a0c4;
+            border:10px solid #431f6b;
+            border-top:0;
+            border-bottom:0;
+        }
+        #block_2 .gift{
+            position: absolute;
+            top:250px;
+            width:100%;
+            height:80px;
+            text-align: center;
+            font-size:85px;
+            z-index: 300;
+        }
+        /* #gift1{
+            display:none;
+            margin-top:234px;
+            margin-left:-16px;
+            font-size:90px;
+            transition: all 2s;
+            z-index: 300;
+        }
+        #line_1{
+            position:absolute;
+            top:334px;
+            left:57px;
+            width:240px;
+            height:1px;
+            background-color: #999;
+        } */
+        #block_3{
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:122px;
+            margin-left:-155px;
+            width: 310px;
+            height:80px;
+            background-color: #f8c433;
+            border:1px solid #f8c433;
+            font-size:45px;
+            line-height: 72px;
+            text-align: center;
+        }
+        #left,#right{
+            display:inline-block;
+            width:72px;
+            height:50px;
+            background-color:#4f459c;
+            border:2px solid #252468;
+            border-radius: 10px;
+            color:#fff;
+            text-align: center;
+            line-height: 50px;
+            font-size:32px;
+            border:none;
+            cursor: pointer;
+        }
+        #go{
+            display:inline-block;
+            width:75px;
+            height:75px;
+            margin:0px 30px 0 30px;
+            background-color:#4f459c;
+            border:2px solid #252468;
+            color:#fff;
+            line-height: 75px;
+            border-radius: 40px;
+            font-size:36px;
+            cursor: pointer;
+        }
+        #left,#right{
+            cursor: pointer;
+        }
+        #block_4{
+            position: absolute;
+            top: 335px;
+            left: 21px;
+            width: 257px;
+            height: 0;
+            border-bottom: 71px solid #7e39ac;
+            border-left: 27px solid transparent;
+            border-right: 27px solid transparent;
+        }
+        #block_5{
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:208px;
+            margin-left:-155px;
+            width: 310px;
+            height:50px;
+            background-color: #d06f2b;
+            line-height: 50px;
+            text-align: center;
+        }
+        .block_5_1{
+            position:absolute;
+            top:10px;
+            left:25px;
+            width:10px;
+            height:30px;
+            background-color: #f08c33;
+            border-radius: 4px;
+        }
+        .block_5_2{
+            position:absolute;
+            top:10px;
+            right:25px;
+            width:10px;
+            height:30px;
+            background-color: #f08c33;
+            border-radius: 4px;
+        }
+        .block_5_3{
+            position:absolute;
+            top:10px;
+            left:45px;
+            width:220px;
+            height:5px;
+            background-color: #f08c33;
+            border-radius: 4px;
+        }
+        .block_5_4{
+            position:absolute;
+            top:23px;
+            left:45px;
+            width:220px;
+            height:5px;
+            background-color: #f08c33;
+            border-radius: 4px;
+        }
+        .block_5_5{
+            position:absolute;
+            top:35px;
+            left:45px;
+            width:220px;
+            height:5px;
+            background-color: #f08c33;
+            border-radius: 4px;
+        }
+        #hand_box{
+            position:absolute;
+            top:34px;
+            left:86px;
+            width:40px;
+            /* height:130px; */
+            text-align: center;
+            z-index: 200;
+            transition: all 3s;
+        }
+        .hand_1{
+            width:40px;
+            height:20px;
+            background-color: #323440;
+            transition: all 2s;
+        }
+        .hand_2{
+            position:absolute;
+            left:17px;
+            /* display:inline-block; */
+            width:5px;
+            height:90px;
+            background-color: #fff;
+            transition: all 2s;
+        }
+        .hand_3{
+            position:absolute;
+            top:80px;
+            left:10px;
+            width:20px;
+            height:10px;
+            border-radius: 2px;
+            background-color: #323440;
+            z-index: 200;
+            transition: all 2s;
+        }
+        .hand_4{
+            position:absolute;
+            top:104px;
+            left:-5px;
+            width:30px;
+            height:5px;
+            border-radius: 2px;
+            background-color: #fff;
+            transform-origin: left top;
+            transform: rotate(-40deg);
+            transition: all 2s;
+        }
+        .hand_5{
+            position:absolute;
+            top:104px;
+            right:-5px;
+            width:30px;
+            height:5px;
+            border-radius: 2px;
+            background-color: #fff;
+            transform-origin: right top;
+            transform: rotate(40deg);
+            transition: all 2s;
+        }
+        #hand_6{
+            position:absolute;
+            top:103px;
+            left:0px;
+            width:35px;
+            height:5px;
+            border-radius: 2px;
+            background-color: #fff;
+            transform-origin: left top;
+            transform: rotate(80deg);
+            transition: all 2s;
+        }
+        #hand_7{
+            position:absolute;
+            top:103px;
+            right:0px;
+            width:35px;
+            height:5px;
+            border-radius: 2px;
+            background-color: #fff;
+            transform-origin: right top;
+            transform: rotate(-80deg);
+            transition: all 2s;
+        }
+        #mask{
+            display:none;
+            position: absolute;
+            width:100%;
+            height:100%;
+            background-color: rgba(0,0,0,.5);
+            transition: all 2s;
+        }
+        #tips{
+            display:none;
+            position:fixed;
+            top:50%;
+            left:50%;
+            margin-left:-160px;
+            margin-top:-110px;
+            width:320px;
+            height:220px;
+            background-color: #fff;
+            border-radius: 20px;
+            /* font-size:60px; */
+            /* line-height: 280px; */
+            text-align: center;
+            z-index: 999;
+            transition: all 2s;
+        }
+        #tips h4{
+            margin-top:20px;
+            color:#999;
+            font-size:36px;
+            font-weight: normal;
+        }
+        #tips h5{
+            margin-top:40px;
+            font-size:46px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body class="unselectable">
+    <audio id="begin_audio" src="../pages/assets/mp3/go.mp3"></audio>
+    <audio id="move_audio" src="../pages/assets/mp3/move.mp3"></audio>
+    <div class="main">
+        <div id="block_1"></div>
+        <div id="block_2">
+            <div class="gift"><span>🎁</span> <span>🎁</span></div>
+        </div>
+        <div id="line_1"></div>
+        <div id="block_4"></div>
+        <div id="block_3">
+            <button id="left">⇦</button>
+            <button id="go">Go</button>
+            <button id="right">⇨</button>
+        </div>
+        <div id="block_5">
+            <div class="block_5_1"></div>
+            <div class="block_5_2"></div>
+            <div class="block_5_3"></div>
+            <div class="block_5_4"></div>
+            <div class="block_5_5"></div>
+        </div>
+        <div id="hand_box">
+            <div class="hand_1"></div>
+            <div class="hand_2"></div>
+            <div class="hand_3"></div>
+            <div class="hand_4"></div>
+            <div class="hand_5"></div>
+            <div id="hand_6"></div>
+            <div id="hand_7"></div>
+            <!-- <div id="gift1">🎁</div> -->
+        </div>
+    </div>
+    <div id="mask"></div>
+    <div id="tips">
+        <h4>🎁拆开了</h4>
+        <h5 id="result">一瓶芬达</h5>
+    </div>
+    <script>
+        var go = document.getElementById("go");
+        var hand2 = document.getElementsByClassName("hand_2")[0];
+        var hand3 = document.getElementsByClassName("hand_3")[0];
+        var hand4 = document.getElementsByClassName("hand_4")[0];
+        var hand5 = document.getElementsByClassName("hand_5")[0];
+        var hand6 = document.getElementById("hand_6");
+        var hand7 = document.getElementById("hand_7");
+        var gift1 = document.getElementById("gift1");
+        var gift2 = document.getElementById("gift2");
+        var hand_box = document.getElementById("hand_box");
+        var toLeft = document.getElementById("left");
+        var toRight = document.getElementById("right");
+        var tips = document.getElementById("tips");
+        var result = document.getElementById("result");
+        var mask = document.getElementById("mask");
+        var begin_audio = document.getElementById("begin_audio");
+        var move_audio = document.getElementById("move_audio");
+        var main_box = document.getElementsByClassName("main")[0];
+
+        function getRandomItem(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+        const items = ['一个甜筒🍦', '一杯果汁🥤', '一朵🌺',"一架✈️",'一个🥚','💰100元','💰1元','一个🍭','一串糖葫芦','一瓶尖叫','一瓶脉动','一只风筝🪁','一颗钻石💎',"一枚戒指💍","一台电脑💻","一部手机📱","一颗糖🍬"];
+        go.onclick = function(){
+            begin_audio.play();
+            var randomItem = getRandomItem(items);
+            go.setAttribute("disabled","disabled");
+            toLeft.setAttribute("disabled","disabled");
+            toRight.setAttribute("disabled","disabled");
+            hand2.style.height = "280px";
+            hand3.style.top = "244px";
+            hand4.style.top = "270px";
+            hand5.style.top = "270px";
+            hand6.style.top = "270px";
+            hand7.style.top = "270px";
+            setTimeout(function(){
+                hand_6.style.transform = "rotate(65deg)";
+                hand_7.style.transform = "rotate(-65deg)";
+                setTimeout(function(){
+                    main_box.style.display = "none";
+                    mask.style.display = "block";
+                    tips.style.display = "block";
+                    result.innerHTML = randomItem;
+                    setTimeout(function(){
+                        mask.style.display = "none";
+                        tips.style.display = "none";
+                        main_box.style.display = "block";
+                        go.removeAttribute("disabled");
+                        toLeft.removeAttribute("disabled");
+                        toRight.removeAttribute("disabled");
+                        setTimeout(function(){
+                            hand2.style.height = "119px";
+                            hand3.style.top = "108px";
+                            hand4.style.top = "126px";
+                            hand5.style.top = "126px";
+                            hand6.style.top = "126px";
+                            hand7.style.top = "126px";
+                            hand_6.style.transform = "rotate(85deg)";
+                            hand_7.style.transform = "rotate(-85deg)";
+                        },200)
+                    },2000)
+                },1000)
+            },1000)
+        }
+       
+        toLeft.onclick = function(){
+            move_audio.play();
+            hand_box.style.left="86px";
+        };
+        
+        toRight.onclick = function(){
+            move_audio.play();
+            hand_box.style.left="224px"
+        };
+    </script>
+</body>
+</html>
