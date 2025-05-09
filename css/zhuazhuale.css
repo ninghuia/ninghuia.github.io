@@ -56,13 +56,13 @@ body, html {
     top:250px;
     width:100%;
     height:80px;
-    /* text-align: center; */
+    text-align: center;
     font-size:85px;
     z-index: 300;
 }
-#block_2 .gift>span:nth-child(1){
-    margin-right:37px;
-}
+/* #block_2 .gift>span:nth-child(1){
+    margin-right:27px;
+} */
 /* #gift1{
     display:none;
     margin-top:234px;
