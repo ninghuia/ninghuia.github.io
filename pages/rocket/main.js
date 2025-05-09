@@ -7,6 +7,7 @@ var audioTaoyita = document.getElementById("audioTaoyita");
 var audioZhutuiqi = document.getElementById("audioZhutuiqi");
 var audioErjifenli = document.getElementById("audioErjifenli");
 var audioChuanfenli = document.getElementById("audioChuanfenli");
+var audioSuccess = document.getElementById("audioSuccess");
 var rocketBox = document.getElementsByClassName("rocketBox")[0];
 var location2 = document.getElementsByClassName("location")[0];
 var earth = document.getElementById("earth");
@@ -34,6 +35,9 @@ var zhengliuzhao_2 = document.getElementsByClassName("zhengliuzhao_2")[0];
 var feichuanBox = document.getElementsByClassName("feichuanBox")[0];
 var solarsys = document.getElementsByClassName("solarsys")[0];
 var process = document.getElementById("process");
+var zhutui_line1 = document.getElementById("zhutui_line1");
+var zhutui_line2 = document.getElementById("zhutui_line2");
+var weixing = document.getElementById("weixing");
 
 function getRandomItem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -49,8 +53,8 @@ startBtn.onclick = function(){
     audioDom.play();
     startBtn.style.display = "none";
     setTimeout(() => {
-        line1.style.transform = "rotate(-80deg)";
-        line2.style.transform = "rotate(80deg)";
+        line1.style.transform = "rotate(-90deg)";
+        line2.style.transform = "rotate(90deg)";
         // line3.style.transform = "rotate(-80deg)";
         // line4.style.transform = "rotate(80deg)";
         setTimeout(() => {
@@ -94,8 +98,9 @@ startBtn.onclick = function(){
         location2.style.display = "none";
         // 逃逸塔分离
         setTimeout(function(){
-            audioTaoyita.play();
-            audioTaoyita.onended = function(){
+            audioDom.src="taoyita.mp3";
+            audioDom.play();
+            audioDom.onended = function(){
                 // process.innerHTML = "点火>逃逸塔分离";
                 document.getElementsByClassName("taoyitaBox")[0].style.marginBottom = "30px";
                 setTimeout(function(){
@@ -104,10 +109,13 @@ startBtn.onclick = function(){
                 },2000);
                 // 助推器分离
                 setTimeout(function(){
-                    audioZhutuiqi.play();
-                    audioZhutuiqi.onended = function(){
+                    audioDom.src="zhutuiqi.mp3";
+                    audioDom.play();
+                    audioDom.onended = function(){
                         fire_1.style.display = "none";
                         fire_2.style.display = "none";
+                        zhutui_line1.style.display = "none";
+                        zhutui_line2.style.display = "none";
                         zhutuiqi_1.style.transform = "translate(-30px)";
                         zhutuiqi_2.style.transform = "translate(30px)";
                     }
@@ -116,8 +124,9 @@ startBtn.onclick = function(){
                         zhutuiqi_2.style.display = "none";
                         // 一二级分离
                         setTimeout(function(){
-                            audioErjifenli.play();
-                            audioErjifenli.onended = function(){
+                            audioDom.src="erji.mp3";
+                            audioDom.play();
+                            audioDom.onended = function(){
                                 part5.style.display = "none";
                                 erji.style.marginTop = "30px";
                             }
@@ -129,8 +138,9 @@ startBtn.onclick = function(){
                                 part6.style.display = "block";
                                 // 船箭分离
                                 setTimeout(function(){
-                                    audioChuanfenli.play();
-                                    audioChuanfenli.onended = function(){
+                                    audioDom.src="chuan.mp3";
+                                    audioDom.play();
+                                    audioDom.onended = function(){
 
                                         part6.style.display = "none";
                                         part2.style.marginTop = "30px";
@@ -147,27 +157,41 @@ startBtn.onclick = function(){
                                             topBox.style.display = "none";
                                             part7.style.display = "none";
                                             guoqi.style.display = "none";
-                                            zhengliuzhao_1.style.transform = "translate(-50px)";
-                                            zhengliuzhao_2.style.transform = "translate(50px)";
-                                            feichuanBox.style.display = "block";
-                                            feichuanBox.style.marginTop = "-90px";
+                                            // zhengliuzhao_1.style.transform = "translate(-50px)";
+                                            // zhengliuzhao_2.style.transform = "translate(50px)";
+                                            // feichuanBox.style.display = "block";
+                                            // feichuanBox.style.marginTop = "-90px";
+                                            zhengliuzhao_1.style.display = "none";
+                                            zhengliuzhao_2.style.display = "none";
+                                            weixing.style.display = "block";
                                             setTimeout(function(){
-                                                zhengliuzhao_1.style.display = "none";
-                                                zhengliuzhao_2.style.display = "none";
-                                                feichuanBox.style.transform = "rotate(90deg)";
+                                                // zhengliuzhao_1.style.display = "none";
+                                                // zhengliuzhao_2.style.display = "none";
+                                                // feichuanBox.style.transform = "rotate(90deg)";
+                                                // feichuanBox.style.display = "none";
+                                                // weixing.style.display = "block";
+                                                weixing.style.transform = "rotate(180deg)";
                                                 setTimeout(function(){
                                                     earth.style.display = "none";
-                                                    feichuanBox.style.display = "none";
+                                                    // feichuanBox.style.display = "none";
+                                                    weixing.style.display = "none";
                                                     solarsys.style.display = "block";
+                                                    setTimeout(function(){
+                                                        audioDom.src="success.mp3";
+                                                        audioDom.play();
+                                                        audioDom.onended = function(){
+                                                            window.location.reload(); 
+                                                        }
+                                                    },1000)
                                                 },2000)
-                                            },3000)
+                                            },2000)
                                         },5000)
                                     },5000)
                                 },5000)
                             },5000)
                         },5000)
                     },5000)
-                },5000)
+                },6000)
             }
         },10000)
     },20000)
