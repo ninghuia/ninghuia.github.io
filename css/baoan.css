@@ -20,7 +20,7 @@ body, html {
     width:350px;
     height:570px;
     /* background-color: #c255ed; */
-    border:1px solid #999;
+    /* border:1px solid #999; */
     border-radius: 10px;
     transition: all 2s;
 }
@@ -82,28 +82,42 @@ body, html {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: 15px;
+    margin-top: 20px;
     margin-left: -114px;
     width:80px;
     height:6px;
     border: 1px solid #999;
+    transition: all 3s;
+    transform-origin: top right;
 }
 .block2_2{
     position: absolute;
     top: 50%;
     right: 50%;
-    margin-top: 15px;
+    margin-top: 20px;
     margin-right: -105px;
     width:80px;
     height:6px;
     border: 1px solid #999;
+    transition: all 3s;
+    transform-origin: top left;
 }
 .btn_box{
     width:100%;
     text-align: center;
-    /* position:fixed; */
+    position:absolute;
     bottom:30px;
 }
 .btn_box button{
     display:inline-block;
+    width:102px;
+    height:36px;
+    line-height: 36px;
+    text-align: center;
+    font-size:20px;
+    color:#333;
+    border:1px solid #999;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
 }
