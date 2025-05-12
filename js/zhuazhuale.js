@@ -20,7 +20,7 @@ var go = document.getElementById("go");
         function getRandomItem(arr) {
             return arr[Math.floor(Math.random() * arr.length)];
         }
-        const items = ['🍦', '🥤', '🌺',"✈️",'🥚','💰100元','💰1元','🍭','糖葫芦','尖叫','脉动',"芬达",'🪁','💎',"💻","📱","🍬","空的哦","再来一次","🍓","🌂","火火兔","🚢","🪀","🎈","⚽️","🏀","🏐️","🏸️","扭扭车","平衡车","东风21D","航母","AK47","98K","一片尿不湿","抽纸一包","湿巾一包","一袋盐","一瓶醋","酱油一瓶","奶黄包","🍎","农夫山泉","雪碧","百事可乐","东方树叶","百岁山","洗衣液","洗洁精","作业翻倍"];
+        const items = ['🍦', '🥤', '🌺',"✈️",'🥚','💰100元','💰1元','🍭','🥇一等奖','🥇二等奖','🥇三等奖',"🥜",'🪁','💎',"💻","📱","🍬","空的哦","再来一次","🍓","🌂","🚗","🚢","🪀","🎈","⚽️","🏀","🏐️","🏸️","📺","🧄","🐚","🦐","🐟","🥔","🍆","🍅","🥒","🍼","🎈","🥑","🍊","🍎","🍒","🍌","🍓","🫐","🥭","🍉","🍇","作业翻倍"];
         go.onclick = function(){
             begin_audio.play();
             var randomItem = getRandomItem(items);
@@ -45,9 +45,6 @@ var go = document.getElementById("go");
                         mask.style.display = "none";
                         tips.style.display = "none";
                         // main_box.style.display = "block";
-                        go.removeAttribute("disabled");
-                        toLeft.removeAttribute("disabled");
-                        toRight.removeAttribute("disabled");
                         setTimeout(function(){
                             hand2.style.height = "119px";
                             hand3.style.top = "108px";
@@ -57,6 +54,11 @@ var go = document.getElementById("go");
                             hand7.style.top = "126px";
                             hand_6.style.transform = "rotate(85deg)";
                             hand_7.style.transform = "rotate(-85deg)";
+                            setTimeout(function(){
+                                go.removeAttribute("disabled");
+                                toLeft.removeAttribute("disabled");
+                                toRight.removeAttribute("disabled");
+                            },1800)
                         },200)
                     },2000)
                 },1000)
