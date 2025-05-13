@@ -9,26 +9,39 @@
 </head>
 <body>
     <div class="main">
-        <div class="house">停车场</div>
-        <div class="block1_1"></div>
-        <div class="block1_2"></div>
-        <div class="person_road road_left"></div>
-        <div class="person_road road_right"></div>
-        <div class="block2_1"></div>
-        <div class="block2_2"></div>
-        <div class="btn_box">
-            <button id="car_out">出口开关</button>
-            <button id="car_in">进口开关</button>
+        <div class="content">
+            <div class="content_box">
+                <div class="door">
+                    <div class="house">🅿️</div>
+                    <div class="block1_1"></div>
+                    <div class="block1_2"></div>
+                    <div class="block2_1"></div>
+                    <div class="block2_2"></div>
+                </div>
+                <div class="parking parking_1">
+                    <div class="car">🚗</div><div class="car">🚗</div><div class="car">空</div><div class="car">空</div><div class="car">🚗</div><div class="car">🚗</div>
+                </div>
+                <div class="parking parking_1">
+                    <div class="car">🚗</div><div class="car">空</div><div class="car">🚗</div><div class="car">🚗</div><div class="car">空</div><div class="car">🚗</div>
+                </div>
+                <div class="parking parking_1">
+                    <div class="car">🚗</div><div class="car">🚗</div><div class="car">空</div><div class="car">空</div><div class="car">🚗</div><div class="car">🚗</div>
+                </div>
+            </div>
+            <div class="road_verti road_verti_road_3">⬇</div>
+            <div class="road_verti road_verti_road_4">⬆</div>
+            <div class="road_hori road_1"><span class="line"></span><span class="line"></span></div>
+            <div class="road_hori road_4"><span class="line"></span><span class="line"></span><span class="line"></span></div>
         </div>
-        <div class="parking">
-            <div class="car">🚗</div>
-            <div class="car">🚗</div>
-            <div class="car">空</div>
-            <div class="car">🚗</div>
-            <div class="car">🚗</div>
-            <div class="car">空</div>
-            <div class="car">🚗</div>
-            <div class="car">🚗</div>
+
+        <div class="screen">
+            <marquee loop>剩余车位： <span id="num">6</span> 个，祝您一路平安！</marquee>
+        </div>
+    <div class="scroll_car" id="car1">车</div>
+    <div class="scroll_car" id="car2">车</div>
+        <div class="btn_box">
+            <button id="car_in" style="margin-right:36px;">进门开</button>
+            <button id="car_out">出门开</button>
         </div>
     </div>
     <script src="../js/parking.js"></script>
