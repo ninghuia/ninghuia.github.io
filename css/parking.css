@@ -18,10 +18,10 @@ body, html {
     margin-top:-285px;
     margin-left:-175px;
     width:350px;
-    height:570px;
-    /* background-color: #c255ed; */
+    height:516px;
+    background-color: #000;
     /* border:1px solid #999; */
-    border-radius: 10px;
+    /* border-radius: 10px; */
     transition: all 2s;
 }
 .content{
@@ -32,7 +32,8 @@ body, html {
 .content_box{
     margin:5px;
     height:503px;
-    border:1px solid red;
+    background-color: #517a33;
+    /* border:1px solid red; */
     border-bottom:0;
 }
 .house{
@@ -44,7 +45,7 @@ body, html {
     width:50px;
     height:110px;
     line-height: 110px;
-    /* background-colobluer: #eee; */
+    background-color: #fff;
     color:blue;
     font-size:28px;
     text-align: center;
@@ -58,6 +59,7 @@ body, html {
     margin-left:-60px;
     width:11px;
     height:60px;
+    background-color: #fff;
     border:1px solid #999;
 }
 .block1_2{
@@ -68,6 +70,7 @@ body, html {
     margin-right:-60px;
     width:11px;
     height:60px;
+    background-color: #fff;
     border:1px solid #999;
 }
 .person_road{
@@ -162,7 +165,7 @@ body, html {
     width:338px;
     height:30px;
     line-height: 22px;
-    background-color: #7f7878;
+    background-color: #3e3c3c;
 }
 .road_hori>.line{
     display: inline-block;
@@ -213,7 +216,7 @@ body, html {
     line-height: 30px;
     vertical-align: middle;
     /* text-align: center; */
-    background-color: #7f7878;
+    background-color: #3e3c3c;
     z-index: 99;
 }
 .road_verti>.line{
@@ -232,8 +235,8 @@ body, html {
     position: absolute;
     left:60px;
     top:230px;
-    height:163px;
-    padding-top:66px;
+    height:66px;
+    padding-top:158px;
     color:#fff;
     text-align: center;
 }
@@ -241,14 +244,14 @@ body, html {
     position: absolute;
     right:60px;
     top:230px;
-    height:40px;
-    padding-top:190px;
+    height:66px;
+    padding-top:158px;
     color:#fff;
     text-align: center;
 }
 .screen{
     position:absolute;
-    top:300px;
+    top:282px;
     left:139px;
     width:50px;
     padding:0 10px;
@@ -276,13 +279,13 @@ body, html {
 }
 #car1{
     display: none;
-    top:370px;
+    top:350px;
     left:254px;
     z-index: 101;
 }
 #car2{
     display: none;
-    top:330px;
+    top:300px;
     left:65px;
     z-index: 101;
 }

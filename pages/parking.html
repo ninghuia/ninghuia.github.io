@@ -7,7 +7,7 @@
     <title>停车场🅿️</title>
     <link rel="stylesheet" href="../css/parking.css">
 </head>
-<body>
+<body class="unselectable">
     <div class="main">
         <div class="content">
             <div class="content_box">
@@ -35,13 +35,13 @@
         </div>
 
         <div class="screen">
-            <marquee loop>剩余车位： <span id="num">6</span> 个，祝您一路平安！</marquee>
+            <marquee id="text" loop>欢迎您！剩余车位： 6 个</marquee>
         </div>
     <div class="scroll_car" id="car1">车</div>
     <div class="scroll_car" id="car2">车</div>
         <div class="btn_box">
-            <button id="car_in" style="margin-right:36px;">进门开</button>
-            <button id="car_out">出门开</button>
+            <button id="car_out" style="margin-right:36px;">出停车场</button>
+            <button id="car_in">进停车场</button>
         </div>
     </div>
     <script src="../js/parking.js"></script>

@@ -4,7 +4,8 @@ var car_1 = document.getElementById("car1");
 var car_2 = document.getElementById("car2");
 var block2_1 = document.getElementsByClassName("block2_1")[0];
 var block2_2 = document.getElementsByClassName("block2_2")[0];
-var num = document.getElementById("num");
+// var num = document.getElementById("num");
+var textDom = document.getElementById("text");
 var cars = document.getElementsByClassName("car");
 const arr = ['🚗','空','🚗','空','🚗','空','🚗','空','🚗','空','🚗','空','🚗','空','🚗','空','🚗','空','🚗','空','🚗','空','🚗','空','🚗','空'];
 
@@ -25,7 +26,7 @@ car_out.onclick = function(){
         cars[i].innerHTML = randomElements[i];
     }
     count = randomElements.filter(item => item === valueToCount).length;
-    num.innerHTML = count;
+    textDom.innerHTML = "缴费成功！祝您一路平安！";
 
     // block2_1.style.transform = "rotate(60deg)";
     // setTimeout(function(){
@@ -43,6 +44,7 @@ car_out.onclick = function(){
                 setTimeout(function(){
                     block2_1.style.transform = "rotate(0deg)";
                     car_out.removeAttribute("disabled");
+                    textDom.innerHTML = "剩余车位： "+count+" 个";
                 },0)
             },2000)
         },1000)
@@ -55,7 +57,8 @@ car_in.onclick = function(){
         cars[i].innerHTML = randomElements[i];
     }
     count = randomElements.filter(item => item === valueToCount).length;
-    num.innerHTML = count;
+    // num.innerHTML = count;
+    textDom.innerHTML = "沪***** 欢迎您！剩余车位： "+count+" 个";
 
     setTimeout(function(){
         car_1.style.display = "block";
@@ -68,6 +71,7 @@ car_in.onclick = function(){
                 setTimeout(function(){
                     block2_2.style.transform = "rotate(0deg)";
                     car_in.removeAttribute("disabled");
+                    textDom.innerHTML = "剩余车位： "+count+" 个";
                 },0)
             },2000)
         },1000)

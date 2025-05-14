@@ -288,9 +288,9 @@ body, html {
     position:fixed;
     top:50%;
     left:50%;
-    margin-left:-160px;
+    margin-left:-130px;
     margin-top:-75px;
-    width:320px;
+    width:260px;
     height:150px;
     background-color: #fff;
     border-radius: 20px;
