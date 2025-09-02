@@ -62,11 +62,11 @@ body, button, input, select, textarea {
 .letterList .letterBox .icon{
     background: url(../pages/assets/play.png);
     background-size: cover;
-    height: .28rem;
+    height: .18rem;
     position: absolute;
-    right: .2rem;
-    top: .2rem;
-    width: .28rem;
+    right: .1rem;
+    top: .1rem;
+    width: .18rem;
 }
 .letterList .letterBox.active .icon{
     background: url(../pages/assets/play.gif);
@@ -94,7 +94,7 @@ body, button, input, select, textarea {
 }
 .letterList .letterBox i{
     color: #999;
-    font-size: .2rem;
+    font-size: .1rem;
     z-index: 998;
     position: absolute;
     top: .1rem;
