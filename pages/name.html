@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="../../css/tangshi.css"> -->
+    <title>学写名字</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?c6a16e7744f5e96b195b98f5a2818207";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <style>
+        .content{
+            height:119px;
+            text-align: center;
+            font-size:80px;
+            color:black;
+        }
+        span{
+            cursor: pointer;
+        }
+        img{
+            display: block;
+            margin:0;
+            font-size: 0;
+            width:350px;
+            height:350px;
+            margin:0 auto;
+        }
+        .main{
+            height:470px;
+            width:350px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-left:-175px;
+            margin-top:-235px;
+        }
+        .bottom{
+            position: fixed;
+            bottom:10px;
+            width:100%;
+            text-align: center;
+            font-size:12px;
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <span>陈</span><span>如</span><span>意</span>
+        </div>
+        <img id="showImg" src="../pages/assets/0.gif" alt="">
+    </div>
+    <div class="bottom">请点击上方对应汉字</div>
+    <script>
+        var names = document.getElementsByTagName("span");
+        var imgObj = document.getElementById("showImg");
+        for(var index=0;index<names.length;index++){
+            (function(i){
+                names[i].onclick = function(){
+                    imgObj.setAttribute("src",'../pages/assets/'+i+'.gif')
+                }
+            })(index)
+        }
+    </script>
+</body>
+</html>

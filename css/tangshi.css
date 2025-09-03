@@ -85,6 +85,7 @@ p{
     vertical-align: baseline;
     width: 33px;
     height: 33px;
+    cursor: pointer;
 }
 .unselectable {
     user-select: none;

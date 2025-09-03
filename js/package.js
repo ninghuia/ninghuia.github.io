@@ -72,6 +72,7 @@ var qujian = document.getElementById("qujian");
             }else{
                 audioSelf.src = 'assets/mp3/err_qujianma.mp3';
                 audioSelf.play();
+                qujianma.innerHTML = '';
                 // alert("取件码错误！请重新输入！");
             }
         }
